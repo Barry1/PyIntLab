@@ -19,5 +19,5 @@ test:
 	-pylama $(OBJS)
 
 install:
-	python3 -m pip install --upgrade --user --progress-bar pretty --verbose --editable git+https://github.com/Barry1/PyIntLab
+	python3 -m pip install --upgrade --user --progress-bar pretty --verbose --editable git+https://github.com/Barry1/PyIntLab#egg=pyintlab
 #	python3 -m pip install --upgrade --user --progress-bar --verbose --editable /mnt/c/Users/der_b/Dokumente/GitHub/PyIntLab
