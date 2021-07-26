@@ -1,17 +1,24 @@
 """Bastian versucht sich an Interval-Arithmetik."""
+from __future__ import (
+    annotations,  # to reference class type in annotations within class definition
+)
+
 import math
+from typing import Union
 
 
 class ScalarInterval:  # inheritance ob object could be suppressed
     """Class for scalars with uncertainty."""
 
+    lowerbound: float
+    upperbound: float
     # __new__ is not needed as the default is sufficient
 
     # def __init__(self, lowerbound, upperbound):
     #     """contructor for new ScalarInterval"""
     #     self.lowerbound = lowerbound
     #     self.upperbound = upperbound
-    def __init__(self, *bounds):
+    def __init__(self, *bounds: float) -> None:
         """Contructor for new ScalarInterval.
 
         You can handover any count of (real) arguments, the resulting Interval
@@ -21,12 +28,12 @@ class ScalarInterval:  # inheritance ob object could be suppressed
         self.upperbound = max(bounds)
 
     @property
-    def mid(self):
+    def mid(self) -> float:
         """Midpoint of interval."""
         return (self.lowerbound + self.upperbound) / 2
 
     @property
-    def rad(self):
+    def rad(self) -> float:
         """Radius of interval."""
         return (self.upperbound - self.lowerbound) / 2
 
@@ -41,37 +48,40 @@ class ScalarInterval:  # inheritance ob object could be suppressed
         """Show a representation of the Interval for reconstruction."""
         return f"ScalarInterval({self.lowerbound},{self.upperbound})"
 
-    def __ge__(self, other) -> bool:
+    def __ge__(self, other: Union[ScalarInterval, float]) -> bool:
         """Dunder method for greater equals."""
         if isinstance(other, ScalarInterval):
             return self.lowerbound >= other.lowerbound
         return self.lowerbound >= other
 
-    def __gt__(self, other) -> bool:
+    def __gt__(self, other: Union[ScalarInterval, float]) -> bool:
         """Dunder method for greater than."""
         if isinstance(other, ScalarInterval):
             return self.lowerbound > other.lowerbound
         return self.lowerbound > other
 
-    def __le__(self, other) -> bool:
+    def __le__(self, other: Union[ScalarInterval, float]) -> bool:
         """Dunder method for less equals."""
         if isinstance(other, ScalarInterval):
             return self.lowerbound <= other.lowerbound
         return self.lowerbound <= other
 
-    def __lt__(self, other) -> bool:
+    def __lt__(self, other: Union[ScalarInterval, float]) -> bool:
         """Dunder method for less than."""
         if isinstance(other, ScalarInterval):
             return self.lowerbound < other.lowerbound
         return self.lowerbound < other
 
-    def __eq__(self, other) -> bool:
-        """Dunder method for equality check."""
-        return (
-            self.lowerbound == other.lowerbound and self.upperbound == other.upperbound
-        )
+    def __eq__(self, other: object) -> bool:
+        """Dunder method for checking identity."""
+        if isinstance(other, ScalarInterval):
+            return (
+                self.lowerbound == other.lowerbound
+                and self.upperbound == other.upperbound
+            )
+        return NotImplemented
 
-    def __add__(self, other):
+    def __add__(self, other: Union[ScalarInterval, float]) -> ScalarInterval:
         """Dunder method for addition."""
         if isinstance(other, ScalarInterval):
             return ScalarInterval(
@@ -79,7 +89,7 @@ class ScalarInterval:  # inheritance ob object could be suppressed
             )
         return ScalarInterval(self.lowerbound + other, self.upperbound + other)
 
-    def reciproc(self):
+    def reciproc(self) -> ScalarInterval:
         """Build 1/x for ScalarInterval x."""
         if self:
             return ScalarInterval(1 / self.upperbound, 1 / self.lowerbound)
@@ -87,7 +97,7 @@ class ScalarInterval:  # inheritance ob object could be suppressed
             f"Can not build the reziprocal of indefinite Interval {self}."
         )
 
-    def __mul__(self, other):
+    def __mul__(self, other: Union[ScalarInterval, float]) -> ScalarInterval:
         """Dunder method for (left) multiplication."""
         if isinstance(other, ScalarInterval):
             return ScalarInterval(
@@ -98,11 +108,11 @@ class ScalarInterval:  # inheritance ob object could be suppressed
             )
         return ScalarInterval(self.lowerbound * other, self.upperbound * other)
 
-    def __neg__(self):
+    def __neg__(self) -> ScalarInterval:
         """Switches the sign of ScalarInterval x ==> -x."""
         return ScalarInterval(-self.upperbound, -self.lowerbound)
 
-    def __rmul__(self, other):
+    def __rmul__(self, other: Union[ScalarInterval, float]) -> ScalarInterval:
         """Dunder method for right multiplikation."""
         if isinstance(other, ScalarInterval):
             return ScalarInterval(
@@ -113,11 +123,11 @@ class ScalarInterval:  # inheritance ob object could be suppressed
             )
         return ScalarInterval(other * self.lowerbound, other * self.upperbound)
 
-    def __bool__(self):  # python3
+    def __bool__(self) -> bool:  # python3
         """Dunder method for definiteness (does not contain zero)."""
         return self.lowerbound * self.upperbound > 0
 
-    def __sub__(self, other):
+    def __sub__(self, other: Union[ScalarInterval, float]) -> ScalarInterval:
         """Dunder method for subtraction."""
         if isinstance(other, ScalarInterval):
             return ScalarInterval(
@@ -125,13 +135,13 @@ class ScalarInterval:  # inheritance ob object could be suppressed
             )
         return ScalarInterval(self.lowerbound - other, self.upperbound - other)
 
-    def __truediv__(self, other):
+    def __truediv__(self, other: Union[ScalarInterval, float]) -> ScalarInterval:
         """Dunder method for true division."""
         if isinstance(other, ScalarInterval):
             return self.__mul__(other.reciproc())
         return ScalarInterval(self.lowerbound / other, self.upperbound / other)
 
-    def __contains__(self, item) -> bool:
+    def __contains__(self, item: Union[ScalarInterval, float]) -> bool:
         """Return boolean indicator if item is within interval."""
         if isinstance(item, ScalarInterval):
             return (
@@ -143,7 +153,7 @@ class ScalarInterval:  # inheritance ob object could be suppressed
     ####################################################################################
     # following are implementations of monoton increasing functions
     ####################################################################################
-    def sqrt(self):
+    def sqrt(self) -> ScalarInterval:
         """Return the square root of the interval."""
         return ScalarInterval(math.sqrt(self.lowerbound), math.sqrt(self.upperbound))
 
