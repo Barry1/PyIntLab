@@ -1,7 +1,6 @@
-"""
-For development installation of the package pyintlab.
+"""For development installation of the package pyintlab.
 
-some details where taken from <https://setuptools.readthedocs.io/en/latest/>
+Some details where taken from <https://setuptools.readthedocs.io/en/latest/>
 """
 import site
 import sys

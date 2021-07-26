@@ -1,7 +1,7 @@
-"""Bastian versucht sich an Interval-Artihmetik"""
+"""Bastian versucht sich an Interval-Arithmetik."""
 import math
 
-from .scalar_interval import ScalarInterval
+from .scalar_interval import ScalarInterval  # pylint: disable=E0402
 
 
 def test_scalar_contains() -> None:
@@ -10,13 +10,13 @@ def test_scalar_contains() -> None:
 
 
 def test_repr() -> None:
-    """Function for rebuilding Interval by __repr__"""
+    """Function for rebuilding Interval by __repr__."""
     testinterval = ScalarInterval(8, 11)
-    assert testinterval == eval(repr(testinterval))  # noqa: W0123
+    assert testinterval == eval(repr(testinterval))  # pylint: disable=W0123
 
 
 def test_arith() -> None:
-    """First arithmetic test"""
+    """First arithmetic test."""
     aint = ScalarInterval(3, 4)
     bint = ScalarInterval(-2, 0.1)
     assert (
