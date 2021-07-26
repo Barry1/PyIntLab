@@ -13,9 +13,14 @@ test: $(OBJS)
 # <https://archive.is/yoSpr>
 # PEP8 is now pycodestyle which is included in pylama
 # Simply speaking flake8 is “the wrapper which verifies pep8, pyflakes and circular complexity “
-	flake8 --max-line-length=88 $(OBJS)
-	pytest
-	mypy $(OBJS)
+# look at <https://levelup.gitconnected.com/b9a9776a7871> = <https://archive.is/dbDPq>
+# black
+# eradicate
+# vulture
+# coverage
+	-flake8 --max-line-length=88 $(OBJS)
+	-pytest
+	-mypy $(OBJS)
 	-pylama $(OBJS)
 
 install:
