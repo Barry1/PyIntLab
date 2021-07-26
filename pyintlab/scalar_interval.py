@@ -3,7 +3,6 @@ import math
 
 
 class ScalarInterval:  # inheritance ob object could be suppressed
-
     """Class for scalars with uncertainty."""
 
     # __new__ is not needed as the default is sufficient
@@ -13,8 +12,7 @@ class ScalarInterval:  # inheritance ob object could be suppressed
     #     self.lowerbound = lowerbound
     #     self.upperbound = upperbound
     def __init__(self, *bounds):
-        """
-        Contructor for new ScalarInterval.
+        """Contructor for new ScalarInterval.
 
         You can handover any count of (real) arguments, the resulting Interval
         will automatically be the convex hull (from min to max).
