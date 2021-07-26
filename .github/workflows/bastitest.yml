@@ -8,3 +8,8 @@ jobs:
         uses: jpetrucciani/mypy-check@0.761
         with:
           path: 'pyintlab'
+  coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Codecov
+        uses: codecov/codecov-action@v2.0.2
