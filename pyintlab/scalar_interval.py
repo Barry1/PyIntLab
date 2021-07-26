@@ -1,9 +1,9 @@
-"""Bastian versucht sich an Interval-Artihmetik"""
+"""Bastian versucht sich an Interval-Arithmetik."""
 import math
 
 
 class ScalarInterval:  # inheritance ob object could be suppressed
-    """Klasse fuer Skalare mit Unschaerfe"""
+    """Class for scalars with uncertainty."""
 
     # __new__ is not needed as the default is sufficient
 
@@ -12,66 +12,67 @@ class ScalarInterval:  # inheritance ob object could be suppressed
     #     self.lowerbound = lowerbound
     #     self.upperbound = upperbound
     def __init__(self, *bounds):
-        """contructor for new ScalarInterval
+        """Contructor for new ScalarInterval.
 
         You can handover any count of (real) arguments, the resulting Interval
-        will automatically be the convex hull (from min to max)."""
+        will automatically be the convex hull (from min to max).
+        """
         self.lowerbound = min(bounds)
         self.upperbound = max(bounds)
 
     @property
     def mid(self):
-        """midpoint of interval"""
+        """Midpoint of interval."""
         return (self.lowerbound + self.upperbound) / 2
 
     @property
     def rad(self):
-        """radius of interval"""
+        """Radius of interval."""
         return (self.upperbound - self.lowerbound) / 2
 
     # <https://www.tutorialsteacher.com/python/magic-methods-in-python>
     # <https://rszalski.github.io/magicmethods/>
 
     def __str__(self) -> str:
-        """Show a readable representation of the Interval"""
+        """Show a readable representation of the Interval."""
         return f"[{self.lowerbound},{self.upperbound}] <{self.mid},{self.rad}>"
 
     def __repr__(self) -> str:
-        """Show a representation of the Interval for reconstruction"""
+        """Show a representation of the Interval for reconstruction."""
         return f"ScalarInterval({self.lowerbound},{self.upperbound})"
 
     def __ge__(self, other) -> bool:
-        """dunder method for greater equals"""
+        """Dunder method for greater equals."""
         if isinstance(other, ScalarInterval):
             return self.lowerbound >= other.lowerbound
         return self.lowerbound >= other
 
     def __gt__(self, other) -> bool:
-        """dunder method for greater than"""
+        """Dunder method for greater than."""
         if isinstance(other, ScalarInterval):
             return self.lowerbound > other.lowerbound
         return self.lowerbound > other
 
     def __le__(self, other) -> bool:
-        """dunder method for less equals"""
+        """Dunder method for less equals."""
         if isinstance(other, ScalarInterval):
             return self.lowerbound <= other.lowerbound
         return self.lowerbound <= other
 
     def __lt__(self, other) -> bool:
-        """dunder method for less than"""
+        """Dunder method for less than."""
         if isinstance(other, ScalarInterval):
             return self.lowerbound < other.lowerbound
         return self.lowerbound < other
 
     def __eq__(self, other) -> bool:
-        """dunder method for equality check"""
+        """Dunder method for equality check."""
         return (
             self.lowerbound == other.lowerbound and self.upperbound == other.upperbound
         )
 
     def __add__(self, other):
-        """dunder method for addition"""
+        """Dunder method for addition."""
         if isinstance(other, ScalarInterval):
             return ScalarInterval(
                 self.lowerbound + other.lowerbound, self.upperbound + other.upperbound
@@ -79,7 +80,7 @@ class ScalarInterval:  # inheritance ob object could be suppressed
         return ScalarInterval(self.lowerbound + other, self.upperbound + other)
 
     def reciproc(self):
-        """build 1/x for ScalarInterval x"""
+        """Build 1/x for ScalarInterval x."""
         if self:
             return ScalarInterval(1 / self.upperbound, 1 / self.lowerbound)
         raise ZeroDivisionError(
@@ -87,7 +88,7 @@ class ScalarInterval:  # inheritance ob object could be suppressed
         )
 
     def __mul__(self, other):
-        """dunder method for (left) multiplikation"""
+        """Dunder method for (left) multiplication."""
         if isinstance(other, ScalarInterval):
             return ScalarInterval(
                 self.lowerbound * other.lowerbound,
@@ -98,11 +99,11 @@ class ScalarInterval:  # inheritance ob object could be suppressed
         return ScalarInterval(self.lowerbound * other, self.upperbound * other)
 
     def __neg__(self):
-        """simply switches the sign of ScalarInterval x ==> -x"""
+        """Switches the sign of ScalarInterval x ==> -x."""
         return ScalarInterval(-self.upperbound, -self.lowerbound)
 
     def __rmul__(self, other):
-        """dunder method for right multiplikation"""
+        """Dunder method for right multiplikation."""
         if isinstance(other, ScalarInterval):
             return ScalarInterval(
                 other.lowerbound * self.lowerbound,
@@ -113,11 +114,11 @@ class ScalarInterval:  # inheritance ob object could be suppressed
         return ScalarInterval(other * self.lowerbound, other * self.upperbound)
 
     def __bool__(self):  # python3
-        """dunder method for definiteness (does not contain zero)"""
+        """Dunder method for definiteness (does not contain zero)."""
         return self.lowerbound * self.upperbound > 0
 
     def __sub__(self, other):
-        """dunder method for subtraction"""
+        """Dunder method for subtraction."""
         if isinstance(other, ScalarInterval):
             return ScalarInterval(
                 self.lowerbound - other.upperbound, self.upperbound - other.lowerbound
@@ -125,13 +126,13 @@ class ScalarInterval:  # inheritance ob object could be suppressed
         return ScalarInterval(self.lowerbound - other, self.upperbound - other)
 
     def __truediv__(self, other):
-        """dunder method for true division"""
+        """Dunder method for true division."""
         if isinstance(other, ScalarInterval):
             return self.__mul__(other.reciproc())
         return ScalarInterval(self.lowerbound / other, self.upperbound / other)
 
     def __contains__(self, item) -> bool:
-        """Returns boolean indicator if item is within interval."""
+        """Return boolean indicator if item is within interval."""
         if isinstance(item, ScalarInterval):
             return (
                 item.lowerbound >= self.lowerbound
@@ -143,7 +144,7 @@ class ScalarInterval:  # inheritance ob object could be suppressed
     # following are implementations of monoton increasing functions
     ####################################################################################
     def sqrt(self):
-        """returns the square root of the interval"""
+        """Return the square root of the interval."""
         return ScalarInterval(math.sqrt(self.lowerbound), math.sqrt(self.upperbound))
 
 
