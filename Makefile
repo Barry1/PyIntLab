@@ -1,4 +1,4 @@
-.PHONY: all pretty test
+.PHONY: all pretty test install
 
 OBJS=pyintlab/*.py
 
@@ -17,3 +17,7 @@ test:
 	pytest
 	mypy $(OBJS)
 	-pylama $(OBJS)
+
+install:
+	python3 -m pip install --upgrade --user --progressbar --verbose --editable https://github.com/Barry1/PyIntLab
+	python3 -m pip install --upgrade --user --progressbar --verbose --editable /mnt/c/Users/der_b/Dokumente/GitHub/PyIntLab
