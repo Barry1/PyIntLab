@@ -1,0 +1,8 @@
+name: Basti-Test
+on: push
+jobs:
+  typing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mypy Check
+        uses: jpetrucciani/mypy-check@0.761
