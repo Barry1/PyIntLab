@@ -5,12 +5,16 @@ jobs:
   typing:
     runs-on: ubuntu-latest
     steps:
+      - name: Checks-out your repository under $GITHUB_WORKSPACE
+        uses: actions/checkout@v2
       - name: Mypy Check
         uses: jpetrucciani/mypy-check@0.761
-        with:
-          path: 'pyintlab'
+#        with:
+#          path: 'pyintlab'
   coverage:
     runs-on: ubuntu-latest
     steps:
+      - name: Checks-out your repository under $GITHUB_WORKSPACE
+        uses: actions/checkout@v2
       - name: Codecov
         uses: codecov/codecov-action@v2.0.2
