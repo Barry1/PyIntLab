@@ -141,6 +141,11 @@ class ScalarInterval:  # inheritance ob object could be suppressed
             return self.__mul__(other.reciproc())
         return ScalarInterval(self.lowerbound / other, self.upperbound / other)
 
+    # https://docs.python.org/3.6/reference/datamodel.html#object.__radd__
+    def __rtruediv__(self, other: float) -> ScalarInterval:
+        """Dunder method for right true division."""
+        return other * self.reciproc()
+
     def __contains__(self, item: Union[ScalarInterval, float]) -> bool:
         """Return boolean indicator if item is within interval."""
         if isinstance(item, ScalarInterval):
