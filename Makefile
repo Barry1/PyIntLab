@@ -1,6 +1,6 @@
 .PHONY: all pretty test install
 
-OBJS=pyintlab/*.py
+OBJS=src/pyintlab/*.py
 
 all: pretty test
 
