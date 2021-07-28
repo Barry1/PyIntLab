@@ -1,4 +1,4 @@
-.PHONY: all pretty test install
+.PHONY: all pretty test install clean
 
 OBJS=src/pyintlab/*.py
 
@@ -25,3 +25,6 @@ test: pretty $(OBJS)
 install:
 #	python3 -m pip install --upgrade --user --progress-bar pretty --editable git+https://github.com/Barry1/PyIntLab#egg=pyintlab
 	python3 -m pip install --upgrade --user --progress-bar pretty --editable /mnt/c/Users/der_b/Dokumente/GitHub/PyIntLab
+
+clean:
+	rm -rf pyintlab.egg-info
