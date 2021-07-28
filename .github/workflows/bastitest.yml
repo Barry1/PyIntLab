@@ -8,7 +8,7 @@ jobs:
       - name: Checks-out your repository under $GITHUB_WORKSPACE
         uses: actions/checkout@v2
       - name: Mypy Check
-        uses: jpetrucciani/mypy-check@0.761
+        uses: jpetrucciani/mypy-check@0.910
   coverage:
     runs-on: ubuntu-latest
     steps:
