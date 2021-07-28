@@ -16,4 +16,4 @@ jobs:
           pip install pytest
       - name: Analysing the code with pylint
         run: |
-          pylint --jobs=0 --output-format=colorized --include-naming-hint=y `ls -R|grep .py$|xargs`
+          pylint --jobs=0 --output-format=colorized --include-naming-hint=y `tree -fi|grep .py$|xargs`
