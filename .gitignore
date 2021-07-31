@@ -3,3 +3,5 @@ __pycache__
 interrogate_badge.svg
 src/
 pyintlab.egg-info
+.pyre/
+.watchmanconfig
