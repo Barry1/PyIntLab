@@ -30,8 +30,7 @@ clean:
 	rm -rf pyintlab.egg-info
 
 pyre:
-	-pyre --noninteractive check 
+	-pyre --noninteractive check
 	-mkdir -p pyre_analyze_results
 	-pyre --noninteractive analyze --use-cache --save-results-to pyre_analyze_results
-	-pyre --noninteractive profile
-	-pyre --noninteractive statistics
+	-pyre --noninteractive statistics > pyre_statistics

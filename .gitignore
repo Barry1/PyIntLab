@@ -5,3 +5,4 @@ src/
 pyintlab.egg-info
 .pyre/
 .watchmanconfig
+pyre_statistics
