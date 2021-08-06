@@ -2,14 +2,14 @@
 
 OBJS=src/pyintlab/*.py
 
-all: pretty test
+all: test pyright
 
 pretty: $(OBJS)
 	isort $(OBJS)
 	black $(OBJS)
 	interrogate $(OBJS)
 
-test: pretty $(OBJS)
+test: pretty $(OBJS) pyright
 # <https://archive.is/yoSpr>
 # PEP8 is now pycodestyle which is included in pylama
 # Simply speaking flake8 is “the wrapper which verifies pep8, pyflakes and circular complexity “
@@ -35,3 +35,9 @@ pyre:
 	-mkdir -p pyre_analyze_results
 	-pyre --noninteractive analyze --save-results-to pyre_analyze_results --use-cache
 	-pyre --noninteractive statistics > pyre_statistics
+
+pyright: export NODE_OPTIONS = --experimental-worker
+pyright:
+	@echo "==========" "$@" "=========="
+	-pyright --dependencies --stats --verbose `tree -if | egrep "\.pyi?$$"`
+	-pyright --verifytypes src/pyintlab
