@@ -83,6 +83,17 @@ isort = "^5.9.3"
 pylama = "^7.7.1"
 pylint = "^2.9.6"
 mypy = "^0.910"
+flake8 = "^3.9.2"
+pyre-check = "^0.9.3"
+coverage = "^5.5"
+vulture = "^2.3"
+eradicate = "^2.0.0"
+pydocstyle = "^6.1.1"
+pycodestyle = "^2.7.0"
+mccabe = "^0.6.1"
+pyflakes = "^2.3.1"
+pep8 = "^1.7.1"
+pep257 = "^0.7.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
