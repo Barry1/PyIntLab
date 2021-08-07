@@ -74,6 +74,7 @@ authors = ["Ebeling, Dr. Bastian <bastian.ebeling@web.de>"]
 [tool.poetry.dependencies]
 python = ">=3.6.2,<4.0"
 # typing = "^3.10.0"
+radon = "^5.0.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.4"
