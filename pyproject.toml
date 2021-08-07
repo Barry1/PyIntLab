@@ -1,9 +1,5 @@
 # Learn more at <https://github.com/carlosperate/awesome-pyproject>
 # Cool info <https://blog.pilosus.org/posts/2019/12/26/python-third-party-tools-configuration/>
-[build-system]
-requires = ["setuptools", "wheel"]
-build-backend = "setuptools.build_meta"
-
 # https://github.com/hhatto/autopep8/blob/master/README.rst#pyproject-toml
 [tool.autopep8]
 max_line_length = 88
@@ -46,17 +42,6 @@ py_version = 37
 color_output = true
 profile = "black"
 
-[tool.poetry]
-name = "pyintlab"
-version = "0.0.1"
-description = "Testing installation of Package"
-authors = ["Ebeling, Dr. Bastian <bastian.ebeling@web.de>"]
-
-[tool.poetry.dependencies]
-python = "^3.9"
-
-[tool.poetry.dev-dependencies]
-
 [pylama.pep8]
 max_line_length = 88
 
@@ -79,3 +64,25 @@ minversion = "6.2"
 addopts = ["--verbose"]
 
 [tool.towncrier]
+
+[tool.poetry]
+name = "pyintlab"
+version = "0.1.0"
+description = "package in memoriam of intlab=Matlab Interval Laboratory"
+authors = ["Ebeling, Dr. Bastian <bastian.ebeling@web.de>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+typing = "^3.10.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.4"
+black = "^21.7b0"
+isort = "^5.9.3"
+pylama = "^7.7.1"
+pylint = "^2.9.6"
+mypy = "^0.910"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
