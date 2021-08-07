@@ -1,8 +1,12 @@
-.PHONY: all pretty test install clean
+.PHONY: all pretty test install clean poetryupdate
 
 OBJS=src/pyintlab/*.py
 
 all: test pyright
+
+poetryupdate:
+	poetry check
+	poetry update
 
 pretty: $(OBJS)
 	isort $(OBJS)
