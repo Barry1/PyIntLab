@@ -7,3 +7,5 @@ pyintlab.egg-info
 pyre_statistics
 typings/
 dist/
+htmlcov/
+.coverage

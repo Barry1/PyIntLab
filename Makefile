@@ -6,15 +6,20 @@ OBJS!=tree -if | egrep "\.pyi?$$"
 all: test
 
 poetryupdate:
-	poetry check
-	poetry update
+#	poetry self update
+	niceload poetry check
+	niceload poetry update
 
 pretty: $(OBJS)
-	poetry run isort $(OBJS)
-	poetry run black $(OBJS)
-	poetry run interrogate $(OBJS)
+	niceload poetry run isort $(OBJS)
+	niceload poetry run black $(OBJS)
+	niceload poetry run interrogate $(OBJS)
 
-test: pretty $(OBJS) pyright pyre
+htmlcov/index.html: .coverage
+	-niceload poetry run coverage3 report
+	-niceload poetry run coverage3 html
+
+test: pretty $(OBJS) pyright pyre htmlcov/index.html
 # <https://archive.is/yoSpr>
 # PEP8 is now pycodestyle which is included in pylama
 # Simply speaking flake8 is “the wrapper which verifies pep8, pyflakes and circular complexity “
@@ -23,9 +28,9 @@ test: pretty $(OBJS) pyright pyre
 # eradicate
 # vulture
 # coverage
-	-poetry run pytest
-	-poetry run mypy $(OBJS)
-	-poetry run pylama $(OBJS)
+	-niceload poetry run pytest
+	-niceload poetry run mypy $(OBJS)
+	-niceload poetry run pylama $(OBJS)
 
 build:
 	niceload poetry build -f wheel -n
@@ -35,7 +40,7 @@ install:
 	python3 -m pip install --upgrade --user --progress-bar pretty --editable /mnt/c/Users/der_b/Dokumente/GitHub/PyIntLab
 
 clean:
-	rm -rf pyintlab.egg-info
+	rm -rf pyintlab.egg-info dist
 
 pyre:
 	-niceload poetry run pyre
