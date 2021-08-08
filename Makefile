@@ -1,17 +1,18 @@
 .PHONY: all pretty test install clean poetryupdate
+# https://www.gnu.org/software/make/manual/html_node/Setting.html#:~:text=The%20shell%20assignment%20operator%20%E2%80%98!%3D%E2%80%99
+# OBJS=$(shell tree -if | egrep "\.pyi?$$")
+OBJS!=tree -if | egrep "\.pyi?$$"
 
-OBJS=src/pyintlab/*.py
-
-all: test pyright
+all: test
 
 poetryupdate:
 	poetry check
 	poetry update
 
 pretty: $(OBJS)
-	isort $(OBJS)
-	black $(OBJS)
-	interrogate $(OBJS)
+	poetry run isort $(OBJS)
+	poetry run black $(OBJS)
+	poetry run interrogate $(OBJS)
 
 test: pretty $(OBJS) pyright
 # <https://archive.is/yoSpr>
@@ -22,9 +23,9 @@ test: pretty $(OBJS) pyright
 # eradicate
 # vulture
 # coverage
-	-pytest
-	-mypy $(OBJS)
-	-pylama $(OBJS)
+	-poetry run pytest
+	-poetry run mypy $(OBJS)
+	-poetry run pylama $(OBJS)
 
 install:
 #	python3 -m pip install --upgrade --user --progress-bar pretty --editable git+https://github.com/Barry1/PyIntLab#egg=pyintlab

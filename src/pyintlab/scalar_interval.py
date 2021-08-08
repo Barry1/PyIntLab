@@ -1,4 +1,4 @@
-"""Bastian versucht sich an Interval-Arithmetik."""
+"""Bastian is working on interval arithmetics."""
 from __future__ import (
     annotations,  # to reference class type in annotations within class definition
 )
@@ -164,9 +164,9 @@ class ScalarInterval:  # inheritance ob object could be suppressed
 
 
 ########################################################################################
-if __name__ == "__main__":  # Test
-    pitest = ScalarInterval(3, 4)
-    rtest = ScalarInterval(2.2, 2.4)
+if __name__ == "__main__":  # Small application
+    pitest: ScalarInterval = ScalarInterval(3, 4)
+    rtest: ScalarInterval = ScalarInterval(2.2, 2.4)
     print("========== INPUT ==========")
     print(f"pi {pitest}")
     print(f"radius {rtest}")
