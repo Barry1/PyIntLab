@@ -4,7 +4,7 @@ from __future__ import (
 )
 
 import math
-from typing import Union
+from typing import Union, SupportsFloat
 
 
 class ScalarInterval:  # inheritance ob object could be suppressed
@@ -161,6 +161,31 @@ class ScalarInterval:  # inheritance ob object could be suppressed
     def sqrt(self) -> ScalarInterval:
         """Return the square root of the interval."""
         return ScalarInterval(math.sqrt(self.lowerbound), math.sqrt(self.upperbound))
+
+    def log10(self) -> ScalarInterval:
+        """Return the base 10 logarithm of the interval."""
+        return ScalarInterval(math.log10(self.lowerbound), math.log10(self.upperbound))
+
+    def log1p(self) -> ScalarInterval:
+        """Return the natural logarithm of 1+x."""
+        return ScalarInterval(math.log1p(self.lowerbound), math.log1p(self.upperbound))
+
+    def log2(self) -> ScalarInterval:
+        """Return the base 2 logarithm of the interval."""
+        return ScalarInterval(math.log2(self.lowerbound), math.log2(self.upperbound))
+
+    def log(
+        self, base: Union[ScalarInterval, SupportsFloat] = math.e
+    ) -> ScalarInterval:
+        """Return the logarithm to the given base or natural if omitted."""
+        if isinstance(base, ScalarInterval):
+            return ScalarInterval(
+                math.log(self.lowerbound, base.upperbound),
+                math.log(self.upperbound, base.lowerbound),
+            )
+        return ScalarInterval(
+            math.log(self.lowerbound, base), math.log(self.upperbound, base)
+        )
 
 
 ########################################################################################
