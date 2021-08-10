@@ -4,7 +4,7 @@ from __future__ import (
 )
 
 import math
-from typing import Union, SupportsFloat
+from typing import SupportsFloat, Union
 
 
 class ScalarInterval:  # inheritance ob object could be suppressed
