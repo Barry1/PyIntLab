@@ -187,6 +187,10 @@ class ScalarInterval:  # inheritance ob object could be suppressed
             math.log(self.lowerbound, base), math.log(self.upperbound, base)
         )
 
+    def tanh(self) -> ScalarInterval:
+        """Return the hyperbolic tangens of the interval."""
+        return ScalarInterval(math.tanh(self.lowerbound), math.tanh(self.upperbound))
+
 
 ########################################################################################
 if __name__ == "__main__":  # Small application
