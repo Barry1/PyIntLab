@@ -174,6 +174,10 @@ class ScalarInterval:  # inheritance ob object could be suppressed
         """Return the base 2 logarithm of the interval."""
         return ScalarInterval(math.log2(self.lowerbound), math.log2(self.upperbound))
 
+    def exp(self) -> ScalarInterval:
+        """Return e to the power of the interval."""
+        return ScalarInterval(math.exp(self.lowerbound), math.exp(self.upperbound))
+
     def log(
         self, base: Union[ScalarInterval, SupportsFloat] = math.e
     ) -> ScalarInterval:
