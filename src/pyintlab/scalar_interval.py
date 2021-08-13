@@ -6,6 +6,8 @@ from __future__ import (
 import math
 from typing import SupportsFloat, Union
 
+import numpy
+
 
 class ScalarInterval:  # inheritance ob object could be suppressed
     """Class for scalars with uncertainty."""
@@ -207,3 +209,25 @@ if __name__ == "__main__":  # Small application
     print(f"diameter {rtest + rtest}")
     print(f"area {rtest*rtest*pitest}")
     print(f"volume {4/3*rtest*rtest*rtest*pitest}")
+    print("========== ====== ==========")
+    print("Bigger example - interval matrices by numpy array")
+    l = numpy.random.randint(2, 4)
+    i = numpy.random.randint(2, 4)
+    r = numpy.random.randint(2, 4)
+    left_matrix = numpy.ndarray([l, i], ScalarInterval)
+    right_matrix = numpy.ndarray([i, r], ScalarInterval)
+    for innerind in range(0, i):
+        for outerind in range(0, l):
+            left_matrix[outerind, innerind] = ScalarInterval(
+                *numpy.random.random([2, 1])
+            )
+        for outerind in range(0, r):
+            right_matrix[innerind, outerind] = ScalarInterval(
+                *numpy.random.random([2, 1])
+            )
+    result_matrix = left_matrix.dot(right_matrix)
+    print(left_matrix)
+    print("*")
+    print(right_matrix)
+    print("=")
+    print(result_matrix)
