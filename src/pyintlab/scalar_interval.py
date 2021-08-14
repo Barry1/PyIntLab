@@ -6,8 +6,6 @@ from __future__ import (
 import math
 from typing import SupportsFloat, Union
 
-import numpy
-
 
 class ScalarInterval:  # inheritance ob object could be suppressed
     """Class for scalars with uncertainty."""
