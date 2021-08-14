@@ -1,5 +1,5 @@
 """Bastian versucht sich an Interval-Arithmetik."""
-import numpy
+import numpy  # type: ignore
 
 from .scalar_interval import ScalarInterval  # pylint: disable=E0402
 

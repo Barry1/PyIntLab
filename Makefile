@@ -29,7 +29,7 @@ test: pretty $(OBJS) pyright pyre htmlcov/index.html
 # vulture
 # coverage
 	-niceload poetry run pytest
-	-niceload poetry run mypy $(OBJS)
+	-niceload poetry run mypy --install-types --non-interactive $(OBJS)
 	-niceload poetry run pylama $(OBJS)
 
 build:
