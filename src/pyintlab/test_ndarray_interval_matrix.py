@@ -8,9 +8,11 @@ from .scalar_interval import ScalarInterval  # pylint: disable=E0402
 # https://numpy.org/doc/stable/user/basics.subclassing.html
 # https://numpy.org/doc/stable/user/basics.subclassing.html#a-brief-python-primer-on-new-and-init
 # https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.inexact
-# https://pypi.org/project/uncertainties/
+###########################################
+# https://pypi.org/project/uncertainties/ #
+###########################################
 def test_matrix_product() -> None:
-    """Two simple matrices of ScalarIntervals in dot product"""
+    """Two simple matrices of ScalarIntervals in dot product."""
     left_matrix = numpy.array(
         [
             [ScalarInterval(1), ScalarInterval(3)],
