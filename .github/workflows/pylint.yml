@@ -13,7 +13,7 @@ jobs:
         run: |
           python3 -m pip install --upgrade pip
           python3 -m pip install --upgrade poetry
-          poetry export --output requirements.txt --dev
+          poetry export --output requirements.txt --dev --without-hashes
           python3 -m pip install --upgrade --requirement requirements.txt
       - name: Analysing the code with pylint
         run: |
