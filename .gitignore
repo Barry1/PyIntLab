@@ -9,3 +9,4 @@ typings/
 dist/
 htmlcov/
 .coverage
+git_commit.out
