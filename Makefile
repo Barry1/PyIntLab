@@ -1,7 +1,9 @@
-.PHONY: all pretty test install clean poetryupdate pyre build
+.PHONY: all pretty test install clean poetryupdate pyre build vermincheck
 # https://www.gnu.org/software/make/manual/html_node/Setting.html#:~:text=The%20shell%20assignment%20operator%20%E2%80%98!%3D%E2%80%99
 # OBJS=$(shell tree -if | egrep "\.pyi?$$")
-OBJS!=tree -if | egrep "\.pyi?$$"
+#OBJS!=tree -if | egrep "\.pyi?$$"
+#OBJS=$(shell find src -regex ".*\.pyi?$$")
+OBJS!=find src -regex ".*\.pyi?$$"
 
 all: test
 
@@ -9,6 +11,9 @@ poetryupdate:
 #	poetry self update
 	niceload poetry check
 	niceload poetry update
+
+vermincheck: $(OBJS)
+	niceload poetry run vermin -vv --backports typing $(OBJS)
 
 pretty: $(OBJS)
 	niceload poetry run isort $(OBJS)
@@ -52,5 +57,5 @@ pyre:
 pyright: export NODE_OPTIONS = --experimental-worker
 pyright:
 	@echo "==========" "$@" "=========="
-	-pyright --dependencies --stats --verbose `tree -if | egrep "\.pyi?$$"`
+	-pyright --dependencies --stats --verbose $(OBJS)
 	-pyright --verifytypes src/pyintlab

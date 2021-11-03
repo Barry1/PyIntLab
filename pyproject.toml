@@ -38,7 +38,7 @@ show_error_context = true
 
 [tool.isort]
 # https://pycqa.github.io/isort/docs/configuration/options
-py_version = 37
+py_version = 39
 color_output = true
 profile = "black"
 
@@ -46,7 +46,7 @@ profile = "black"
 max_line_length = 88
 
 [tool.pylint.MASTER]
-jobs = 0
+Bjobs = 0
 output-format = "colorized"
 include-naming-hint = "y"
 
@@ -72,9 +72,10 @@ description = "package in memoriam of intlab=Matlab Interval Laboratory"
 authors = ["Ebeling, Dr. Bastian <bastian.ebeling@web.de>"]
 
 [tool.poetry.dependencies]
-python = ">=3.6.2,<4.0"
+python = ">=3.7,<3.11"
 # typing = "^3.10.0"
 radon = "^5.0.1"
+numpy = "^1.21.2"
 
 [tool.poetry.dev-dependencies]
 black = "*"
@@ -96,6 +97,7 @@ pyre-check = "*"
 pytest = "*"
 types-setuptools = "*"
 types-toml = "*"
+vermin ="*"
 vulture = "*"
 
 [build-system]

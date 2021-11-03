@@ -618,6 +618,14 @@ mypy-extensions = ">=0.3.0"
 typing-extensions = ">=3.7.4"
 
 [[package]]
+name = "vermin"
+version = "1.3.1"
+description = "Concurrently detect the minimum Python versions needed to run code"
+category = "dev"
+optional = false
+python-versions = ">=2.7"
+
+[[package]]
 name = "vulture"
 version = "2.3"
 description = "Find dead code"
@@ -651,7 +659,7 @@ testing = ["pytest (>=4.6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytes
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.7,<3.11"
-content-hash = "e28e24a14cb739c12628d392ca7bd26b383700aa723e8e4b4d3685cd2c1fc83f"
+content-hash = "fc44d57a993d4fd73a34ef986bc6fdb83379ae8174ae732c520a5a2e832cb39e"
 
 [metadata.files]
 astroid = [
@@ -1121,6 +1129,9 @@ typing-inspect = [
     {file = "typing_inspect-0.7.1-py2-none-any.whl", hash = "sha256:b1f56c0783ef0f25fb064a01be6e5407e54cf4a4bf4f3ba3fe51e0bd6dcea9e5"},
     {file = "typing_inspect-0.7.1-py3-none-any.whl", hash = "sha256:3cd7d4563e997719a710a3bfe7ffb544c6b72069b6812a02e9b414a8fa3aaa6b"},
     {file = "typing_inspect-0.7.1.tar.gz", hash = "sha256:047d4097d9b17f46531bf6f014356111a1b6fb821a24fe7ac909853ca2a782aa"},
+]
+vermin = [
+    {file = "vermin-1.3.1-py2.py3-none-any.whl", hash = "sha256:ef38dedab8cf7b68f8037f531b82222153ab21d3c54b91dd80776bbf95637ae5"},
 ]
 vulture = [
     {file = "vulture-2.3-py2.py3-none-any.whl", hash = "sha256:f39de5e6f1df1f70c3b50da54f1c8d494159e9ca3d01a9b89eac929600591703"},
