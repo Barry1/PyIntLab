@@ -403,7 +403,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
 [[package]]
 name = "pylama"
-version = "8.0.4"
+version = "8.0.6"
 description = "Code audit tool for python"
 category = "dev"
 optional = false
@@ -595,7 +595,7 @@ python-versions = "*"
 
 [[package]]
 name = "types-setuptools"
-version = "57.4.3"
+version = "57.4.4"
 description = "Typing stubs for setuptools"
 category = "dev"
 optional = false
@@ -953,8 +953,8 @@ pyflakes = [
     {file = "pyflakes-2.4.0.tar.gz", hash = "sha256:05a85c2872edf37a4ed30b0cce2f6093e1d0581f8c19d7393122da7e25b2b24c"},
 ]
 pylama = [
-    {file = "pylama-8.0.4-py3-none-any.whl", hash = "sha256:c5d9694733aaf7b6f55cfcf418537faccec2449f5d1a98247584ebe8f810b843"},
-    {file = "pylama-8.0.4.tar.gz", hash = "sha256:a5b5bce51579ba2c25997108cebf4116a5164f915e49c0d0c89bfc1631e750eb"},
+    {file = "pylama-8.0.6-py3-none-any.whl", hash = "sha256:66e313c5b0c017f6ea003c272c9271d1421eb1756c6b06b9fd7eca2c75f1b343"},
+    {file = "pylama-8.0.6.tar.gz", hash = "sha256:07a22f34bd8199a3808291bbe54d2b6e3de7e3717f64ad106c28ff0085a2ae50"},
 ]
 pylint = [
     {file = "pylint-2.12.1-py3-none-any.whl", hash = "sha256:b4b5a7b6d04e914a11c198c816042af1fb2d3cda29bb0c98a9c637010da2a5c5"},
@@ -1123,8 +1123,8 @@ typed-ast = [
     {file = "typed_ast-1.4.3.tar.gz", hash = "sha256:fb1bbeac803adea29cedd70781399c99138358c26d05fcbd23c13016b7f5ec65"},
 ]
 types-setuptools = [
-    {file = "types-setuptools-57.4.3.tar.gz", hash = "sha256:1bc9a00bae901ef939c1720ae040c9f1127e79e60e04588ed1506c62685385ed"},
-    {file = "types_setuptools-57.4.3-py3-none-any.whl", hash = "sha256:2b969e6545859be2c26cd0eb8bf6ccf17995ba9dee98825fd7b6ab8c46224875"},
+    {file = "types-setuptools-57.4.4.tar.gz", hash = "sha256:a3cbcbf3f02142bb5d3b5c5f5918f453b8752362b96d58aba2a5cfa43ba6d209"},
+    {file = "types_setuptools-57.4.4-py3-none-any.whl", hash = "sha256:9fe4180548e5cbb44cc0d343a47e4dc1d6769c31e16447994788c28df169011f"},
 ]
 types-toml = [
     {file = "types-toml-0.10.1.tar.gz", hash = "sha256:5c1f8f8d57692397c8f902bf6b4d913a0952235db7db17d2908cc110e70610cb"},
