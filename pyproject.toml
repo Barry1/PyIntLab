@@ -37,6 +37,7 @@ show_error_codes = true
 show_error_context = true
 install_types = true
 non_interactive = true
+plugins = "numpy.typing.mypy_plugin"
 
 [tool.isort]
 # https://pycqa.github.io/isort/docs/configuration/options
@@ -57,6 +58,11 @@ include-naming-hint = "y"
 typeCheckingMode = "strict"
 reportMissingImports = true
 reportMissingTypeStubs = false
+tool.pyright.executionEnvironments= [
+    "root = src/pyintlab",
+    "pythonVersion = 3.10",
+    "pythonPlatform = Linux"
+]
 
 [tool.pylint."MESSAGES CONTROL"]
 disable = "duplicate-code"
@@ -101,6 +107,7 @@ types-setuptools = "*"
 types-toml = "*"
 vermin ="*"
 vulture = "*"
+pyright = "^1.1.235"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
