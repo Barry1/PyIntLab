@@ -1,5 +1,6 @@
 """Bastian versucht sich an Interval-Arithmetik."""
 import numpy
+import numpy.typing
 
 from .scalar_interval import ScalarInterval  # pylint: disable=E0402
 
@@ -13,14 +14,14 @@ from .scalar_interval import ScalarInterval  # pylint: disable=E0402
 ###########################################
 def test_matrix_product() -> None:
     """Two simple matrices of ScalarIntervals in dot product."""
-    left_matrix: numpy.ndarray = numpy.array(
+    left_matrix: numpy.typing.NDArray[numpy.object_] = numpy.array(
         [
             [ScalarInterval(1), ScalarInterval(3)],
             [ScalarInterval(2), ScalarInterval(4)],
         ],
         dtype=ScalarInterval,
     )
-    right_matrix: numpy.ndarray = numpy.array(
+    right_matrix: numpy.typing.NDArray[numpy.object_] = numpy.array(
         [
             [ScalarInterval(5), ScalarInterval(7)],
             [ScalarInterval(6), ScalarInterval(8)],
