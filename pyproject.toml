@@ -35,6 +35,8 @@ verbose = 2
 strict = true
 show_error_codes = true
 show_error_context = true
+install_types = true
+non_interactive = true
 
 [tool.isort]
 # https://pycqa.github.io/isort/docs/configuration/options
