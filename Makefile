@@ -27,6 +27,9 @@ htmlcov/index.html: .coverage
 	-niceload poetry run coverage3 report
 	-niceload poetry run coverage3 html
 
+pylama:
+	-niceload poetry run pylama src/pyintlab
+
 test: pretty $(OBJS) pyright pyre htmlcov/index.html
 # <https://archive.is/yoSpr>
 # PEP8 is now pycodestyle which is included in pylama
