@@ -15,10 +15,10 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install mypy
-          pip install pytest
+          #pip install pytest
       - name: Analysing the code with mypy
         run: |
-          mypy --strict --show-error-codes .
+          mypy --strict --show-error-codes --show-error-context src
   coverage:
     runs-on: ubuntu-latest
     steps:
