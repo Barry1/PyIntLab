@@ -10,3 +10,4 @@ dist/
 htmlcov/
 .coverage
 git_commit.out
+./poetry.out
