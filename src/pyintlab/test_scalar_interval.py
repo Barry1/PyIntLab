@@ -47,23 +47,17 @@ def test_arith() -> None:
 
 def test_div_zero() -> None:
     """Assert that Division by zero raises Exception."""
-    with pytest.raises(
-        ZeroDivisionError
-    ) as e_info:  # noqa: W0612 # pylint: disable=unused-variable
+    with pytest.raises(ZeroDivisionError) as _:
         _ = ScalarInterval(-0.42, 0.3) / 0
 
 
 def test_div_zero2() -> None:
     """Assert that Division by zero raises Exception."""
-    with pytest.raises(
-        ZeroDivisionError
-    ) as e_info:  # noqa: W0612 # pylint: disable=unused-variable
+    with pytest.raises(ZeroDivisionError) as _:
         _ = 42 / ScalarInterval(-0.42, 0.3)
 
 
 def test_div_zero3() -> None:
     """Assert that Division by zero raises Exception."""
-    with pytest.raises(
-        ZeroDivisionError
-    ) as e_info:  # noqa: W0612 # pylint: disable=unused-variable
+    with pytest.raises(ZeroDivisionError) as _:
         _ = ScalarInterval(2.7, 3.1415) / ScalarInterval(-0.42, 0.3)
