@@ -57,8 +57,8 @@ pyre:
 	-niceload poetry run pyre
 #	-pyre --noninteractive check
 #	-mkdir -p pyre_analyze_results
-#	-pyre --noninteractive analyze --save-results-to pyre_analyze_results --use-cache
-#	-pyre --noninteractive statistics > pyre_statistics
+	-niceload poetry run pyre --noninteractive analyze --save-results-to pyre_analyze_results --use-cache
+	-niceload poetry run pyre --noninteractive statistics > pyre_statistics
 
 pyright: export NODE_OPTIONS = --experimental-worker
 pyright:

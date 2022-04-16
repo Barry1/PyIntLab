@@ -5,9 +5,6 @@
       "source": "pyintlab"
     }
   ],
-  "search_path": [
-    "/usr/local/lib/python3.9/dist-packages/"
-  ],
-  "taint_models_path": "/usr/local/lib",
+  "taint_models_path": ".venv/lib",
   "strict": true
 }

@@ -7,7 +7,7 @@ import math
 from typing import SupportsFloat, Union
 
 
-class ScalarInterval:  # inheritance ob object could be suppressed
+class ScalarInterval:  # inheritance from object could be suppressed
     """Class for scalars with uncertainty."""
 
     lowerbound: float
