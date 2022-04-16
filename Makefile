@@ -28,7 +28,7 @@ htmlcov/index.html: .coverage
 	-niceload poetry run coverage3 html
 
 pylama:
-	-niceload poetry run pylama src/pyintlab
+	-niceload poetry run pylama
 
 test: pretty $(OBJS) pyright pyre htmlcov/index.html
 # <https://archive.is/yoSpr>

@@ -14,10 +14,6 @@ class ScalarInterval:  # inheritance from object could be suppressed
     upperbound: float
     # __new__ is not needed as the default is sufficient
 
-    # def __init__(self, lowerbound, upperbound):
-    #     """contructor for new ScalarInterval"""
-    #     self.lowerbound = lowerbound
-    #     self.upperbound = upperbound
     def __init__(self, *bounds: float) -> None:
         """Contructor for new ScalarInterval.
 
