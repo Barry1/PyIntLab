@@ -60,7 +60,7 @@ reportMissingImports = true
 reportMissingTypeStubs = false
 tool.pyright.executionEnvironments= [
     "root = src/pyintlab",
-    "pythonVersion = 3.10",
+    "pythonVersion = 3.9",
     "pythonPlatform = Linux"
 ]
 
@@ -85,7 +85,9 @@ python = ">=3.7,<3.11"
 radon = "^5.0.1"
 numpy = "^1.21.2"
 
-[tool.poetry.dev-dependencies]
+#[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
+interrogate = "^1.5.0"
 black = "*"
 coverage = "*"
 eradicate = "*"
