@@ -550,7 +550,7 @@ typing-inspect = "*"
 
 [[package]]
 name = "pyright"
-version = "1.1.244"
+version = "1.1.245"
 description = "Command line wrapper for pyright"
 category = "dev"
 optional = false
@@ -717,7 +717,7 @@ python-versions = "*"
 
 [[package]]
 name = "types-toml"
-version = "0.10.6"
+version = "0.10.7"
 description = "Typing stubs for toml"
 category = "dev"
 optional = false
@@ -1165,8 +1165,8 @@ pyre-extensions = [
     {file = "pyre_extensions-0.0.27-py3-none-any.whl", hash = "sha256:5ad4822ceaed43171a36391a95b70b928c222ca0776f4e689f6921081ecfb324"},
 ]
 pyright = [
-    {file = "pyright-1.1.244-py3-none-any.whl", hash = "sha256:b12c186320b932d15b6e6f85b08077ca688c6ae572d8a6fef58ba3c0f9eca1d4"},
-    {file = "pyright-1.1.244.tar.gz", hash = "sha256:24aca93b33a72345cffcfcecd303b77bf53f08a54235f9949f51df7d4287fd57"},
+    {file = "pyright-1.1.245-py3-none-any.whl", hash = "sha256:1edfb44ea6318e4648e4d522d1d164774dd487e27cb954d202cbf7e9cf28d597"},
+    {file = "pyright-1.1.245.tar.gz", hash = "sha256:cbbd743f9de2b96b35a03b9b8f2d2b046f292c9967468b9a38132319954ddbf2"},
 ]
 pytest = [
     {file = "pytest-7.1.2-py3-none-any.whl", hash = "sha256:13d0e3ccfc2b6e26be000cb6568c832ba67ba32e719443bfe725814d3c42433c"},
@@ -1277,8 +1277,8 @@ types-setuptools = [
     {file = "types_setuptools-57.4.14-py3-none-any.whl", hash = "sha256:828f7e7e51e157876f47c80518b23ba0c3c36aa8081efd39d5d39f393938aec9"},
 ]
 types-toml = [
-    {file = "types-toml-0.10.6.tar.gz", hash = "sha256:6aeb3ed7bfa869381551c774ed6a9142e3eed98a83efa5108a9632eafd56dcd3"},
-    {file = "types_toml-0.10.6-py3-none-any.whl", hash = "sha256:c1289e9fb748a6a1ed068694ded1eb16f83df22d58cc1abae8ef6262403545d8"},
+    {file = "types-toml-0.10.7.tar.gz", hash = "sha256:a567fe2614b177d537ad99a661adc9bfc8c55a46f95e66370a4ed2dd171335f9"},
+    {file = "types_toml-0.10.7-py3-none-any.whl", hash = "sha256:05a8da4bfde2f1ee60e90c7071c063b461f74c63a9c3c1099470c08d6fa58615"},
 ]
 typing-extensions = [
     {file = "typing_extensions-4.2.0-py3-none-any.whl", hash = "sha256:6657594ee297170d19f67d55c05852a874e7eb634f4f753dbd667855e07c1708"},
