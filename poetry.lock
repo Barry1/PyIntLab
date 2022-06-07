@@ -745,7 +745,7 @@ typing-extensions = ">=3.7.4"
 
 [[package]]
 name = "vermin"
-version = "1.3.3"
+version = "1.4.0"
 description = "Concurrently detect the minimum Python versions needed to run code"
 category = "dev"
 optional = false
@@ -1290,7 +1290,7 @@ typing-inspect = [
     {file = "typing_inspect-0.7.1.tar.gz", hash = "sha256:047d4097d9b17f46531bf6f014356111a1b6fb821a24fe7ac909853ca2a782aa"},
 ]
 vermin = [
-    {file = "vermin-1.3.3-py2.py3-none-any.whl", hash = "sha256:c5bd8bf2026d87563332293a0479606954bd973d8cf72ab370e1164a019c0524"},
+    {file = "vermin-1.4.0-py2.py3-none-any.whl", hash = "sha256:0370f562cfa004a234c2ca33cff3c187fe05741c1c36570ef27a514ad9b7e202"},
 ]
 vulture = [
     {file = "vulture-2.4-py2.py3-none-any.whl", hash = "sha256:25acfcacc24884e4344c13601ff43bbfa59faa9cdf330ccce6f4a09c49a2057c"},
