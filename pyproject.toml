@@ -80,10 +80,10 @@ description = "package in memoriam of intlab=Matlab Interval Laboratory"
 authors = ["Ebeling, Dr. Bastian <bastian.ebeling@web.de>"]
 
 [tool.poetry.dependencies]
-python = ">=3.7,<3.11"
+python = ">=3.8,<3.11"
 # typing = "^3.10.0"
 radon = "^5.0.1"
-numpy = "^1.21.2"
+numpy = ">=1.22.0"
 
 
 [tool.poetry.dev-dependencies]
