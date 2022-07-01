@@ -499,7 +499,7 @@ diagrams = ["railroad-diagrams", "jinja2"]
 
 [[package]]
 name = "pyre-check"
-version = "0.9.14"
+version = "0.9.15"
 description = "A performant type checker for Python"
 category = "dev"
 optional = false
@@ -704,7 +704,7 @@ python-versions = "*"
 
 [[package]]
 name = "typing-extensions"
-version = "4.2.0"
+version = "4.3.0"
 description = "Backported and Experimental Type Hints for Python 3.7+"
 category = "dev"
 optional = false
@@ -1110,9 +1110,9 @@ pyparsing = [
     {file = "pyparsing-3.0.9.tar.gz", hash = "sha256:2b020ecf7d21b687f219b71ecad3631f644a47f01403fa1d1036b0c6416d70fb"},
 ]
 pyre-check = [
-    {file = "pyre-check-0.9.14.tar.gz", hash = "sha256:ee7f6a11bcd3cd8624b6567e4655fc6f393b4cdf3f387aeaeabc14089e5ac500"},
-    {file = "pyre_check-0.9.14-py3-none-macosx_10_11_x86_64.whl", hash = "sha256:25fdded838c71cb22d60f72a1deaa5a205952987cad05601899cd96f3b7f8ad1"},
-    {file = "pyre_check-0.9.14-py3-none-manylinux1_x86_64.whl", hash = "sha256:764a2d2eead281f5d6ac34f35fab66b983c7e061f09972db9e23f2fbd96f4dda"},
+    {file = "pyre-check-0.9.15.tar.gz", hash = "sha256:48e93c9675ba0ff28ac7776969534c2d97cb19e3ba73ce88ae92206fe99e8bfe"},
+    {file = "pyre_check-0.9.15-py3-none-macosx_10_11_x86_64.whl", hash = "sha256:2d1a62cea859a6d0fd17ceda2fe0fdd51b8d0c5c0a0594ae72a42aea2bc2f46d"},
+    {file = "pyre_check-0.9.15-py3-none-manylinux1_x86_64.whl", hash = "sha256:5458250974ac553f7bbfe850af350fda79255c60769017094c1f31700d5419e4"},
 ]
 pyre-extensions = [
     {file = "pyre-extensions-0.0.29.tar.gz", hash = "sha256:4113600706c47306a156dcc9c405f4d458c505be432699571e357ef20e2d5d77"},
@@ -1214,8 +1214,8 @@ types-toml = [
     {file = "types_toml-0.10.7-py3-none-any.whl", hash = "sha256:05a8da4bfde2f1ee60e90c7071c063b461f74c63a9c3c1099470c08d6fa58615"},
 ]
 typing-extensions = [
-    {file = "typing_extensions-4.2.0-py3-none-any.whl", hash = "sha256:6657594ee297170d19f67d55c05852a874e7eb634f4f753dbd667855e07c1708"},
-    {file = "typing_extensions-4.2.0.tar.gz", hash = "sha256:f1c24655a0da0d1b67f07e17a5e6b2a105894e6824b92096378bb3668ef02376"},
+    {file = "typing_extensions-4.3.0-py3-none-any.whl", hash = "sha256:25642c956049920a5aa49edcdd6ab1e06d7e5d467fc00e0506c44ac86fbfca02"},
+    {file = "typing_extensions-4.3.0.tar.gz", hash = "sha256:e6d2677a32f47fc7eb2795db1dd15c1f34eff616bcaf2cfb5e997f854fa1c4a6"},
 ]
 typing-inspect = [
     {file = "typing_inspect-0.7.1-py2-none-any.whl", hash = "sha256:b1f56c0783ef0f25fb064a01be6e5407e54cf4a4bf4f3ba3fe51e0bd6dcea9e5"},
