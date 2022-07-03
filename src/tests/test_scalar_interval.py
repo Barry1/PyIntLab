@@ -3,7 +3,8 @@ import math
 
 import pytest
 
-from .scalar_interval import ScalarInterval  # pylint: disable=E0402
+#from .scalar_interval import ScalarInterval  # pylint: disable=E0402
+from pyintlab import ScalarInterval  # pylint: disable=E0402
 
 
 def test_explog_in() -> None:

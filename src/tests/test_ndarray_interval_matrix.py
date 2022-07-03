@@ -2,7 +2,8 @@
 import numpy
 import numpy.typing
 
-from .scalar_interval import ScalarInterval  # pylint: disable=E0402
+#from .scalar_interval import ScalarInterval  # pylint: disable=E0402
+from pyintlab import ScalarInterval  # pylint: disable=E0402
 
 
 # https://numpy.org/doc/stable/user/basics.dispatch.html
