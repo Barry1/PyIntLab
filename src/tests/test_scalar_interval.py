@@ -1,9 +1,8 @@
 """Bastian versucht sich an Interval-Arithmetik."""
 import math
 
-import pytest
+from pytest import raises
 
-#from .scalar_interval import ScalarInterval  # pylint: disable=E0402
 from pyintlab import ScalarInterval  # pylint: disable=E0402
 
 
@@ -48,17 +47,17 @@ def test_arith() -> None:
 
 def test_div_zero() -> None:
     """Assert that Division by zero raises Exception."""
-    with pytest.raises(ZeroDivisionError) as _:
+    with raises(ZeroDivisionError) as _:
         _ = ScalarInterval(-0.42, 0.3) / 0
 
 
 def test_div_zero2() -> None:
     """Assert that Division by zero raises Exception."""
-    with pytest.raises(ZeroDivisionError) as _:
+    with raises(ZeroDivisionError) as _:
         _ = 42 / ScalarInterval(-0.42, 0.3)
 
 
 def test_div_zero3() -> None:
     """Assert that Division by zero raises Exception."""
-    with pytest.raises(ZeroDivisionError) as _:
+    with raises(ZeroDivisionError) as _:
         _ = ScalarInterval(2.7, 3.1415) / ScalarInterval(-0.42, 0.3)
