@@ -24,4 +24,6 @@ jobs:
           python3 -m pip install --upgrade --requirement requirements.txt
       - name: Analysing the code with pylint
         run: |
-          pylint --jobs=0 --output-format=colorized --include-naming-hint=y `tree -fi|grep \.py$|xargs`
+          #pylint --jobs=0 --output-format=colorized --include-naming-hint=y `tree -fi|grep \.py$|xargs`
+          #complicated and don't know if xargs needed
+          pylint --jobs=0 --output-format=colorized --include-naming-hint=y src
