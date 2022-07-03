@@ -13,3 +13,4 @@ git_commit.out
 poetry.out
 *.log
 .mypy_cache
+monkeytype.sqlite3
