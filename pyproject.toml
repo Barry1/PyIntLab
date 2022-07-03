@@ -1,26 +1,27 @@
 # Learn more at <https://github.com/carlosperate/awesome-pyproject>
 # Cool info <https://blog.pilosus.org/posts/2019/12/26/python-third-party-tools-configuration/>
 # https://github.com/hhatto/autopep8/blob/master/README.rst#pyproject-toml
+# https://python-poetry.org/docs/pyproject/
 [tool.autopep8]
-max_line_length = 88
 in-place = true
-recursive = true
 jobs = 0
+max_line_length = 88
+recursive = true
 
 # https://black.readthedocs.io/en/stable/usage_and_configuration/the_basics.html#configuration-via-a-file
 [tool.black]
 #line-length = 88
-target-version = ['py39'] #'py37', 'py38',
 color = true
 safe = true
+target-version = ['py39'] #'py37', 'py38',
 
 [tool.darker]
-revision = "main"
-diff = true
 check = true
+diff = true
 isort = true
 lint = ["pylint", "mypy", "flake8"]
 log_level = "INFO"
+revision = "main"
 
 [tool.flake8]
 max-line-length = 88
@@ -32,32 +33,32 @@ generate_badge = "."
 verbose = 2
 
 [tool.mypy]
-strict = true
-show_error_codes = true
-show_error_context = true
 install_types = true
 non_interactive = true
 plugins = "numpy.typing.mypy_plugin"
+show_error_codes = true
+show_error_context = true
+strict = true
 
 [tool.isort]
 # https://pycqa.github.io/isort/docs/configuration/options
-py_version = 39
 color_output = true
 profile = "black"
+py_version = 39
 
 [pylama.pep8]
 max_line_length = 88
 
 [tool.pylint.MASTER]
-Bjobs = 0
-output-format = "colorized"
 include-naming-hint = "y"
+jobs = 0
+output-format = "colorized"
 
 [tool.pyright]
 # https://github.com/microsoft/pyright/blob/main/docs/configuration.md
-typeCheckingMode = "strict"
 reportMissingImports = true
 reportMissingTypeStubs = false
+typeCheckingMode = "strict"
 tool.pyright.executionEnvironments= [
     "root = src/pyintlab",
     "pythonVersion = 3.9",
@@ -88,12 +89,11 @@ numpy = ">=1.22.0"
 
 [tool.poetry.dev-dependencies]
 #[tool.poetry.group.dev.dependencies]
-setuptools = "^62.1.0"
-interrogate = "^1.5.0"
 black = "*"
 coverage = "*"
 eradicate = "*"
 flake8 = "*"
+interrogate = "^1.5.0"
 isort = "*"
 mccabe = "*"
 mypy = "*"
@@ -105,12 +105,13 @@ pyflakes = "*"
 pylama = "*"
 pylint = "*"
 pyre-check = "*"
+pyright = "^1.1.235"
 pytest = "*"
+setuptools = "^62.1.0"
 types-setuptools = "*"
 types-toml = "*"
 vermin ="*"
 vulture = "*"
-pyright = "^1.1.235"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
