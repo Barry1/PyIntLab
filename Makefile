@@ -1,9 +1,17 @@
-.PHONY: all pretty test install clean poetryupdate pyre build vermincheck mypy
+.PHONY: all pretty test install clean poetryupdate pyre build vermincheck mypy poetrypython poetrypypy
 # https://www.gnu.org/software/make/manual/html_node/Setting.html#:~:text=The%20shell%20assignment%20operator%20%E2%80%98!%3D%E2%80%99
 # OBJS=$(shell tree -if | egrep "\.pyi?$$")
 #OBJS!=tree -if | egrep "\.pyi?$$"
 #OBJS=$(shell find src -regex ".*\.pyi?$$")
 OBJS!=find src -regex ".*\.pyi?$$"
+
+poetrypython:
+	poetry env use python3.10
+	poetry update
+
+poetrypypy:
+	poetry env use pypy
+	poetry update
 
 all: test
 
@@ -16,7 +24,7 @@ poetryupdate:
 	niceload poetry update
 
 vermincheck: $(OBJS)
-	niceload poetry run vermin -vv --backports typing $(OBJS)
+	niceload poetry run vermin -vv --backport typing $(OBJS)
 
 pretty: $(OBJS)
 	niceload poetry run isort $(OBJS)
