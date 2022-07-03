@@ -1,4 +1,4 @@
-.PHONY: all pretty test install clean poetryupdate pyre build vermincheck mypy poetrypython poetrypypy
+.PHONY: all pretty test install clean pyflakes pytype poetryupdate pyre build vermincheck mypy poetrypython poetrypypy
 # https://www.gnu.org/software/make/manual/html_node/Setting.html#:~:text=The%20shell%20assignment%20operator%20%E2%80%98!%3D%E2%80%99
 # OBJS=$(shell tree -if | egrep "\.pyi?$$")
 #OBJS!=tree -if | egrep "\.pyi?$$"
@@ -7,6 +7,12 @@ OBJS!=find src -regex ".*\.pyi?$$"
 
 monkeytype.sqlite3:
 	niceload poetry run monkeytype run src/pyintlab/*.py
+
+pyflakes:
+	niceload poetry run pyflakes src
+
+pytype:
+	niceload poetry run pytype src
 
 poetrypython:
 	poetry env use python3.10
