@@ -14,15 +14,10 @@ jobs:
           python3 -m pip install --upgrade pip
       - name: Install poetry
         run: |
-          #python3 -m pip install --upgrade poetry
           curl -sSL https://install.python-poetry.org/ | python3 - --git https://github.com/python-poetry/poetry.git@master --force --yes
+          poetry --version
       - name: Poetry checking dependencies
         run: |
-          echo "================================================================"
-          poetry -V
-          poetry self update --preview
-          poetry -V
-          echo "================================================================"
           poetry export --output requirements.txt --with dev --without-hashes
       - name: Installing further dependencies
         run: |
