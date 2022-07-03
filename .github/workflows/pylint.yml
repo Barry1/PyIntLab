@@ -13,6 +13,9 @@ jobs:
         run: |
           python3 -m pip install --upgrade pip
           python3 -m pip install --upgrade poetry
+          echo "================================================================"
+          poetry -V
+          echo "================================================================"
           poetry export --output requirements.txt --with dev --without-hashes
           python3 -m pip install --upgrade --requirement requirements.txt
       - name: Analysing the code with pylint
