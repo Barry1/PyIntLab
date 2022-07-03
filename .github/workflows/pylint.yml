@@ -13,10 +13,16 @@ jobs:
         run: |
           python3 -m pip install --upgrade pip
           python3 -m pip install --upgrade poetry
+      - name: Poetry checking dependencies
+        run: |
           echo "================================================================"
+          poetry -V
+          poetry self update --preview
           poetry -V
           echo "================================================================"
           poetry export --output requirements.txt --with dev --without-hashes
+      - name: Installing further dependencies
+        run: |
           python3 -m pip install --upgrade --requirement requirements.txt
       - name: Analysing the code with pylint
         run: |
