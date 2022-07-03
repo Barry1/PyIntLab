@@ -13,7 +13,7 @@ recursive = true
 #line-length = 88
 color = true
 safe = true
-target-version = ['py39'] #'py37', 'py38',
+target-version = ['py310'] #'py37', 'py38',
 
 [tool.darker]
 check = true
@@ -44,7 +44,7 @@ strict = true
 # https://pycqa.github.io/isort/docs/configuration/options
 color_output = true
 profile = "black"
-py_version = 39
+py_version = 310
 
 [pylama.pep8]
 max_line_length = 88
@@ -61,7 +61,7 @@ reportMissingTypeStubs = false
 typeCheckingMode = "strict"
 tool.pyright.executionEnvironments= [
     "root = src/pyintlab",
-    "pythonVersion = 3.9",
+    "pythonVersion = 3.10",
     "pythonPlatform = Linux"
 ]
 
@@ -81,14 +81,12 @@ description = "package in memoriam of intlab=Matlab Interval Laboratory"
 authors = ["Ebeling, Dr. Bastian <bastian.ebeling@web.de>"]
 
 [tool.poetry.dependencies]
-python = ">=3.8,<3.11"
-# typing = "^3.10.0"
+python = "~3.10"
 radon = "^5.0.1"
 numpy = ">=1.22.0"
 
 
-[tool.poetry.dev-dependencies]
-#[tool.poetry.group.dev.dependencies]
+[tool.poetry.group.dev.dependencies]
 black = "*"
 coverage = "*"
 eradicate = "*"
@@ -96,9 +94,13 @@ flake8 = "*"
 interrogate = "^1.5.0"
 isort = "*"
 mccabe = "*"
+MonkeyType = "^22.2.0"
 mypy = "*"
 pep257 = "*"
 pep8 = "*"
+prospector = "^1.7.7"
+pyanalyze = "^0.7.0"
+pyannotate = "^1.2.0"
 pycodestyle = "*"
 pydocstyle = "*"
 pyflakes = "*"
@@ -107,6 +109,7 @@ pylint = "*"
 pyre-check = "*"
 pyright = "^1.1.235"
 pytest = "*"
+pytype = "^2022.6.30"
 setuptools = "^62.1.0"
 types-setuptools = "*"
 types-toml = "*"
