@@ -5,6 +5,9 @@
 #OBJS=$(shell find src -regex ".*\.pyi?$$")
 OBJS!=find src -regex ".*\.pyi?$$"
 
+monkeytype.sqlite3:
+	niceload poetry run monkeytype run src/pyintlab/*.py
+
 poetrypython:
 	poetry env use python3.10
 	poetry update
