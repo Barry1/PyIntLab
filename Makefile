@@ -40,6 +40,9 @@ pretty: $(OBJS)
 	niceload poetry run black $(OBJS)
 	niceload poetry run interrogate $(OBJS)
 
+.coverage:
+	-niceload poetry run coverage3 run src/pyintlab/scalar_interval.py
+
 htmlcov/index.html: .coverage
 	-niceload poetry run coverage3 report
 	-niceload poetry run coverage3 html
@@ -74,8 +77,8 @@ pyre:
 	-niceload poetry run pyre
 #	-pyre --noninteractive check
 #	-mkdir -p pyre_analyze_results
-	-niceload poetry run pyre --noninteractive analyze --save-results-to pyre_analyze_results --use-cache
-	-niceload poetry run pyre --noninteractive statistics > pyre_statistics
+#	-niceload poetry run pyre --noninteractive analyze --save-results-to pyre_analyze_results --use-cache
+#	-niceload poetry run pyre --noninteractive statistics > pyre_statistics
 
 pyright: export NODE_OPTIONS = --experimental-worker
 pyright:
