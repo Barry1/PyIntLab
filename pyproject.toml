@@ -44,7 +44,8 @@ strict = true
 # https://pycqa.github.io/isort/docs/configuration/options
 color_output = true
 profile = "black"
-py_version = 311
+#311 not yet support
+py_version = "all"
 
 [pylama.pep8]
 max_line_length = 88
