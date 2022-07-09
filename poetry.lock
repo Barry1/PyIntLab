@@ -16,7 +16,7 @@ python-versions = ">=3.6"
 
 [[package]]
 name = "astroid"
-version = "2.11.6"
+version = "2.11.7"
 description = "An abstract syntax tree for Python with inference support."
 category = "dev"
 optional = false
@@ -999,10 +999,7 @@ ast-decompiler = [
     {file = "ast_decompiler-0.6.0-py3-none-any.whl", hash = "sha256:68ad813b609a405d26d8d29605c8d12cd282278533e26adfa0048991c81337c8"},
     {file = "ast_decompiler-0.6.0.tar.gz", hash = "sha256:c9d10305a0de3c37f7db2f61c0fae8141aedfe7b40307d40195c1f1e5f5733f3"},
 ]
-astroid = [
-    {file = "astroid-2.11.6-py3-none-any.whl", hash = "sha256:ba33a82a9a9c06a5ceed98180c5aab16e29c285b828d94696bf32d6015ea82a9"},
-    {file = "astroid-2.11.6.tar.gz", hash = "sha256:4f933d0bf5e408b03a6feb5d23793740c27e07340605f236496cd6ce552043d6"},
-]
+astroid = []
 async-generator = [
     {file = "async_generator-1.10-py3-none-any.whl", hash = "sha256:01c7bf666359b4967d2cda0000cc2e4af16a0ae098cbffcb8472fb9e8ad6585b"},
     {file = "async_generator-1.10.tar.gz", hash = "sha256:6ebb3d106c12920aaae42ccb6f787ef5eefdcdd166ea3d628fa8476abe712144"},
