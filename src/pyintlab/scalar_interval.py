@@ -1,6 +1,7 @@
 """Bastian is working on interval arithmetics."""
-from typing import Self, SupportsFloat
 import math
+from typing import Self, SupportsFloat
+
 
 class ScalarInterval:  # inheritance from object could be suppressed
     """Class for scalars with uncertainty."""
