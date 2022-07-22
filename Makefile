@@ -83,8 +83,10 @@ pyright:
 	-niceload poetry run pyright --dependencies --stats --verbose $(OBJS)
 	-niceload poetry run pyright
 
-git-story_media/GitStory.mp4:
-	niceload poetry run git-story
+git-story_media/videos/1080p60/GitStory.mp4:
+	nice -19 poetry run git-story --reverse --commits=50
+git-story_media/videos/480p15/GitStory.mp4:
+	nice -19 poetry run git-story --reverse --commits=50 --low-quality
 
 aptprep:
 	echo "For git-story"
