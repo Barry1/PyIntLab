@@ -21,7 +21,7 @@ jobs:
           poetry export --output requirements.txt --with dev --without-hashes
       - name: Installing apt dependencies
         run: |
-          apt-get install libpango1.0-dev
+          sudo apt-get install libpango1.0-dev
       - name: Installing further dependencies
         run: |
           python3 -m pip install --upgrade --requirement requirements.txt
