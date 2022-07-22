@@ -5,6 +5,7 @@ from typing import Self, SupportsFloat
 
 class ScalarInterval:  # inheritance from object could be suppressed
     """Class for scalars with uncertainty."""
+
     lowerbound: float
     upperbound: float
     # __new__ is not needed as the default is sufficient
