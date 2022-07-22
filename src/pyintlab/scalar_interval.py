@@ -1,7 +1,7 @@
 """Bastian is working on interval arithmetics."""
-from __future__ import (
-    annotations,  # to reference class type in annotations within class definition
-)
+# to reference class type in annotations within class definition
+# from py311 simple use Self from typing
+from __future__ import annotations
 
 import math
 from typing import SupportsFloat
@@ -81,7 +81,8 @@ class ScalarInterval:  # inheritance from object could be suppressed
         """Dunder method for addition."""
         if isinstance(other, ScalarInterval):
             return ScalarInterval(
-                self.lowerbound + other.lowerbound, self.upperbound + other.upperbound
+                self.lowerbound + other.lowerbound,
+                self.upperbound + other.upperbound,
             )
         return ScalarInterval(self.lowerbound + other, self.upperbound + other)
 
@@ -127,7 +128,8 @@ class ScalarInterval:  # inheritance from object could be suppressed
         """Dunder method for subtraction."""
         if isinstance(other, ScalarInterval):
             return ScalarInterval(
-                self.lowerbound - other.upperbound, self.upperbound - other.lowerbound
+                self.lowerbound - other.upperbound,
+                self.upperbound - other.lowerbound,
             )
         return ScalarInterval(self.lowerbound - other, self.upperbound - other)
 
@@ -151,30 +153,42 @@ class ScalarInterval:  # inheritance from object could be suppressed
             )
         return self.lowerbound <= item <= self.upperbound
 
-    ####################################################################################
+    ###########################################################################
     # following are implementations of monoton increasing functions
-    ####################################################################################
+    ###########################################################################
     def sqrt(self) -> ScalarInterval:
         """Return the square root of the interval."""
-        return ScalarInterval(math.sqrt(self.lowerbound), math.sqrt(self.upperbound))
+        return ScalarInterval(
+            math.sqrt(self.lowerbound), math.sqrt(self.upperbound)
+        )
 
     def log10(self) -> ScalarInterval:
         """Return the base 10 logarithm of the interval."""
-        return ScalarInterval(math.log10(self.lowerbound), math.log10(self.upperbound))
+        return ScalarInterval(
+            math.log10(self.lowerbound), math.log10(self.upperbound)
+        )
 
     def log1p(self) -> ScalarInterval:
         """Return the natural logarithm of 1+x."""
-        return ScalarInterval(math.log1p(self.lowerbound), math.log1p(self.upperbound))
+        return ScalarInterval(
+            math.log1p(self.lowerbound), math.log1p(self.upperbound)
+        )
 
     def log2(self) -> ScalarInterval:
         """Return the base 2 logarithm of the interval."""
-        return ScalarInterval(math.log2(self.lowerbound), math.log2(self.upperbound))
+        return ScalarInterval(
+            math.log2(self.lowerbound), math.log2(self.upperbound)
+        )
 
     def exp(self) -> ScalarInterval:
         """Return e to the power of the interval."""
-        return ScalarInterval(math.exp(self.lowerbound), math.exp(self.upperbound))
+        return ScalarInterval(
+            math.exp(self.lowerbound), math.exp(self.upperbound)
+        )
 
-    def log(self, base: ScalarInterval | SupportsFloat = math.e) -> ScalarInterval:
+    def log(
+        self, base: ScalarInterval | SupportsFloat = math.e
+    ) -> ScalarInterval:
         """Return the logarithm to the given base or natural if omitted."""
         if isinstance(base, ScalarInterval):
             return ScalarInterval(
@@ -187,10 +201,12 @@ class ScalarInterval:  # inheritance from object could be suppressed
 
     def tanh(self) -> ScalarInterval:
         """Return the hyperbolic tangens of the interval."""
-        return ScalarInterval(math.tanh(self.lowerbound), math.tanh(self.upperbound))
+        return ScalarInterval(
+            math.tanh(self.lowerbound), math.tanh(self.upperbound)
+        )
 
 
-########################################################################################
+###############################################################################
 if __name__ == "__main__":  # Small application
     pitest: ScalarInterval = ScalarInterval(3, 4)
     rtest: ScalarInterval = ScalarInterval(2.2, 2.4)
