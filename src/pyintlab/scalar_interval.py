@@ -1,16 +1,12 @@
 """Bastian is working on interval arithmetics."""
 import math
 from typing import Self, SupportsFloat
-
-
 class ScalarInterval:  # inheritance from object could be suppressed
     """Class for scalars with uncertainty."""
-
     lowerbound: float
     upperbound: float
     # __new__ is not needed as the default is sufficient
-
-    def __init__(self, *bounds: float) -> None:
+    def __init__(self,*bounds:float)->None:
         """Contructor for new ScalarInterval.
 
         You can handover any count of (real) arguments, the resulting Interval
@@ -18,7 +14,6 @@ class ScalarInterval:  # inheritance from object could be suppressed
         """
         self.lowerbound = min(bounds)
         self.upperbound = max(bounds)
-
     @property
     def mid(self) -> float:
         """Midpoint of interval."""
