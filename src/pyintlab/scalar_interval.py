@@ -1,6 +1,6 @@
 """Bastian is working on interval arithmetics."""
 # to reference class type in annotations within class definition
-# from py311 simple use Self from typing
+# from py311 simple use Self from module typing
 from __future__ import annotations
 
 import math
