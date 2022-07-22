@@ -1,12 +1,15 @@
 """Bastian is working on interval arithmetics."""
 import math
 from typing import Self, SupportsFloat
+
+
 class ScalarInterval:  # inheritance from object could be suppressed
     """Class for scalars with uncertainty."""
+
     lowerbound: float
     upperbound: float
     # __new__ is not needed as the default is sufficient
-    def __init__(self,*bounds:float)->None:
+    def __init__(self, *bounds: float) -> None:
         """Contructor for new ScalarInterval.
 
         You can handover any count of (real) arguments, the resulting Interval
@@ -14,6 +17,7 @@ class ScalarInterval:  # inheritance from object could be suppressed
         """
         self.lowerbound = min(bounds)
         self.upperbound = max(bounds)
+
     @property
     def mid(self) -> float:
         """Midpoint of interval."""
@@ -72,7 +76,8 @@ class ScalarInterval:  # inheritance from object could be suppressed
         """Dunder method for addition."""
         if isinstance(other, ScalarInterval):
             return ScalarInterval(
-                self.lowerbound + other.lowerbound, self.upperbound + other.upperbound
+                self.lowerbound + other.lowerbound,
+                self.upperbound + other.upperbound,
             )
         return ScalarInterval(self.lowerbound + other, self.upperbound + other)
 
@@ -118,7 +123,8 @@ class ScalarInterval:  # inheritance from object could be suppressed
         """Dunder method for subtraction."""
         if isinstance(other, ScalarInterval):
             return ScalarInterval(
-                self.lowerbound - other.upperbound, self.upperbound - other.lowerbound
+                self.lowerbound - other.upperbound,
+                self.upperbound - other.lowerbound,
             )
         return ScalarInterval(self.lowerbound - other, self.upperbound - other)
 
@@ -147,23 +153,33 @@ class ScalarInterval:  # inheritance from object could be suppressed
     ####################################################################################
     def sqrt(self) -> Self:
         """Return the square root of the interval."""
-        return ScalarInterval(math.sqrt(self.lowerbound), math.sqrt(self.upperbound))
+        return ScalarInterval(
+            math.sqrt(self.lowerbound), math.sqrt(self.upperbound)
+        )
 
     def log10(self) -> Self:
         """Return the base 10 logarithm of the interval."""
-        return ScalarInterval(math.log10(self.lowerbound), math.log10(self.upperbound))
+        return ScalarInterval(
+            math.log10(self.lowerbound), math.log10(self.upperbound)
+        )
 
     def log1p(self) -> Self:
         """Return the natural logarithm of 1+x."""
-        return ScalarInterval(math.log1p(self.lowerbound), math.log1p(self.upperbound))
+        return ScalarInterval(
+            math.log1p(self.lowerbound), math.log1p(self.upperbound)
+        )
 
     def log2(self) -> Self:
         """Return the base 2 logarithm of the interval."""
-        return ScalarInterval(math.log2(self.lowerbound), math.log2(self.upperbound))
+        return ScalarInterval(
+            math.log2(self.lowerbound), math.log2(self.upperbound)
+        )
 
     def exp(self) -> Self:
         """Return e to the power of the interval."""
-        return ScalarInterval(math.exp(self.lowerbound), math.exp(self.upperbound))
+        return ScalarInterval(
+            math.exp(self.lowerbound), math.exp(self.upperbound)
+        )
 
     def log(self, base: Self | SupportsFloat = math.e) -> Self:
         """Return the logarithm to the given base or natural if omitted."""
@@ -178,7 +194,9 @@ class ScalarInterval:  # inheritance from object could be suppressed
 
     def tanh(self) -> Self:
         """Return the hyperbolic tangens of the interval."""
-        return ScalarInterval(math.tanh(self.lowerbound), math.tanh(self.upperbound))
+        return ScalarInterval(
+            math.tanh(self.lowerbound), math.tanh(self.upperbound)
+        )
 
 
 ########################################################################################
