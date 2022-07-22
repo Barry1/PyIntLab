@@ -83,6 +83,9 @@ pyright:
 	-niceload poetry run pyright --dependencies --stats --verbose $(OBJS)
 	-niceload poetry run pyright
 
+git-story_media/GitStory.mp4:
+	niceload poetry run git-story
+
 aptprep:
 	echo "For git-story"
 	sudo apt-get install libcairo2-dev pkg-config python3-dev libpango1.0-dev
