@@ -9,6 +9,7 @@ class ScalarInterval:  # inheritance from object could be suppressed
     lowerbound: float
     upperbound: float
     # __new__ is not needed as the default is sufficient
+
     def __init__(self, *bounds: float) -> None:
         """Contructor for new ScalarInterval.
 
@@ -28,7 +29,8 @@ class ScalarInterval:  # inheritance from object could be suppressed
         """Radius of interval."""
         return (self.upperbound - self.lowerbound) / 2
 
-    # <https://www.tutorialsteacher.com/python/magic-methods-in-python> <https://rszalski.github.io/magicmethods/>
+    # <https://www.tutorialsteacher.com/python/magic-methods-in-python>
+    # <https://rszalski.github.io/magicmethods/>
 
     def __str__(self) -> str:
         """Show a readable representation of the Interval."""
@@ -147,9 +149,9 @@ class ScalarInterval:  # inheritance from object could be suppressed
             )
         return self.lowerbound <= item <= self.upperbound
 
-    ####################################################################################
+    ###########################################################################
     # following are implementations of monoton increasing functions
-    ####################################################################################
+    ###########################################################################
     def sqrt(self) -> Self:
         """Return the square root of the interval."""
         return ScalarInterval(
@@ -198,7 +200,7 @@ class ScalarInterval:  # inheritance from object could be suppressed
         )
 
 
-########################################################################################
+###############################################################################
 if __name__ == "__main__":  # Small application
     pitest: ScalarInterval = ScalarInterval(3, 4)
     rtest: ScalarInterval = ScalarInterval(2.2, 2.4)
