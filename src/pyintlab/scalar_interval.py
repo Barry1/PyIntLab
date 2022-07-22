@@ -12,7 +12,6 @@ class ScalarInterval:  # inheritance from object could be suppressed
 
     def __init__(self, *bounds: float) -> None:
         """Contructor for new ScalarInterval.
-
         You can handover any count of (real) arguments, the resulting Interval
         will automatically be the convex hull (from min to max).
         """
