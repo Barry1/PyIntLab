@@ -28,8 +28,7 @@ class ScalarInterval:  # inheritance from object could be suppressed
         """Radius of interval."""
         return (self.upperbound - self.lowerbound) / 2
 
-    # <https://www.tutorialsteacher.com/python/magic-methods-in-python>
-    # <https://rszalski.github.io/magicmethods/>
+    # <https://www.tutorialsteacher.com/python/magic-methods-in-python> <https://rszalski.github.io/magicmethods/>
 
     def __str__(self) -> str:
         """Show a readable representation of the Interval."""
