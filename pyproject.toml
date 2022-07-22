@@ -84,9 +84,10 @@ authors = ["Ebeling, Dr. Bastian <bastian.ebeling@web.de>"]
 python = "~3.10"
 radon = "^5.0.1"
 numpy = ">=1.22.0"
+git-story = "^0.1.4"
 
 
-[tool.poetry.group.dev.dependencies]
+[tool.poetry.dev-dependencies]
 black = "*"
 coverage = "*"
 eradicate = "*"

@@ -82,3 +82,10 @@ pyright:
 	@echo "==========" "$@" "=========="
 	-niceload poetry run pyright --dependencies --stats --verbose $(OBJS)
 	-niceload poetry run pyright
+
+aptprep:
+	echo "For git-story"
+	sudo apt-get install libcairo2-dev pkg-config python3-dev libpango1.0-dev
+	sudo apt-get install libcairo2 libfontconfig1 libglib2.0-0 libpango-1.0-0 libpangocairo-1.0-0 
+
+
