@@ -14,3 +14,4 @@ poetry.out
 *.log
 .mypy_cache
 monkeytype.sqlite3
+git-story_media/
