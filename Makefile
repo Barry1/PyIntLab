@@ -93,4 +93,10 @@ aptprep:
 	sudo apt-get install libcairo2-dev pkg-config python3-dev libpango1.0-dev
 	sudo apt-get install libcairo2 libfontconfig1 libglib2.0-0 libpango-1.0-0 libpangocairo-1.0-0 
 
+workflowtest:
+#time /home/ebeling/GitHub/bin/act --list | awk 'NR>1{print $2}' | parallel /home/ebeling/GitHub/bin/act --job > parallel.output
+#time /home/ebeling/GitHub/bin/act --list | awk 'NR>1{print $2}' | xargs -P 4 -L 1 /home/ebeling/GitHub/bin/act --job > xargs.output
+	/home/ebeling/GitHub/bin/act --list
+	/home/ebeling/GitHub/bin/act --graph
+	/home/ebeling/GitHub/bin/act 
 

@@ -1,7 +1,7 @@
 name: Pylint
 on: push
 jobs:
-  build:
+  pylint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -15,6 +15,7 @@ jobs:
       - name: Install poetry
         run: |
           curl -sSL https://install.python-poetry.org/ | python3 - --git https://github.com/python-poetry/poetry.git@master --force --yes
+          export PATH="/root/.local/bin:$PATH"
           poetry --version
       - name: Poetry checking dependencies
         run: |
