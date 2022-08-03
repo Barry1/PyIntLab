@@ -1080,7 +1080,7 @@ typing-inspect = "*"
 
 [[package]]
 name = "pyright"
-version = "1.1.264"
+version = "1.1.265"
 description = "Command line wrapper for pyright"
 category = "dev"
 optional = false
@@ -1387,7 +1387,7 @@ test = ["pytest", "typing-extensions", "mypy"]
 
 [[package]]
 name = "types-setuptools"
-version = "63.2.2"
+version = "63.2.3"
 description = "Typing stubs for setuptools"
 category = "dev"
 optional = false
