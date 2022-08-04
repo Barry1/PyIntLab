@@ -1128,7 +1128,7 @@ testing = ["argcomplete", "hypothesis (>=3.56)", "mock", "nose", "pygments (>=2.
 
 [[package]]
 name = "pytype"
-version = "2022.7.26"
+version = "2022.8.3"
 description = "Python type inferencer"
 category = "dev"
 optional = false
