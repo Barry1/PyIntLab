@@ -1387,7 +1387,7 @@ test = ["pytest", "typing-extensions", "mypy"]
 
 [[package]]
 name = "types-setuptools"
-version = "63.2.3"
+version = "63.4.0"
 description = "Typing stubs for setuptools"
 category = "dev"
 optional = false
