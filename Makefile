@@ -100,3 +100,19 @@ workflowtest:
 	/home/ebeling/GitHub/bin/act --graph
 	/home/ebeling/GitHub/bin/act 
 
+alltoolchain: autopep8 flake8 mypy pycodestyle pydocstyle pyflakes pylama pylint pyright pytype
+
+autopep8:
+	poetry run autopep8 src/pyintlab/*.py
+
+flake8:
+	poetry run flake8 src/pyintlab/*.py
+
+pycodestyle:
+	poetry run pycodestyle src/pyintlab/*.py
+
+pydocstyle:
+	poetry run pydocstyle src/pyintlab/*.py
+
+pylint:
+	poetry run pylint src/pyintlab/*.py
