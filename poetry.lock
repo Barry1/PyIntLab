@@ -1362,7 +1362,7 @@ python-versions = ">=3.7"
 
 [[package]]
 name = "tomlkit"
-version = "0.11.3"
+version = "0.11.4"
 description = "Style preserving TOML library"
 category = "dev"
 optional = false
@@ -1399,7 +1399,7 @@ test = ["pytest", "typing-extensions", "mypy"]
 
 [[package]]
 name = "types-setuptools"
-version = "64.0.0"
+version = "64.0.1"
 description = "Typing stubs for setuptools"
 category = "dev"
 optional = false
