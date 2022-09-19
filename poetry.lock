@@ -1017,7 +1017,7 @@ pylint = ">=1.7"
 
 [[package]]
 name = "pyobjc-core"
-version = "8.5"
+version = "8.5.1"
 description = "Python<->ObjC Interoperability Module"
 category = "dev"
 optional = false
@@ -1025,14 +1025,14 @@ python-versions = ">=3.6"
 
 [[package]]
 name = "pyobjc-framework-cocoa"
-version = "8.5"
+version = "8.5.1"
 description = "Wrappers for the Cocoa frameworks on macOS"
 category = "dev"
 optional = false
 python-versions = ">=3.6"
 
 [package.dependencies]
-pyobjc-core = ">=8.5"
+pyobjc-core = ">=8.5.1"
 
 [[package]]
 name = "pyparsing"
