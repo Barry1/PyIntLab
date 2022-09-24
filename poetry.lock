@@ -330,7 +330,7 @@ python-versions = ">=3.5"
 
 [[package]]
 name = "importlab"
-version = "0.7"
+version = "0.8"
 description = "A library to calculate python dependency graphs."
 category = "dev"
 optional = false
@@ -1591,9 +1591,7 @@ gitpython = [
 ]
 glcontext = []
 idna = []
-importlab = [
-    {file = "importlab-0.7.tar.gz", hash = "sha256:744bd75d4410744962d203bd1eb71a950b19e8fb8eb5f0b805461dc0a2da329b"},
-]
+importlab = []
 importlib-resources = []
 iniconfig = [
     {file = "iniconfig-1.1.1-py2.py3-none-any.whl", hash = "sha256:011e24c64b7f47f6ebd835bb12a743f2fbe9a26d4cecaa7f53bc4f35ee9da8b3"},
