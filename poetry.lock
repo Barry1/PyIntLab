@@ -8,7 +8,7 @@ python-versions = "*"
 
 [[package]]
 name = "ast-decompiler"
-version = "0.6.0"
+version = "0.7.0"
 description = "Python module to decompile AST to Python code"
 category = "dev"
 optional = false
@@ -1492,10 +1492,7 @@ aenum = [
     {file = "aenum-3.1.11-py3-none-any.whl", hash = "sha256:12ae89967f2e25c0ce28c293955d643f891603488bc3d9946158ba2b35203638"},
     {file = "aenum-3.1.11.tar.gz", hash = "sha256:aed2c273547ae72a0d5ee869719c02a643da16bf507c80958faadc7e038e3f73"},
 ]
-ast-decompiler = [
-    {file = "ast_decompiler-0.6.0-py3-none-any.whl", hash = "sha256:68ad813b609a405d26d8d29605c8d12cd282278533e26adfa0048991c81337c8"},
-    {file = "ast_decompiler-0.6.0.tar.gz", hash = "sha256:c9d10305a0de3c37f7db2f61c0fae8141aedfe7b40307d40195c1f1e5f5733f3"},
-]
+ast-decompiler = []
 astroid = []
 asynq = [
     {file = "asynq-1.4.0-cp36-cp36m-macosx_10_9_x86_64.whl", hash = "sha256:51c931f93213c2039034aa65d847b63cb433659095841d4a08c5acb3b591e7a0"},
