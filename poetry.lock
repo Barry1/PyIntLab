@@ -67,11 +67,11 @@ toml = "*"
 
 [[package]]
 name = "black"
-version = "22.8.0"
+version = "22.10.0"
 description = "The uncompromising code formatter."
 category = "dev"
 optional = false
-python-versions = ">=3.6.2"
+python-versions = ">=3.7"
 
 [package.dependencies]
 click = ">=8.0.0"
@@ -1412,7 +1412,7 @@ importlib-resources = ">=1.4.0"
 
 [[package]]
 name = "typing-extensions"
-version = "4.3.0"
+version = "4.4.0"
 description = "Backported and Experimental Type Hints for Python 3.7+"
 category = "dev"
 optional = false
@@ -1965,10 +1965,7 @@ typeshed-client = [
     {file = "typeshed_client-2.0.5-py3-none-any.whl", hash = "sha256:001513fd279dfb27f93b8fbb1f32c7a0070d443b6e65b066b14450fbb53d3019"},
     {file = "typeshed_client-2.0.5.tar.gz", hash = "sha256:d8720eb3c52caf4ef3990e2bef39a7fdc5be6f2dd63cae96e6b01fa1a1744b03"},
 ]
-typing-extensions = [
-    {file = "typing_extensions-4.3.0-py3-none-any.whl", hash = "sha256:25642c956049920a5aa49edcdd6ab1e06d7e5d467fc00e0506c44ac86fbfca02"},
-    {file = "typing_extensions-4.3.0.tar.gz", hash = "sha256:e6d2677a32f47fc7eb2795db1dd15c1f34eff616bcaf2cfb5e997f854fa1c4a6"},
-]
+typing-extensions = []
 typing-inspect = []
 urllib3 = []
 vermin = []
