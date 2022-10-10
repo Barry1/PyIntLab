@@ -59,7 +59,7 @@ output-format = "colorized"
 reportMissingImports = true
 reportMissingTypeStubs = false
 typeCheckingMode = "strict"
-tool.pyright.executionEnvironments= [
+tool.pyright.executionEnvironments = [
     "root = src/pyintlab",
     "pythonVersion = 3.10",
     "pythonPlatform = Linux"
@@ -109,11 +109,11 @@ pylint = "*"
 pyre-check = "*"
 pyright = "^1.1.235"
 pytest = "*"
-pytype = "^2022.6.30"
+pytype = ">=2022.6.30"
 setuptools = "^62.1.0"
 types-setuptools = "*"
 types-toml = "*"
-vermin ="*"
+vermin = "*"
 vulture = "*"
 autopep8 = "^1.6.0"
 
