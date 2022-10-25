@@ -81,7 +81,7 @@ description = "package in memoriam of intlab=Matlab Interval Laboratory"
 authors = ["Ebeling, Dr. Bastian <bastian.ebeling@web.de>"]
 
 [tool.poetry.dependencies]
-python = "~3.10"
+python = "~3.11"
 radon = "^5.0.1"
 numpy = ">=1.22.0"
 
@@ -109,7 +109,7 @@ pylint = "*"
 pyre-check = "*"
 pyright = "^1.1.235"
 pytest = "*"
-pytype = ">=2022.6.30"
+#pytype = ">=2022.6.30"
 setuptools = "^62.1.0"
 types-setuptools = "*"
 types-toml = "*"
