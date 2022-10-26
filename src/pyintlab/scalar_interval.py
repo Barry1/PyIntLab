@@ -4,7 +4,7 @@
 from __future__ import annotations
 
 import math
-from typing import SupportsFloat,Self
+from typing import Self, SupportsFloat
 
 
 class ScalarInterval:  # inheritance from object could be suppressed
@@ -186,9 +186,7 @@ class ScalarInterval:  # inheritance from object could be suppressed
             math.exp(self.lowerbound), math.exp(self.upperbound)
         )
 
-    def log(
-        self, base: ScalarInterval | SupportsFloat = math.e
-    ) -> Self:
+    def log(self, base: ScalarInterval | SupportsFloat = math.e) -> Self:
         """Return the logarithm to the given base or natural if omitted."""
         if isinstance(base, ScalarInterval):
             return ScalarInterval(

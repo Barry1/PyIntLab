@@ -46,7 +46,7 @@ color_output = true
 profile = "black"
 py_version = 310
 
-[pylama.pep8]
+[tool.pylama.pep8]
 max_line_length = 88
 
 [tool.pylint.MASTER]
@@ -89,16 +89,16 @@ numpy = ">=1.22.0"
 black = "*"
 coverage = "*"
 eradicate = "*"
-#flake8 = "*"
-#git-story = "^0.1.4"
+flake8 = "*"
+git-story = "^0.1.4"
 interrogate = "^1.5.0"
 isort = "*"
 mccabe = "*"
-#MonkeyType = "^22.2.0"
+MonkeyType = "^22.2.0"
 mypy = "*"
 pep257 = "*"
 pep8 = "*"
-#prospector = "^1.7.7"
+prospector = "^1.7.7"
 pyanalyze = "^0.7.0"
 pyannotate = "^1.2.0"
 pycodestyle = "*"
@@ -106,7 +106,7 @@ pydocstyle = "*"
 pyflakes = "*"
 pylama = "*"
 pylint = "*"
-#pyre-check = "*"
+pyre-check = "*"
 pyright = "^1.1.235"
 pytest = "*"
 #pytype = ">=2022.6.30"
