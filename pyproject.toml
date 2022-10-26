@@ -84,6 +84,7 @@ authors = ["Ebeling, Dr. Bastian <bastian.ebeling@web.de>"]
 python = "~3.11"
 radon = "^5.0.1"
 numpy = ">=1.22.0"
+ufmt = "^2.0.1"
 
 [tool.poetry.dev-dependencies]
 black = "*"
