@@ -44,7 +44,7 @@ strict = true
 # https://pycqa.github.io/isort/docs/configuration/options
 color_output = true
 profile = "black"
-py_version = 310
+py_version = 311
 
 [tool.pylama.pep8]
 max_line_length = 88
@@ -84,7 +84,6 @@ authors = ["Ebeling, Dr. Bastian <bastian.ebeling@web.de>"]
 python = "~3.11"
 radon = "^5.0.1"
 numpy = ">=1.22.0"
-ufmt = "^2.0.1"
 
 [tool.poetry.dev-dependencies]
 black = "*"
@@ -93,6 +92,7 @@ eradicate = "*"
 flake8 = "*"
 git-story = "^0.1.4"
 interrogate = "^1.5.0"
+ufmt = "^2.0.1"
 isort = "*"
 mccabe = "*"
 MonkeyType = "^22.2.0"
