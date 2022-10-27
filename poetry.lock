@@ -1498,7 +1498,7 @@ python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
 [metadata]
 lock-version = "1.1"
 python-versions = "~3.11"
-content-hash = "dc549bf94fb5ebe927c8e87362ae05fd62c3a221ed3c23de5cc94668d148aa28"
+content-hash = "5824bff04b33e95622d902a487b8c280882bc4398c8fd78dbded5cbdeb85dc66"
 
 [metadata.files]
 aenum = [

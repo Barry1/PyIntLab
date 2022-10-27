@@ -110,13 +110,16 @@ pylint = "*"
 pyre-check = "*"
 pyright = "^1.1.235"
 pytest = "*"
-#pytype = ">=2022.6.30"
 setuptools = "^62.1.0"
 types-setuptools = "*"
 types-toml = "*"
 vermin = "*"
 vulture = "*"
 autopep8 = "^1.6.0"
+
+[tool.poetry.dev-dependencies.pytype]
+version = ">=2022.4.22"
+python = "~3.10"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
