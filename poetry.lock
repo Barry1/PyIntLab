@@ -313,7 +313,7 @@ gitdb = ">=4.0.1,<5"
 
 [[package]]
 name = "glcontext"
-version = "2.3.6"
+version = "2.3.7"
 description = "Portable OpenGL Context"
 category = "dev"
 optional = false
