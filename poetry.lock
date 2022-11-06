@@ -1380,7 +1380,7 @@ python-versions = "*"
 
 [[package]]
 name = "typeshed-client"
-version = "2.0.5"
+version = "2.1.0"
 description = "A library for accessing stubs in typeshed."
 category = "dev"
 optional = false
@@ -1859,10 +1859,7 @@ typeguard = [
 ]
 types-setuptools = []
 types-toml = []
-typeshed-client = [
-    {file = "typeshed_client-2.0.5-py3-none-any.whl", hash = "sha256:001513fd279dfb27f93b8fbb1f32c7a0070d443b6e65b066b14450fbb53d3019"},
-    {file = "typeshed_client-2.0.5.tar.gz", hash = "sha256:d8720eb3c52caf4ef3990e2bef39a7fdc5be6f2dd63cae96e6b01fa1a1744b03"},
-]
+typeshed-client = []
 typing-extensions = []
 typing-inspect = []
 ufmt = []
