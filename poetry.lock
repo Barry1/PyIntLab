@@ -542,7 +542,7 @@ python-versions = "*"
 
 [[package]]
 name = "moderngl"
-version = "5.7.1"
+version = "5.7.2"
 description = "ModernGL: High performance rendering for Python 3"
 category = "dev"
 optional = false
