@@ -16,7 +16,7 @@ python-versions = ">=3.6"
 
 [[package]]
 name = "astroid"
-version = "2.12.12"
+version = "2.12.13"
 description = "An abstract syntax tree for Python with inference support."
 category = "dev"
 optional = false
@@ -834,7 +834,7 @@ six = "*"
 
 [[package]]
 name = "pycairo"
-version = "1.21.0"
+version = "1.22.0"
 description = "Python interface for cairo"
 category = "dev"
 optional = false
