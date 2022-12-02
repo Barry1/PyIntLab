@@ -128,14 +128,14 @@ click = "*"
 
 [[package]]
 name = "cloup"
-version = "0.7.1"
-description = "Option groups and subcommand help sections for pallets/click"
+version = "0.13.1"
+description = "Adds features to Click: option groups, constraints, subcommand sections and help themes."
 category = "dev"
 optional = false
 python-versions = ">=3.6"
 
 [package.dependencies]
-click = ">=7.0,<9.0"
+click = ">=7.1,<9.0"
 
 [[package]]
 name = "codemod"
@@ -445,43 +445,42 @@ restructuredtext = ["rst2ansi"]
 
 [[package]]
 name = "manim"
-version = "0.14.0"
+version = "0.17.0"
 description = "Animation engine for explanatory math videos."
 category = "dev"
 optional = false
-python-versions = ">=3.7,<4.0"
+python-versions = ">=3.8,<3.12"
 
 [package.dependencies]
-click = ">=7.1"
-click-default-group = "*"
-cloup = ">=0.7.0,<0.8.0"
-colour = "*"
+click = ">=7.2,<=9.0"
+click-default-group = ">=1.2.2,<2.0.0"
+cloup = ">=0.13.0,<0.14.0"
+colour = ">=0.1.5,<0.2.0"
 decorator = ">=5.0.7,<6.0.0"
 isosurfaces = "0.1.0"
 manimpango = ">=0.4.0.post0,<0.5.0"
-mapbox-earcut = ">=0.12.10,<0.13.0"
+mapbox-earcut = ">=1.0.0,<2.0.0"
 moderngl = ">=5.6.3,<6.0.0"
 moderngl-window = ">=2.3.0,<3.0.0"
 networkx = ">=2.5,<3.0"
-numpy = ">=1.9,<2.0"
-Pillow = "*"
-pycairo = ">=1.19,<2.0"
-pydub = "*"
-pygments = "*"
-requests = "*"
-rich = ">=6.0"
-scipy = "*"
-screeninfo = ">=0.6.7,<0.7.0"
-setuptools = "*"
+numpy = ">=1.19,<2.0"
+Pillow = ">=9.1,<10.0"
+pycairo = ">=1.21,<2.0"
+pydub = ">=0.25.1,<0.26.0"
+Pygments = ">=2.10.0,<3.0.0"
+requests = ">=2.26.0,<3.0.0"
+rich = ">=6.0,<12.0.0 || >12.0.0"
+scipy = ">=1.7.3,<2.0.0"
+screeninfo = ">=0.8,<0.9"
 skia-pathops = ">=0.7.0,<0.8.0"
 srt = ">=3.5.0,<4.0.0"
-tqdm = "*"
-watchdog = "*"
+svgelements = ">=1.7.2,<2.0.0"
+tqdm = ">=4.62.3,<5.0.0"
+watchdog = ">=2.1.6,<3.0.0"
 
 [package.extras]
-gui = ["dearpygui (>=0.8,<0.9)"]
-jupyterlab = ["jupyterlab (>=3.0,<4.0)"]
-webgl-renderer = ["grpcio (>=1.33.0,<1.34.0)", "grpcio-tools (>=1.33.0,<1.34.0)"]
+gui = ["dearpygui (>=1.3.1,<2.0.0)"]
+jupyterlab = ["jupyterlab (>=3.0,<4.0)", "notebook (>=6.4,<7.0)"]
 
 [[package]]
 name = "manimpango"
@@ -493,7 +492,7 @@ python-versions = ">=3.7"
 
 [[package]]
 name = "mapbox-earcut"
-version = "0.12.11"
+version = "1.0.0"
 description = "Python bindings for the mapbox earcut C++ polygon triangulation library."
 category = "dev"
 optional = false
@@ -763,7 +762,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
 [[package]]
 name = "prospector"
-version = "1.8.1"
+version = "1.8.2"
 description = ""
 category = "dev"
 optional = false
@@ -892,7 +891,7 @@ python-versions = ">=3.6"
 
 [[package]]
 name = "pyglet"
-version = "2.0.0"
+version = "2.0.1"
 description = "Cross-platform windowing and multimedia library"
 category = "dev"
 optional = false
@@ -1208,11 +1207,11 @@ test = ["asv", "gmpy2", "mpmath", "pytest", "pytest-cov", "pytest-xdist", "sciki
 
 [[package]]
 name = "screeninfo"
-version = "0.6.7"
+version = "0.8.1"
 description = "Fetch location and size of physical screens."
 category = "dev"
 optional = false
-python-versions = "*"
+python-versions = ">=3.6.2,<4.0.0"
 
 [package.dependencies]
 Cython = {version = "*", markers = "sys_platform == \"darwin\""}
@@ -1300,6 +1299,14 @@ description = "List of packages in the stdlib"
 category = "dev"
 optional = false
 python-versions = ">=3.7"
+
+[[package]]
+name = "svgelements"
+version = "1.8.4"
+description = "Svg Elements Parsing"
+category = "dev"
+optional = false
+python-versions = "*"
 
 [[package]]
 name = "tabulate"
@@ -1618,8 +1625,8 @@ click-default-group = [
     {file = "click-default-group-1.2.2.tar.gz", hash = "sha256:d9560e8e8dfa44b3562fbc9425042a0fd6d21956fcc2db0077f63f34253ab904"},
 ]
 cloup = [
-    {file = "cloup-0.7.1-py2.py3-none-any.whl", hash = "sha256:947c881ada77ea2f7b2876f7b5bb2fc7e5406daac5a045342acf8de35bcce5d7"},
-    {file = "cloup-0.7.1.tar.gz", hash = "sha256:f26cc500dda4e4c9444ac1008b82376df8d72ecfa43a6310a9b3d54ef98add7b"},
+    {file = "cloup-0.13.1-py2.py3-none-any.whl", hash = "sha256:04a29a483e122c04f401547dcbce451ce002ff3e392308122619d5b9009f321f"},
+    {file = "cloup-0.13.1.tar.gz", hash = "sha256:ea0acc67eed994b86e79b70d76bc2ea525b7f98f3cd8e63696896d549597ef4d"},
 ]
 codemod = [
     {file = "codemod-1.0.0.tar.gz", hash = "sha256:06e8c75f2b45210dd8270e30a6a88ae464b39abd6d0cab58a3d7bfd1c094e588"},
@@ -1910,8 +1917,8 @@ mando = [
     {file = "mando-0.6.4.tar.gz", hash = "sha256:79feb19dc0f097daa64a1243db578e7674909b75f88ac2220f1c065c10a0d960"},
 ]
 manim = [
-    {file = "manim-0.14.0-py3-none-any.whl", hash = "sha256:dac5e869a8aee355773bd827282c4d51a2018d716539277ad3d6423f88010657"},
-    {file = "manim-0.14.0.tar.gz", hash = "sha256:4a6bdd65d289b9a0dc95f9a2c3cc7b93da934869938de061b39d011f98286c90"},
+    {file = "manim-0.17.0-py3-none-any.whl", hash = "sha256:9b9aea1b834b104d7cb173e78e9aacef08917c5da27fd3c4ef85ce881761157b"},
+    {file = "manim-0.17.0.tar.gz", hash = "sha256:0ba894b9c16287b7dab8be25dfd5e757b37fe1bcbd0852521ce55571353035e8"},
 ]
 manimpango = [
     {file = "ManimPango-0.4.3-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:ad4f43f3c009a9c2f37607f1a4c51bcb3cde0911f2cf262cb7797b44556d005e"},
@@ -1932,36 +1939,36 @@ manimpango = [
     {file = "ManimPango-0.4.3.tar.gz", hash = "sha256:732f1cb98bcc122c0dee93bb54966aa595f90730e5096ad6d86602cf4ba1a103"},
 ]
 mapbox-earcut = [
-    {file = "mapbox_earcut-0.12.11-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:421dbfc321871e66afe9264165848c0d13a37b27156f8a42a642bf5820bafdda"},
-    {file = "mapbox_earcut-0.12.11-cp310-cp310-manylinux_2_12_i686.manylinux2010_i686.whl", hash = "sha256:3285f55acc7628cec1a61c551a7225b9c78c4f849c39417c768019b4408f8536"},
-    {file = "mapbox_earcut-0.12.11-cp310-cp310-manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:1fdbca4b14564e636e5ffb4c83f49c739bacf49ec590db9ca2c25e9642feb490"},
-    {file = "mapbox_earcut-0.12.11-cp310-cp310-win32.whl", hash = "sha256:d26621f4ca8eff937d4539d5d0e59142fd6466ea161791640ea17547394ffc18"},
-    {file = "mapbox_earcut-0.12.11-cp310-cp310-win_amd64.whl", hash = "sha256:cbcd8c2831a8ce848842b3e710e57db00cfdd3d7753cc67b1cc61d0c7dd91ca8"},
-    {file = "mapbox_earcut-0.12.11-cp36-cp36m-macosx_10_9_x86_64.whl", hash = "sha256:4c4c55711d7877ea4d2f11d1422c46004121a2b1f4aab6c0b587eab2d87b3a6b"},
-    {file = "mapbox_earcut-0.12.11-cp36-cp36m-manylinux_2_12_i686.manylinux2010_i686.whl", hash = "sha256:4ebf5f1b3cc7ec0f90eb4f9479b8013da46ece2cf69c887fdfdee6bec1169eb6"},
-    {file = "mapbox_earcut-0.12.11-cp36-cp36m-manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:d438ef905fb3ec6cb1378c5b169888e0f36a7786354a9a2ae8b8d5e75fe5beee"},
-    {file = "mapbox_earcut-0.12.11-cp36-cp36m-win32.whl", hash = "sha256:c9d8d4e61ad67ce5aeac7a948b4bb68bd2126d5fceccaaaf33a625b43225ba45"},
-    {file = "mapbox_earcut-0.12.11-cp36-cp36m-win_amd64.whl", hash = "sha256:2357cc3402173b9ba601fe1d2abf55a2fc80a969680981e51fce3bd7524aab6f"},
-    {file = "mapbox_earcut-0.12.11-cp37-cp37m-macosx_10_9_x86_64.whl", hash = "sha256:83d6a8fc39ef55ddb1f47bd49523b11e7cf9f07292356b93ad18c58473282fd4"},
-    {file = "mapbox_earcut-0.12.11-cp37-cp37m-manylinux_2_12_i686.manylinux2010_i686.whl", hash = "sha256:2eb7b64ee5b003a71fd1108894fd7a579c87919e7cf5da9f865d5e9694934cd5"},
-    {file = "mapbox_earcut-0.12.11-cp37-cp37m-manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:64ca3752284345416834e591d9029d50dfa06661208f45d8b7e91f58e2610864"},
-    {file = "mapbox_earcut-0.12.11-cp37-cp37m-win32.whl", hash = "sha256:8a90b6773db060474bbc1062c972a18f9dc4ea6940a47fb39090e60f821a9239"},
-    {file = "mapbox_earcut-0.12.11-cp37-cp37m-win_amd64.whl", hash = "sha256:d90adb110d45198dcfc2b546648bd23b98737a38c6f0dea0e5949aeae3fca3dd"},
-    {file = "mapbox_earcut-0.12.11-cp38-cp38-macosx_10_9_x86_64.whl", hash = "sha256:cc3e8b1961f53f7bae3c6818ee7114ba0512aa3c0a8fb61818240ecd02fd22e4"},
-    {file = "mapbox_earcut-0.12.11-cp38-cp38-manylinux_2_12_i686.manylinux2010_i686.whl", hash = "sha256:0a31f96bc080e2f12fd39172baf891c5050bd56e2f60608d45139fd0ce489f08"},
-    {file = "mapbox_earcut-0.12.11-cp38-cp38-manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:dc4c69b2953b1267804f34044c483420f902514ab3cdf02fe454b4fd7192e6a2"},
-    {file = "mapbox_earcut-0.12.11-cp38-cp38-win32.whl", hash = "sha256:30c2d30a00ad28d03026dba76de870b2e66fe01a7b340f3cb459b65a4c902ee5"},
-    {file = "mapbox_earcut-0.12.11-cp38-cp38-win_amd64.whl", hash = "sha256:6e01b9a9bc15d85e7dcbec52148e9851760a67e097eb63e4bc354e551ab4ae6d"},
-    {file = "mapbox_earcut-0.12.11-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:f69ac829ce208bcf85d47e0bf6409b79fc81ae7ca390de3ce2c4e971693328d8"},
-    {file = "mapbox_earcut-0.12.11-cp39-cp39-manylinux_2_12_i686.manylinux2010_i686.whl", hash = "sha256:4eff01f3dc0f62ad4ea38da0ef16a242d613aa4efa38eb924677d8427de2e20c"},
-    {file = "mapbox_earcut-0.12.11-cp39-cp39-manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:69da117d3716b5e1f052d7ffc93411a8651bb7c8a7cc41c4ed362e07a45eaae6"},
-    {file = "mapbox_earcut-0.12.11-cp39-cp39-win32.whl", hash = "sha256:8faaa8239a6c6db67220a1908b232e0d673c4ba5d06e0943fce0e4d9908ca796"},
-    {file = "mapbox_earcut-0.12.11-cp39-cp39-win_amd64.whl", hash = "sha256:4c7c297063c2cd3608d42b174303dfb32f3b9252cf115bed06eb3c64875d3458"},
-    {file = "mapbox_earcut-0.12.11-pp37-pypy37_pp73-macosx_10_9_x86_64.whl", hash = "sha256:96783c3f818f0844d9153a45312142b4e1bda9c284eb4828bba1a9e1fbeb268e"},
-    {file = "mapbox_earcut-0.12.11-pp37-pypy37_pp73-manylinux_2_12_i686.manylinux2010_i686.whl", hash = "sha256:a39a27a205189476e6404a855652c834a1cef087207131d3515aff7ac06b1a1f"},
-    {file = "mapbox_earcut-0.12.11-pp37-pypy37_pp73-manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:18cd01be27ec85357e2f9ea0bbe7ce2f71d593966568e5cf12a9b7e19bf0e8d1"},
-    {file = "mapbox_earcut-0.12.11-pp37-pypy37_pp73-win_amd64.whl", hash = "sha256:6542cc54b330c876e62dad15e98dd4df18e2fd75ffb5b9c84d0629bd085ea123"},
-    {file = "mapbox_earcut-0.12.11.tar.gz", hash = "sha256:2808757f8a95eb816d3ce225528c9cb15355afe175f3bcb6837eb7700972e0b9"},
+    {file = "mapbox_earcut-1.0.0-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:1ced70e48725bbba7da442e36a013df447ebd1b1cc2cfac02222a4b78f03615c"},
+    {file = "mapbox_earcut-1.0.0-cp310-cp310-manylinux_2_12_i686.manylinux2010_i686.whl", hash = "sha256:b106999b3880188891e1e87f2c5abbf739bc09ec89f8044e196fd4607d24ccf0"},
+    {file = "mapbox_earcut-1.0.0-cp310-cp310-manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:653e03417a308febcd2cb74812d7077dbd52c47da492c9b2e5f9c42adb2d659a"},
+    {file = "mapbox_earcut-1.0.0-cp310-cp310-win32.whl", hash = "sha256:b5a74951b9cb827f6bf77cf6f6afc9af5dc57b2e6257770d7d256a1aa0787142"},
+    {file = "mapbox_earcut-1.0.0-cp310-cp310-win_amd64.whl", hash = "sha256:f630f135e20a781f9d7ce7aa0bba89ebd46d46344970db9aa8cbcf6eb1cb4b94"},
+    {file = "mapbox_earcut-1.0.0-cp36-cp36m-macosx_10_9_x86_64.whl", hash = "sha256:265d60d64a91af267fe9c747625341a5d042009c5436550037cebed69c701c62"},
+    {file = "mapbox_earcut-1.0.0-cp36-cp36m-manylinux_2_12_i686.manylinux2010_i686.whl", hash = "sha256:7f9245ea3eeab942020058376be0d2368940ecb0a659d5ba83579cf11699cd8a"},
+    {file = "mapbox_earcut-1.0.0-cp36-cp36m-manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:55899708fe29ac8213e040ce836afdfe3cf4d63392c78c0c03ccc1b3350fbd25"},
+    {file = "mapbox_earcut-1.0.0-cp36-cp36m-win32.whl", hash = "sha256:b7d3e5956d24d9d987c435dadecca723c5db6e7e46c824a8dbd98adb97057442"},
+    {file = "mapbox_earcut-1.0.0-cp36-cp36m-win_amd64.whl", hash = "sha256:6fe02ca7bb1ec5bd5f288807beb880d5677748957e8ecd797aee91b18a235c10"},
+    {file = "mapbox_earcut-1.0.0-cp37-cp37m-macosx_10_9_x86_64.whl", hash = "sha256:1c1f0746b7921dc8e09c34774671c679771e36782cecd21e7ceeeccad70dfc35"},
+    {file = "mapbox_earcut-1.0.0-cp37-cp37m-manylinux_2_12_i686.manylinux2010_i686.whl", hash = "sha256:faff85293f3baf6fe53db5958dddcbb4f9b883f344921c378f82ddce55eff5a4"},
+    {file = "mapbox_earcut-1.0.0-cp37-cp37m-manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:cf4dd5768bc733e6fe0cc6a907e168c4a9777a1d5e148b5daa1edf45ce7c3e9f"},
+    {file = "mapbox_earcut-1.0.0-cp37-cp37m-win32.whl", hash = "sha256:8b8f8fe1b42a134c7a113c123be74dca64632e672d82aa4b4024f8453f590d71"},
+    {file = "mapbox_earcut-1.0.0-cp37-cp37m-win_amd64.whl", hash = "sha256:991bfea36ba73f1cbd22aa93a2ff4beec13657ac5acd7a602a912eb2f84f4860"},
+    {file = "mapbox_earcut-1.0.0-cp38-cp38-macosx_10_9_x86_64.whl", hash = "sha256:fa58aabef34ffd76b262efec7bc9c9998c1c6561c192b7e7ac60b68c27c6b145"},
+    {file = "mapbox_earcut-1.0.0-cp38-cp38-manylinux_2_12_i686.manylinux2010_i686.whl", hash = "sha256:f62d8b7cb57559ca9aaf5cde8cebe309eb493d344b24b2934e18945e05e89221"},
+    {file = "mapbox_earcut-1.0.0-cp38-cp38-manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:98a412757740faeede3167c54426917076a863ccc74847f9e58bfcf51f0b7be7"},
+    {file = "mapbox_earcut-1.0.0-cp38-cp38-win32.whl", hash = "sha256:7cb4d98af4c1b256483903a909099d7a84664e9a5aec5818c84d44f1104c3144"},
+    {file = "mapbox_earcut-1.0.0-cp38-cp38-win_amd64.whl", hash = "sha256:4229ec0fbe1baf88cd9a8f17b76d905323ee7daade0f19f573bd488ca8fdc06f"},
+    {file = "mapbox_earcut-1.0.0-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:175200a3a7d1db037592b48c3b470695ff969ed0aaa69a00f7526d8502848756"},
+    {file = "mapbox_earcut-1.0.0-cp39-cp39-manylinux_2_12_i686.manylinux2010_i686.whl", hash = "sha256:cefb0fe3427f2a207753e2eb869de05893f1156199474e998c9427bdb465b50b"},
+    {file = "mapbox_earcut-1.0.0-cp39-cp39-manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:7792378a4a13e472ae5021104dfd423fd6e014a67bdbe27c0c49b1df47f6f050"},
+    {file = "mapbox_earcut-1.0.0-cp39-cp39-win32.whl", hash = "sha256:4fd85aee997165acd42ba726ba7f087f72b72f53cc0b37d430987c9bf1acc2c1"},
+    {file = "mapbox_earcut-1.0.0-cp39-cp39-win_amd64.whl", hash = "sha256:8f3c4df83fa5f7c942d18fb0433bf903dc22b447860094444dd960dd5b85c526"},
+    {file = "mapbox_earcut-1.0.0-pp37-pypy37_pp73-macosx_10_9_x86_64.whl", hash = "sha256:e4828e9002384e7d7ad1a213f61029f8e17d6fa9a30408d64f9d755f0c11762b"},
+    {file = "mapbox_earcut-1.0.0-pp37-pypy37_pp73-manylinux_2_12_i686.manylinux2010_i686.whl", hash = "sha256:10a91eabe076f474375accfc164e91af8bf2b15675d443b08b938315cc234be9"},
+    {file = "mapbox_earcut-1.0.0-pp37-pypy37_pp73-manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:c5ee744864f7cc9b0b9dd6031871731e2340cf65f18b0ca64121f2682be0ba4e"},
+    {file = "mapbox_earcut-1.0.0-pp37-pypy37_pp73-win_amd64.whl", hash = "sha256:cf35d52e0a0413bcb878706c1a565a2939d49a2e011498d905b7bc8d1ad12543"},
+    {file = "mapbox_earcut-1.0.0.tar.gz", hash = "sha256:997ab14b9afbc14b1aede880b8f57efc7f28d6811a08db0adf1804b63bab0d9b"},
 ]
 marshmallow = [
     {file = "marshmallow-3.19.0-py3-none-any.whl", hash = "sha256:93f0958568da045b0021ec6aeb7ac37c81bfcccbb9a0e7ed8559885070b3a19b"},
@@ -2213,8 +2220,8 @@ poetry-semver = [
     {file = "poetry_semver-0.1.0-py2.py3-none-any.whl", hash = "sha256:4e6349bd7231cc657f0e1930f7b204e87e33dfd63eef5cac869363969515083a"},
 ]
 prospector = [
-    {file = "prospector-1.8.1-py3-none-any.whl", hash = "sha256:eca55a1674b2cd8f907129f7efdd7304d734e447c20a1c4cbceabcd0d493ba95"},
-    {file = "prospector-1.8.1.tar.gz", hash = "sha256:ad2cda56a6fac864cb441d41c0f0f73cf697059d339e28ecae7643e7fd02e4c3"},
+    {file = "prospector-1.8.2-py3-none-any.whl", hash = "sha256:3afabfce9b013796dc83edba86e83d84f6069c43da9ec5bf18b88e10e0facf05"},
+    {file = "prospector-1.8.2.tar.gz", hash = "sha256:931003914c2df58aebf3c026c3c2f1c9d1c3eb6115599dfecd06e99516486f88"},
 ]
 psutil = [
     {file = "psutil-5.9.4-cp27-cp27m-macosx_10_9_x86_64.whl", hash = "sha256:c1ca331af862803a42677c120aff8a814a804e09832f166f226bfd22b56feee8"},
@@ -2274,8 +2281,8 @@ pyflakes = [
     {file = "pyflakes-2.5.0.tar.gz", hash = "sha256:491feb020dca48ccc562a8c0cbe8df07ee13078df59813b83959cbdada312ea3"},
 ]
 pyglet = [
-    {file = "pyglet-2.0.0-py3-none-any.whl", hash = "sha256:42dca924cef1f7b7027dddadd7bd9f3568203952fb60784dea8ad0ad86a16124"},
-    {file = "pyglet-2.0.0.zip", hash = "sha256:da3069e51d2241b122995982ef99f3eb1226477b3a704920a2e4e649778d09ad"},
+    {file = "pyglet-2.0.1-py3-none-any.whl", hash = "sha256:6c0c0fe95fbc3b26c2f008e83bcc3dcbda1609dca6da7c3954bc4d1b529f2303"},
+    {file = "pyglet-2.0.1.zip", hash = "sha256:ec36eba0c769bac25c5347acf14f8a7ac8f64fe469458a0a998ed1d507975e47"},
 ]
 pygments = [
     {file = "Pygments-2.13.0-py3-none-any.whl", hash = "sha256:f643f331ab57ba3c9d89212ee4a2dabc6e94f117cf4eefde99a0574720d14c42"},
@@ -2455,7 +2462,8 @@ scipy = [
     {file = "scipy-1.9.3.tar.gz", hash = "sha256:fbc5c05c85c1a02be77b1ff591087c83bc44579c6d2bd9fb798bb64ea5e1a027"},
 ]
 screeninfo = [
-    {file = "screeninfo-0.6.7.tar.gz", hash = "sha256:1c4bac1ca329da3f68cbc4d2fbc92256aa9bb8ff8583ee3e14f91f0a7baa69cb"},
+    {file = "screeninfo-0.8.1-py3-none-any.whl", hash = "sha256:e97d6b173856edcfa3bd282f81deb528188aff14b11ec3e195584e7641be733c"},
+    {file = "screeninfo-0.8.1.tar.gz", hash = "sha256:9983076bcc7e34402a1a9e4d7dabf3729411fd2abb3f3b4be7eba73519cd2ed1"},
 ]
 setoptconf-tmp = [
     {file = "setoptconf-tmp-0.3.1.tar.gz", hash = "sha256:e0480addd11347ba52f762f3c4d8afa3e10ad0affbc53e3ffddc0ca5f27d5778"},
@@ -2532,6 +2540,10 @@ srt = [
 stdlibs = [
     {file = "stdlibs-2022.10.9-py3-none-any.whl", hash = "sha256:0deede419c34f9d57cddaff35939af6e186be6b3293c1f022eb0647709fb5b78"},
     {file = "stdlibs-2022.10.9.tar.gz", hash = "sha256:72a3e4a7fbb40b0e766197e3381c2aabb4ca0442633e0bd99ffeec3908c9fdd8"},
+]
+svgelements = [
+    {file = "svgelements-1.8.4-py2.py3-none-any.whl", hash = "sha256:dc43ef603c650a2bf6380910bb9a28968e2474eb229295b9a36443f825c3a4f4"},
+    {file = "svgelements-1.8.4.tar.gz", hash = "sha256:af0fa36d8d239c4df205e110cf531256359c6c4c93aa3cd13ae9599912f1335d"},
 ]
 tabulate = [
     {file = "tabulate-0.9.0-py3-none-any.whl", hash = "sha256:024ca478df22e9340661486f85298cff5f6dcdba14f3813e8830015b9ed1948f"},
