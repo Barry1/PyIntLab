@@ -1,6 +1,11 @@
 #<https://github.com/bewuethr/mdl-action/blob/master/.github/workflows/lint.yml> LOOK THERE
 name: Basti-Test
-on: push
+on:
+  workflow_dispatch:
+#  push:
+#    branches: ["main", "master"]
+#  pull_request:
+#    branches: ["main", "master"]
 jobs:
   typing:
     runs-on: ubuntu-latest
