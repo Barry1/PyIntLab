@@ -460,35 +460,20 @@ files = [
 
 [[package]]
 name = "flake8"
-version = "2.3.0"
-description = "the modular source code checker: pep8, pyflakes and co"
+version = "6.0.0"
+description = "the modular source code checker: pep8 pyflakes and co"
 category = "dev"
 optional = false
-python-versions = "*"
+python-versions = ">=3.8.1"
 files = [
-    {file = "flake8-2.3.0-py2.py3-none-any.whl", hash = "sha256:c99cc9716d6655d9c8bcb1e77632b8615bf0abd282d7abd9f5c2148cad7fc669"},
-    {file = "flake8-2.3.0.tar.gz", hash = "sha256:5ee1a43ccd0716d6061521eec6937c983efa027793013e572712c4da55c7c83e"},
+    {file = "flake8-6.0.0-py2.py3-none-any.whl", hash = "sha256:3833794e27ff64ea4e9cf5d410082a8b97ff1a06c16aa3d2027339cd0f1195c7"},
+    {file = "flake8-6.0.0.tar.gz", hash = "sha256:c61007e76655af75e6785a931f452915b371dc48f56efd765247c8fe68f2b181"},
 ]
 
 [package.dependencies]
-mccabe = ">=0.2.1"
-pep8 = ">=1.5.7"
-pyflakes = ">=0.8.1"
-
-[[package]]
-name = "flake8-polyfill"
-version = "1.0.2"
-description = "Polyfill package for Flake8 plugins"
-category = "dev"
-optional = false
-python-versions = "*"
-files = [
-    {file = "flake8-polyfill-1.0.2.tar.gz", hash = "sha256:e44b087597f6da52ec6393a709e7108b2905317d0c0b744cdca6208e670d8eda"},
-    {file = "flake8_polyfill-1.0.2-py2.py3-none-any.whl", hash = "sha256:12be6a34ee3ab795b19ca73505e7b55826d5f6ad7230d31b18e106400169b9e9"},
-]
-
-[package.dependencies]
-flake8 = "*"
+mccabe = ">=0.7.0,<0.8.0"
+pycodestyle = ">=2.10.0,<2.11.0"
+pyflakes = ">=3.0.0,<3.1.0"
 
 [[package]]
 name = "future"
@@ -1332,18 +1317,18 @@ files = [
 
 [[package]]
 name = "pep8-naming"
-version = "0.10.0"
+version = "0.13.3"
 description = "Check PEP-8 naming conventions, plugin for flake8"
 category = "dev"
 optional = false
-python-versions = "*"
+python-versions = ">=3.7"
 files = [
-    {file = "pep8-naming-0.10.0.tar.gz", hash = "sha256:f3b4a5f9dd72b991bf7d8e2a341d2e1aa3a884a769b5aaac4f56825c1763bf3a"},
-    {file = "pep8_naming-0.10.0-py2.py3-none-any.whl", hash = "sha256:5d9f1056cb9427ce344e98d1a7f5665710e2f20f748438e308995852cfa24164"},
+    {file = "pep8-naming-0.13.3.tar.gz", hash = "sha256:1705f046dfcd851378aac3be1cd1551c7c1e5ff363bacad707d43007877fa971"},
+    {file = "pep8_naming-0.13.3-py3-none-any.whl", hash = "sha256:1a86b8c71a03337c97181917e2b472f0f5e4ccb06844a0d6f0a33522549e7a80"},
 ]
 
 [package.dependencies]
-flake8-polyfill = ">=1.0.2,<2"
+flake8 = ">=5.0.0"
 
 [[package]]
 name = "pillow"
@@ -1466,41 +1451,37 @@ files = [
 
 [[package]]
 name = "prospector"
-version = "1.8.3"
-description = "Prospector is a tool to analyse Python code by aggregating the result of other tools."
+version = "0.12.2"
+description = "Prospector: python static analysis tool"
 category = "dev"
 optional = false
-python-versions = ">=3.7,<4.0"
+python-versions = "*"
 files = [
-    {file = "prospector-1.8.3-py3-none-any.whl", hash = "sha256:75d65a6f40682f25ea6f69dc12add9f921dbafdd307bf27aa099728f89d77b67"},
-    {file = "prospector-1.8.3.tar.gz", hash = "sha256:b674b619e1b9923eb750aea4ccda6254d2ebaca11eb1c43fbddf019a7cfcc5cb"},
+    {file = "prospector-0.12.2.tar.gz", hash = "sha256:eee570da89ac0fec8d746fc72c97e1a8aca9dd82161cac175d78ddd0d5170487"},
 ]
 
 [package.dependencies]
-dodgy = ">=0.2.1,<0.3.0"
-flake8 = "<6.0.0"
-GitPython = ">=3.1.27,<4.0.0"
-mccabe = ">=0.7.0,<0.8.0"
-pep8-naming = ">=0.3.3,<=0.10.0"
-pycodestyle = ">=2.9.0"
-pydocstyle = ">=2.0.0"
-pyflakes = ">=2.2.0,<3"
-pylint = ">=2.8.3"
-pylint-celery = "0.3"
-pylint-django = ">=2.5,<2.6"
-pylint-flask = "0.6"
-pylint-plugin-utils = ">=0.7,<0.8"
-PyYAML = "*"
-requirements-detector = ">=1.0.3"
-setoptconf-tmp = ">=0.3.1,<0.4.0"
-toml = ">=0.10.2,<0.11.0"
+dodgy = ">=0.1.9"
+mccabe = ">=0.5.0"
+pep8-naming = ">=0.3.3"
+pycodestyle = ">=2.0.0"
+pydocstyle = ">=0.1"
+pyflakes = ">=0.8.1"
+pylint = ">=1.5.6"
+pylint-celery = ">=0.3"
+pylint-common = ">=0.2.2"
+pylint-django = ">=0.7.2"
+pylint-flask = ">=0.3"
+pylint-plugin-utils = ">=0.2.3"
+pyyaml = "*"
+requirements-detector = ">=0.4.1"
+setoptconf = ">=0.2.0"
 
 [package.extras]
-with-bandit = ["bandit (>=1.5.1)"]
-with-everything = ["bandit (>=1.5.1)", "mypy (>=0.600)", "pyroma (>=2.4)", "vulture (>=1.5)"]
-with-mypy = ["mypy (>=0.600)"]
-with-pyroma = ["pyroma (>=2.4)"]
-with-vulture = ["vulture (>=1.5)"]
+with-everything = ["frosted (>=1.4.1)", "pyroma (>=2.0.2)", "vulture (>=0.6)"]
+with-frosted = ["frosted (>=1.4.1)"]
+with-pyroma = ["pyroma (>=2.0.2)"]
+with-vulture = ["vulture (>=0.6)"]
 
 [[package]]
 name = "psutil"
@@ -1645,14 +1626,14 @@ files = [
 
 [[package]]
 name = "pyflakes"
-version = "2.5.0"
+version = "3.0.1"
 description = "passive checker of Python programs"
 category = "dev"
 optional = false
 python-versions = ">=3.6"
 files = [
-    {file = "pyflakes-2.5.0-py2.py3-none-any.whl", hash = "sha256:4579f67d887f804e67edb544428f264b7b24f435b263c4614f384135cea553d2"},
-    {file = "pyflakes-2.5.0.tar.gz", hash = "sha256:491feb020dca48ccc562a8c0cbe8df07ee13078df59813b83959cbdada312ea3"},
+    {file = "pyflakes-3.0.1-py2.py3-none-any.whl", hash = "sha256:ec55bf7fe21fff7f1ad2f7da62363d749e2a470500eab1b555334b67aa1ef8cf"},
+    {file = "pyflakes-3.0.1.tar.gz", hash = "sha256:ec8b276a6b60bd80defed25add7e439881c19e64850afd9b346283d4165fd0fd"},
 ]
 
 [[package]]
@@ -1750,6 +1731,21 @@ files = [
 astroid = ">=1.0"
 pylint = ">=1.0"
 pylint-plugin-utils = ">=0.2.1"
+
+[[package]]
+name = "pylint-common"
+version = "0.2.5"
+description = "pylint-common is a Pylint plugin to improve Pylint error analysis of the standard Python library"
+category = "dev"
+optional = false
+python-versions = "*"
+files = [
+    {file = "pylint-common-0.2.5.tar.gz", hash = "sha256:3276b9e4db16f41cee656c78c74cfef3da383e8301e5b3b91146586ae5b53659"},
+]
+
+[package.dependencies]
+pylint = ">=1.0"
+pylint-plugin-utils = ">=0.2.5"
 
 [[package]]
 name = "pylint-django"
@@ -2169,15 +2165,15 @@ Cython = {version = "*", markers = "sys_platform == \"darwin\""}
 pyobjc-framework-Cocoa = {version = "*", markers = "sys_platform == \"darwin\""}
 
 [[package]]
-name = "setoptconf-tmp"
-version = "0.3.1"
+name = "setoptconf"
+version = "0.3.0"
 description = "A module for retrieving program settings from various sources in a consistant method."
 category = "dev"
 optional = false
-python-versions = "*"
+python-versions = ">=3.0"
 files = [
-    {file = "setoptconf-tmp-0.3.1.tar.gz", hash = "sha256:e0480addd11347ba52f762f3c4d8afa3e10ad0affbc53e3ffddc0ca5f27d5778"},
-    {file = "setoptconf_tmp-0.3.1-py3-none-any.whl", hash = "sha256:76035d5cd1593d38b9056ae12d460eca3aaa34ad05c315b69145e138ba80a745"},
+    {file = "setoptconf-0.3.0-py3-none-any.whl", hash = "sha256:1fa613dc4a6fbfbaab9a52319d1e369d030e8ed80455b151574ccf3390ec86c6"},
+    {file = "setoptconf-0.3.0.tar.gz", hash = "sha256:d2ecbd27c0c7d0d53990e2df98d9aad6490df8b75b71c621d8c441d6e91e3161"},
 ]
 
 [package.extras]
@@ -2732,4 +2728,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "~3.11"
-content-hash = "29fb45978980ec4406542cf6a7a019e056d9ee8325f7ab78a8e244057cb73076"
+content-hash = "a05a08a79331ec8be306942af54509e78ff79e098930983615dc8e8f9a4628ea"
