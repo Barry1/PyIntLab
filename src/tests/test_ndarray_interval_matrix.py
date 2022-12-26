@@ -32,11 +32,11 @@ def test_matrix_product() -> None:
         ],
         dtype=ScalarInterval,
     )
-    result_matrix = left_matrix.dot(  # pyright: ignore [reportUnknownMemberType]
+    res_matrix = left_matrix.dot(  # pyright: ignore [reportUnknownMemberType]
         right_matrix
     )
     assert numpy.array_equal(  # pyright: ignore [reportUnknownMemberType]
-        result_matrix,
+        res_matrix,
         numpy.array(  # pyright: ignore [reportUnknownMemberType]
             [
                 [ScalarInterval(23), ScalarInterval(31)],

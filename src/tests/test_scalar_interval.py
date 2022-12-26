@@ -8,18 +8,24 @@ from pyintlab import ScalarInterval  # pylint: disable=E0402
 
 def test_explog_in() -> None:
     """Test if x in e^log(x)."""
-    for myx in [ScalarInterval(math.pi), ScalarInterval(math.pi, math.sqrt(10))]:
+    for myx in [
+        ScalarInterval(math.pi),
+        ScalarInterval(math.pi, math.sqrt(10)),
+    ]:
         assert myx in myx.log().exp()
 
 
 def test_logexp_in() -> None:
     """Test if x in log(e^x)."""
-    for myx in [ScalarInterval(math.pi), ScalarInterval(math.pi, math.sqrt(10))]:
+    for myx in [
+        ScalarInterval(math.pi),
+        ScalarInterval(math.pi, math.sqrt(10)),
+    ]:
         assert myx in myx.exp().log()
 
 
 def test_scalar_contains() -> None:
-    """Function for PyTest check keyword IN and thus __contains__ for scalar."""
+    """Function for PyTest check keyword IN (__contains__) for scalar."""
     assert math.pi in ScalarInterval(3, math.sqrt(10))
 
 
