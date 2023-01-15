@@ -17,3 +17,4 @@ monkeytype.sqlite3
 git-story_media/
 output/
 *cache
+parallel.output
