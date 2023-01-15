@@ -60,9 +60,9 @@ reportMissingImports = true
 reportMissingTypeStubs = false
 typeCheckingMode = "strict"
 tool.pyright.executionEnvironments = [
-    "root = src/pyintlab",
-    "pythonVersion = 3.11",
-    "pythonPlatform = Linux"
+  "root = src/pyintlab",
+  "pythonVersion = 3.11",
+  "pythonPlatform = Linux",
 ]
 
 [tool.pylint."MESSAGES CONTROL"]
@@ -120,6 +120,9 @@ autopep8 = ">=1.6.0"
 version = ">=2022.4.22"
 python = "~3.10"
 
+[tool.poetry.group.dev.dependencies]
+types-pygments = "^2.14.0.0"
+types-colorama = "^0.4.15.4"
 [tool.poetry.group.dev.dependencies.black]
 version = ">22"
 allow-prereleases = true
