@@ -85,17 +85,16 @@ python = "~3.11"
 radon = "^5.0.1"
 numpy = ">=1.22.0"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
+autopep8 = ">=1.6.0"
 coverage = "*"
 eradicate = "*"
 flake8 = ">=5"
 git-story = ">=0.1.4"
 interrogate = ">=1.5.0"
-ufmt = ">=2.0.1"
 isort = "*"
 mccabe = "*"
 MonkeyType = ">=22.2.0"
-mypy = "*"
 pep257 = "*"
 pep8 = "*"
 prospector = ">=1.8"
@@ -110,19 +109,21 @@ pyre-check = "*"
 pyright = ">=1.1.235"
 pytest = "*"
 setuptools = ">=62.1.0"
+types-colorama = "^0.4.15.4"
+types-pygments = "^2.14.0.0"
 types-setuptools = "*"
 types-toml = "*"
+ufmt = ">=2.0.1"
 vermin = "*"
 vulture = "*"
-autopep8 = ">=1.6.0"
 
-[tool.poetry.dev-dependencies.pytype]
+[tool.poetry.group.dev.dependencies.pytype]
 version = ">=2022.4.22"
 python = "~3.10"
 
-[tool.poetry.group.dev.dependencies]
-types-pygments = "^2.14.0.0"
-types-colorama = "^0.4.15.4"
+[tool.poetry.group.dev.dependencies.mypy]
+git = "https://github.com/python/mypy.git"
+
 [tool.poetry.group.dev.dependencies.black]
 version = ">22"
 allow-prereleases = true
