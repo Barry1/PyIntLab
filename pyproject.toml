@@ -86,7 +86,6 @@ radon = "^5.0.1"
 numpy = ">=1.22.0"
 
 [tool.poetry.dev-dependencies]
-black = "*"
 coverage = "*"
 eradicate = "*"
 flake8 = ">=6"
@@ -120,6 +119,10 @@ autopep8 = ">=1.6.0"
 [tool.poetry.dev-dependencies.pytype]
 version = ">=2022.4.22"
 python = "~3.10"
+
+[tool.poetry.group.dev.dependencies.black]
+version = ">22"
+allow-prereleases = true
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
