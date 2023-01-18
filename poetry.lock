@@ -1249,7 +1249,7 @@ six = "*"
 
 [[package]]
 name = "mypy"
-version = "1.0.0+dev.f37a0aeeb89b87de2d2bcdb7a749e4e6f63a3185"
+version = "1.0.0+dev.f957a39f4338e6532dd7381230d07cf51c72f265"
 description = "Optional static typing for Python"
 category = "dev"
 optional = false
@@ -1271,7 +1271,7 @@ reports = ["lxml"]
 type = "git"
 url = "https://github.com/python/mypy.git"
 reference = "HEAD"
-resolved_reference = "f957a39f4338e6532dd7381230d07cf51c72f265"
+resolved_reference = "f6256025c4af14f606da7aa0a3699c2417647686"
 
 [[package]]
 name = "mypy-extensions"
@@ -1624,14 +1624,14 @@ files = [
 
 [[package]]
 name = "pyanalyze"
-version = "0.8.0"
+version = "0.9.0"
 description = "A static analyzer for Python"
 category = "dev"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "pyanalyze-0.8.0-py3-none-any.whl", hash = "sha256:253c804e8a20d425518c49c32886a3bb96084aa0dfd382e8fb7d50991364555a"},
-    {file = "pyanalyze-0.8.0.tar.gz", hash = "sha256:e92959be0a307044ce9e3883ec5caed11eca0cf35394e46593f52c7993476d2e"},
+    {file = "pyanalyze-0.9.0-py3-none-any.whl", hash = "sha256:6e7e4eac6bdb6a83bbca9fec3c0540c923d501c485db318002fb11f97bd16687"},
+    {file = "pyanalyze-0.9.0.tar.gz", hash = "sha256:4930dbe9f1d1d9113baf44e043983e09dcc5588032f01f1b3eea5426cb1f5aef"},
 ]
 
 [package.dependencies]
@@ -1642,7 +1642,7 @@ codemod = "*"
 qcore = ">=0.5.1"
 tomli = ">=1.1.0"
 typeshed-client = ">=2.1.0"
-typing-extensions = ">=4.0.0"
+typing-extensions = ">=4.1.0"
 typing-inspect = ">=0.7.0"
 
 [[package]]
@@ -1696,14 +1696,14 @@ files = [
 
 [[package]]
 name = "pydocstyle"
-version = "6.2.3"
+version = "6.3.0"
 description = "Python docstring style checker"
 category = "dev"
 optional = false
 python-versions = ">=3.6"
 files = [
-    {file = "pydocstyle-6.2.3-py3-none-any.whl", hash = "sha256:a04ed1e6fe0be0970eddbb1681a7ab59b11eb92729fdb4b9b24f0eb11a25629e"},
-    {file = "pydocstyle-6.2.3.tar.gz", hash = "sha256:d867acad25e48471f2ad8a40ef9813125e954ad675202245ca836cb6e28b2297"},
+    {file = "pydocstyle-6.3.0-py3-none-any.whl", hash = "sha256:118762d452a49d6b05e194ef344a55822987a462831ade91ec5c06fd2169d019"},
+    {file = "pydocstyle-6.3.0.tar.gz", hash = "sha256:7ce43f0c0ac87b07494eb9c0b462c0b73e6ff276807f204d6b53edc72b7e44e1"},
 ]
 
 [package.dependencies]
@@ -1975,14 +1975,14 @@ typing-inspect = "*"
 
 [[package]]
 name = "pyright"
-version = "1.1.289"
+version = "1.1.290"
 description = "Command line wrapper for pyright"
 category = "dev"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "pyright-1.1.289-py3-none-any.whl", hash = "sha256:e3d7767b472ea42f99f338936d95964b97327e8d26fe04c45a377d65e83c9412"},
-    {file = "pyright-1.1.289.tar.gz", hash = "sha256:33426683d1e59a0a29247bec629deac07fb6302f916905f25e0487f964767d94"},
+    {file = "pyright-1.1.290-py3-none-any.whl", hash = "sha256:c1a57ad812f740fc7fb6bb416cd7e3f46f4e88384c723192402a77e2e756b550"},
+    {file = "pyright-1.1.290.tar.gz", hash = "sha256:956d8efc70eb5a54da54c82feef842affd3a81719c8864769cd196e211961e3a"},
 ]
 
 [package.dependencies]
