@@ -1270,7 +1270,7 @@ six = "*"
 
 [[package]]
 name = "mypy"
-version = "1.1.0+dev.9e85f9b862287f86498f5fb084a13504d09326fd"
+version = "1.1.0+dev.6b56dc01ba919a951936e3e47602e5d3f5d5fee4"
 description = "Optional static typing for Python"
 category = "dev"
 optional = false
@@ -1292,7 +1292,7 @@ reports = ["lxml"]
 type = "git"
 url = "https://github.com/python/mypy.git"
 reference = "HEAD"
-resolved_reference = "6b56dc01ba919a951936e3e47602e5d3f5d5fee4"
+resolved_reference = "99b04cac8b216bb426b1fab5a3ff447d1451c967"
 
 [[package]]
 name = "mypy-extensions"
@@ -2589,14 +2589,14 @@ files = [
 
 [[package]]
 name = "types-pygments"
-version = "2.14.0.1"
+version = "2.14.0.2"
 description = "Typing stubs for Pygments"
 category = "dev"
 optional = false
 python-versions = "*"
 files = [
-    {file = "types-Pygments-2.14.0.1.tar.gz", hash = "sha256:0b4af1d25780e402d0084bb3d7dce5b424db8786519c67b1989cfd2340d2ddd2"},
-    {file = "types_Pygments-2.14.0.1-py3-none-any.whl", hash = "sha256:97207173621b1761b044d3b5b1e2bf076e865cf82ee77e4b6811cba3f5a2c4ce"},
+    {file = "types-Pygments-2.14.0.2.tar.gz", hash = "sha256:fabbe7566b4aebf0299d50c30f0119377eb6ee37203beec237ae86b7f40d5f08"},
+    {file = "types_Pygments-2.14.0.2-py3-none-any.whl", hash = "sha256:da9aa1064f5a41135002a5610ba18cc9ed6424541ce9c0bdfff7882fed6d9185"},
 ]
 
 [package.dependencies]
@@ -2605,14 +2605,14 @@ types-setuptools = "*"
 
 [[package]]
 name = "types-setuptools"
-version = "67.2.0.0"
+version = "67.2.0.1"
 description = "Typing stubs for setuptools"
 category = "dev"
 optional = false
 python-versions = "*"
 files = [
-    {file = "types-setuptools-67.2.0.0.tar.gz", hash = "sha256:d64d467979baaa8261874bbcf8ea9d656c4ccbab315013af8ddb8a1dc18d353f"},
-    {file = "types_setuptools-67.2.0.0-py3-none-any.whl", hash = "sha256:91b1fd18fc3b583a917c073e7483cec43b4f3aa5d5a5a13a0e457f66562cb32a"},
+    {file = "types-setuptools-67.2.0.1.tar.gz", hash = "sha256:07648088bc2cbf0f2745107d394e619ba2a747f68a5904e6e4089c0cb8322065"},
+    {file = "types_setuptools-67.2.0.1-py3-none-any.whl", hash = "sha256:f15b2924122dca5f99a9f6a96a872145721373fe1bb6d656cf269c2a8b73a74b"},
 ]
 
 [package.dependencies]
