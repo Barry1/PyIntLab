@@ -1270,7 +1270,7 @@ six = "*"
 
 [[package]]
 name = "mypy"
-version = "1.1.0+dev.6b56dc01ba919a951936e3e47602e5d3f5d5fee4"
+version = "1.1.0+dev.99b04cac8b216bb426b1fab5a3ff447d1451c967"
 description = "Optional static typing for Python"
 category = "dev"
 optional = false
