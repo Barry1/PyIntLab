@@ -2303,14 +2303,14 @@ yaml = ["pyyaml"]
 
 [[package]]
 name = "setuptools"
-version = "67.3.3"
+version = "67.4.0"
 description = "Easily download, build, install, upgrade, and uninstall Python packages"
 category = "dev"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "setuptools-67.3.3-py3-none-any.whl", hash = "sha256:9d3de8591bd6f6522594406fa46a6418eabd0562dacb267f8556675762801514"},
-    {file = "setuptools-67.3.3.tar.gz", hash = "sha256:ed4e75fafe103c79b692f217158ba87edf38d31004b9dbc1913debb48793c828"},
+    {file = "setuptools-67.4.0-py3-none-any.whl", hash = "sha256:f106dee1b506dee5102cc3f3e9e68137bbad6d47b616be7991714b0c62204251"},
+    {file = "setuptools-67.4.0.tar.gz", hash = "sha256:e5fd0a713141a4a105412233c63dc4e17ba0090c8e8334594ac790ec97792330"},
 ]
 
 [package.extras]
@@ -2605,14 +2605,14 @@ files = [
 
 [[package]]
 name = "types-pygments"
-version = "2.14.0.4"
+version = "2.14.0.5"
 description = "Typing stubs for Pygments"
 category = "dev"
 optional = false
 python-versions = "*"
 files = [
-    {file = "types-Pygments-2.14.0.4.tar.gz", hash = "sha256:1ddaa8a3d1bf905745d86d4bddb6a40a7a64233167357c42e91c599122fc2bc3"},
-    {file = "types_Pygments-2.14.0.4-py3-none-any.whl", hash = "sha256:c4fedd4c68758173fb525dd26db3c8966ff3821d0766a9fa81c6a3d1b0975dfe"},
+    {file = "types-Pygments-2.14.0.5.tar.gz", hash = "sha256:55542e6fde27182b4e9575f50e94a4d9b2fe24f1a723494c5ef6db2efdc25d5a"},
+    {file = "types_Pygments-2.14.0.5-py3-none-any.whl", hash = "sha256:3014b91e9655e73a080dc6b6973e3f3ada0da44a1384c17796e0e0ffaa6ff198"},
 ]
 
 [package.dependencies]
