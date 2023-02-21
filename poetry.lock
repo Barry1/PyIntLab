@@ -2581,38 +2581,38 @@ test = ["mypy", "pytest", "typing-extensions"]
 
 [[package]]
 name = "types-colorama"
-version = "0.4.15.7"
+version = "0.4.15.8"
 description = "Typing stubs for colorama"
 category = "dev"
 optional = false
 python-versions = "*"
 files = [
-    {file = "types-colorama-0.4.15.7.tar.gz", hash = "sha256:da84e8abe95c2e11ad2b28ba557ab8e5dc80863bd6f8739e7c1916c950755af4"},
-    {file = "types_colorama-0.4.15.7-py3-none-any.whl", hash = "sha256:a060b1440dfc796fbcffcea259f25c3d373381ea3f462e17d48a12cce29b133e"},
+    {file = "types-colorama-0.4.15.8.tar.gz", hash = "sha256:c6bb245aa868c7dd78c3b16bd48484cd366127d61e4efa15676eac23acd82b76"},
+    {file = "types_colorama-0.4.15.8-py3-none-any.whl", hash = "sha256:7ebcb66eb2c672c4f576fc7445a45860eba5f4f05e459de6cea413fac8ef4d2c"},
 ]
 
 [[package]]
 name = "types-docutils"
-version = "0.19.1.4"
+version = "0.19.1.5"
 description = "Typing stubs for docutils"
 category = "dev"
 optional = false
 python-versions = "*"
 files = [
-    {file = "types-docutils-0.19.1.4.tar.gz", hash = "sha256:1b64b21b609ff1fc7791d3d930f14b56b36ad09029fd97e45e34cc889d671b5f"},
-    {file = "types_docutils-0.19.1.4-py3-none-any.whl", hash = "sha256:870d71f3663141f67a3c59d26d2c54a8c478c842208bb0b345fbf6036f49f561"},
+    {file = "types-docutils-0.19.1.5.tar.gz", hash = "sha256:b8b489c2a0d1dd3e65bbd8b41e05f6bf1307553515dcda30197d63d1b576a5ee"},
+    {file = "types_docutils-0.19.1.5-py3-none-any.whl", hash = "sha256:e32b969b9226caf59e63630cac690eb6802a3e17e20a8a949c3c2b80e16af85d"},
 ]
 
 [[package]]
 name = "types-pygments"
-version = "2.14.0.3"
+version = "2.14.0.4"
 description = "Typing stubs for Pygments"
 category = "dev"
 optional = false
 python-versions = "*"
 files = [
-    {file = "types-Pygments-2.14.0.3.tar.gz", hash = "sha256:32861b82d847e9c6867c0b717241f8b41e7607d7394a92334cb9cd86f03469c0"},
-    {file = "types_Pygments-2.14.0.3-py3-none-any.whl", hash = "sha256:7383a935a368b6f20d3a08cebbaf136f27c9983939dc0a26f5ebde33926084a8"},
+    {file = "types-Pygments-2.14.0.4.tar.gz", hash = "sha256:1ddaa8a3d1bf905745d86d4bddb6a40a7a64233167357c42e91c599122fc2bc3"},
+    {file = "types_Pygments-2.14.0.4-py3-none-any.whl", hash = "sha256:c4fedd4c68758173fb525dd26db3c8966ff3821d0766a9fa81c6a3d1b0975dfe"},
 ]
 
 [package.dependencies]
@@ -2621,14 +2621,14 @@ types-setuptools = "*"
 
 [[package]]
 name = "types-setuptools"
-version = "67.3.0.1"
+version = "67.3.0.2"
 description = "Typing stubs for setuptools"
 category = "dev"
 optional = false
 python-versions = "*"
 files = [
-    {file = "types-setuptools-67.3.0.1.tar.gz", hash = "sha256:1a26d373036c720e566823b6edd664a2db4d138b6eeba856721ec1254203474f"},
-    {file = "types_setuptools-67.3.0.1-py3-none-any.whl", hash = "sha256:a7e0f0816b5b449f5bcdc0efa43da91ff81dbe6941f293a6490d68a450e130a1"},
+    {file = "types-setuptools-67.3.0.2.tar.gz", hash = "sha256:18b27480bb48a405ab75e41506def1b9182d9f26521fb207de5f1a7908e06f51"},
+    {file = "types_setuptools-67.3.0.2-py3-none-any.whl", hash = "sha256:13ab419232fdaec8d9c33b31157577c7ea79ae013d693a53aed77292e8a44a0a"},
 ]
 
 [package.dependencies]
@@ -2636,14 +2636,14 @@ types-docutils = "*"
 
 [[package]]
 name = "types-toml"
-version = "0.10.8.4"
+version = "0.10.8.5"
 description = "Typing stubs for toml"
 category = "dev"
 optional = false
 python-versions = "*"
 files = [
-    {file = "types-toml-0.10.8.4.tar.gz", hash = "sha256:c8748dd225b28eb80ce712e2d7d61b57599815e7b48d07ef53df51ed148fa6b1"},
-    {file = "types_toml-0.10.8.4-py3-none-any.whl", hash = "sha256:306b1bb8b5bbc5f1b60387dbcc4b489e79f8490ce20e93af5f422a68b470d94b"},
+    {file = "types-toml-0.10.8.5.tar.gz", hash = "sha256:bf80fce7d2d74be91148f47b88d9ae5adeb1024abef22aa2fdbabc036d6b8b3c"},
+    {file = "types_toml-0.10.8.5-py3-none-any.whl", hash = "sha256:2432017febe43174af0f3c65f03116e3d3cf43e7e1406b8200e106da8cf98992"},
 ]
 
 [[package]]
