@@ -1061,24 +1061,24 @@ test = ["pytest"]
 
 [[package]]
 name = "markdown-it-py"
-version = "2.1.0"
+version = "2.2.0"
 description = "Python port of markdown-it. Markdown parsing, done right!"
 category = "dev"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "markdown-it-py-2.1.0.tar.gz", hash = "sha256:cf7e59fed14b5ae17c0006eff14a2d9a00ed5f3a846148153899a0224e2c07da"},
-    {file = "markdown_it_py-2.1.0-py3-none-any.whl", hash = "sha256:93de681e5c021a432c63147656fe21790bc01231e0cd2da73626f1aa3ac0fe27"},
+    {file = "markdown-it-py-2.2.0.tar.gz", hash = "sha256:7c9a5e412688bc771c67432cbfebcdd686c93ce6484913dccf06cb5a0bea35a1"},
+    {file = "markdown_it_py-2.2.0-py3-none-any.whl", hash = "sha256:5a35f8d1870171d9acc47b99612dc146129b631baf04970128b568f190d0cc30"},
 ]
 
 [package.dependencies]
 mdurl = ">=0.1,<1.0"
 
 [package.extras]
-benchmarking = ["psutil", "pytest", "pytest-benchmark (>=3.2,<4.0)"]
-code-style = ["pre-commit (==2.6)"]
-compare = ["commonmark (>=0.9.1,<0.10.0)", "markdown (>=3.3.6,<3.4.0)", "mistletoe (>=0.8.1,<0.9.0)", "mistune (>=2.0.2,<2.1.0)", "panflute (>=2.1.3,<2.2.0)"]
-linkify = ["linkify-it-py (>=1.0,<2.0)"]
+benchmarking = ["psutil", "pytest", "pytest-benchmark"]
+code-style = ["pre-commit (>=3.0,<4.0)"]
+compare = ["commonmark (>=0.9,<1.0)", "markdown (>=3.4,<4.0)", "mistletoe (>=1.0,<2.0)", "mistune (>=2.0,<3.0)", "panflute (>=2.3,<3.0)"]
+linkify = ["linkify-it-py (>=1,<3)"]
 plugins = ["mdit-py-plugins"]
 profiling = ["gprof2dot"]
 rtd = ["attrs", "myst-parser", "pyyaml", "sphinx", "sphinx-copybutton", "sphinx-design", "sphinx_book_theme"]
@@ -2012,14 +2012,14 @@ typing-inspect = "*"
 
 [[package]]
 name = "pyright"
-version = "1.1.294"
+version = "1.1.295"
 description = "Command line wrapper for pyright"
 category = "dev"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "pyright-1.1.294-py3-none-any.whl", hash = "sha256:5b27e28a1cfc60cea707fd3b644769fa6dd0b194481cdcc2399cf2a51cc5a846"},
-    {file = "pyright-1.1.294.tar.gz", hash = "sha256:fea5fed3d6a3f02259e622c901e86a7b8bcf237d35e1cdfe01d0e0723768dcb6"},
+    {file = "pyright-1.1.295-py3-none-any.whl", hash = "sha256:57d6e66381edd38160342abdaea195fc6af16059eabe7e0816f04d42748b2c36"},
+    {file = "pyright-1.1.295.tar.gz", hash = "sha256:fa8ef1da35071fe351ee214576665857ceafc96418a4550a48b1f577267d9ac0"},
 ]
 
 [package.dependencies]
@@ -2593,14 +2593,14 @@ files = [
 
 [[package]]
 name = "types-docutils"
-version = "0.19.1.5"
+version = "0.19.1.6"
 description = "Typing stubs for docutils"
 category = "dev"
 optional = false
 python-versions = "*"
 files = [
-    {file = "types-docutils-0.19.1.5.tar.gz", hash = "sha256:b8b489c2a0d1dd3e65bbd8b41e05f6bf1307553515dcda30197d63d1b576a5ee"},
-    {file = "types_docutils-0.19.1.5-py3-none-any.whl", hash = "sha256:e32b969b9226caf59e63630cac690eb6802a3e17e20a8a949c3c2b80e16af85d"},
+    {file = "types-docutils-0.19.1.6.tar.gz", hash = "sha256:a334a703a8688910d0869464f1f6f8bd330d75843bdab4f893547bfb29417a01"},
+    {file = "types_docutils-0.19.1.6-py3-none-any.whl", hash = "sha256:b7e182f371cbe20828a8750ffb150219968452445946f66f33778b08e81c7d89"},
 ]
 
 [[package]]
@@ -2621,14 +2621,14 @@ types-setuptools = "*"
 
 [[package]]
 name = "types-setuptools"
-version = "67.3.0.2"
+version = "67.4.0.1"
 description = "Typing stubs for setuptools"
 category = "dev"
 optional = false
 python-versions = "*"
 files = [
-    {file = "types-setuptools-67.3.0.2.tar.gz", hash = "sha256:18b27480bb48a405ab75e41506def1b9182d9f26521fb207de5f1a7908e06f51"},
-    {file = "types_setuptools-67.3.0.2-py3-none-any.whl", hash = "sha256:13ab419232fdaec8d9c33b31157577c7ea79ae013d693a53aed77292e8a44a0a"},
+    {file = "types-setuptools-67.4.0.1.tar.gz", hash = "sha256:c3ad0d029f7cf66a568b100dc89c0202637839a4ed08a08cb56559f5a43ce2d9"},
+    {file = "types_setuptools-67.4.0.1-py3-none-any.whl", hash = "sha256:d5da93fba1f91c039cc896e529c605b63c310086fe3311b74875af8c84935f8f"},
 ]
 
 [package.dependencies]
