@@ -116,14 +116,14 @@ types-toml = "*"
 ufmt = ">=2.0.1"
 vermin = "*"
 vulture = "*"
+mypy = "^1.0.1"
 
 [tool.poetry.group.dev.dependencies.pytype]
 version = ">=2022.4.22"
 python = "~3.10"
 
-[tool.poetry.group.dev.dependencies.mypy]
-git = "https://github.com/python/mypy.git"
-
+#[tool.poetry.group.dev.dependencies.mypy]
+#git = "https://github.com/python/mypy.git"
 [tool.poetry.group.dev.dependencies.black]
 version = ">22"
 allow-prereleases = true
