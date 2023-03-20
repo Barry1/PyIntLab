@@ -86,18 +86,6 @@ lazy-object-proxy = ">=1.4.0"
 wrapt = {version = ">=1.14,<2", markers = "python_version >= \"3.11\""}
 
 [[package]]
-name = "async-timeout"
-version = "4.0.2"
-description = "Timeout context manager for asyncio programs"
-category = "dev"
-optional = false
-python-versions = ">=3.6"
-files = [
-    {file = "async-timeout-4.0.2.tar.gz", hash = "sha256:2163e1640ddb52b7a8c80d0a67a08587e5d245cc9c553a74a847056bc2976b15"},
-    {file = "async_timeout-4.0.2-py3-none-any.whl", hash = "sha256:8ca1e4fcf50d07413d66d1a5e416e42cfdf5851c981d679a09851a6853383b3c"},
-]
-
-[[package]]
 name = "asynq"
 version = "1.4.0"
 description = "Quora's asynq library"
@@ -1711,20 +1699,23 @@ docs = ["sphinx (>=3.2,<4.0)"]
 test = ["coverage (>=5.3)", "pytest", "pytest-cov"]
 
 [[package]]
-name = "MonkeyType"
-version = "22.2.0"
+name = "monkeytype"
+version = "23.3.0"
 description = "Generating type annotations from sampled production types"
 category = "dev"
 optional = false
-python-versions = ">=3.6"
+python-versions = ">=3.7"
 files = [
-    {file = "MonkeyType-22.2.0-py3-none-any.whl", hash = "sha256:3d0815c7e98a18e9267990a452548247f6775fd636e65df5a7d77100ea7ad282"},
-    {file = "MonkeyType-22.2.0.tar.gz", hash = "sha256:6b0c00b49dcc5095a2c08d28246cf005e05673fc51f64d203f9a6bca2036dfab"},
+    {file = "MonkeyType-23.3.0-py3-none-any.whl", hash = "sha256:38ce8ad6568190f54c334b9fe835608af29b40a33ad448ecae749ae8790cdbf9"},
+    {file = "MonkeyType-23.3.0.tar.gz", hash = "sha256:f2595db34d57cdddbde5a990117a50a22f373dbb917a2a0fa91ffbe07dfe0313"},
 ]
 
 [package.dependencies]
-libcst = ">=0.3.7"
+libcst = ">=0.4.4"
 mypy-extensions = "*"
+
+[package.extras]
+dev = ["black", "flake8", "importlib-metadata", "isort", "libcst", "mypy", "pytest", "sphinx", "tox", "twine"]
 
 [[package]]
 name = "moreorless"
@@ -2732,18 +2723,15 @@ mando = ">=0.6,<0.7"
 
 [[package]]
 name = "redis"
-version = "4.5.1"
+version = "4.5.2"
 description = "Python client for Redis database and key-value store"
 category = "dev"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "redis-4.5.1-py3-none-any.whl", hash = "sha256:5deb072d26e67d2be1712603bfb7947ec3431fb0eec9c578994052e33035af6d"},
-    {file = "redis-4.5.1.tar.gz", hash = "sha256:1eec3741cda408d3a5f84b78d089c8b8d895f21b3b050988351e925faf202864"},
+    {file = "redis-4.5.2-py3-none-any.whl", hash = "sha256:4b12b3a1e9bfb43dc533330ec6d142329d0c27ea6bb6716a9d0389e8f2038a4e"},
+    {file = "redis-4.5.2.tar.gz", hash = "sha256:d8ae1a4f725eea6e3958411870fdf944c587b00ea12be28d3bd5575d8f26430c"},
 ]
-
-[package.dependencies]
-async-timeout = ">=4.0.2"
 
 [package.extras]
 hiredis = ["hiredis (>=1.0.0)"]
