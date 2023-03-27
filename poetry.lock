@@ -2779,14 +2779,14 @@ toml = ">=0.10.2,<0.11.0"
 
 [[package]]
 name = "rich"
-version = "13.3.2"
+version = "13.3.3"
 description = "Render rich text, tables, progress bars, syntax highlighting, markdown and more to the terminal"
 category = "dev"
 optional = false
 python-versions = ">=3.7.0"
 files = [
-    {file = "rich-13.3.2-py3-none-any.whl", hash = "sha256:a104f37270bf677148d8acb07d33be1569eeee87e2d1beb286a4e9113caf6f2f"},
-    {file = "rich-13.3.2.tar.gz", hash = "sha256:91954fe80cfb7985727a467ca98a7618e5dd15178cc2da10f553b36a93859001"},
+    {file = "rich-13.3.3-py3-none-any.whl", hash = "sha256:540c7d6d26a1178e8e8b37e9ba44573a3cd1464ff6348b99ee7061b95d1c6333"},
+    {file = "rich-13.3.3.tar.gz", hash = "sha256:dc84400a9d842b3a9c5ff74addd8eb798d155f36c1c91303888e0a66850d2a15"},
 ]
 
 [package.dependencies]
@@ -3130,21 +3130,21 @@ telegram = ["requests"]
 
 [[package]]
 name = "trailrunner"
-version = "1.3.0"
+version = "1.4.0"
 description = "Run things on paths"
 category = "dev"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "trailrunner-1.3.0-py3-none-any.whl", hash = "sha256:ed14aa9fef4f7394297d2ecc20b398016d3a520fdc34db111febf897d3a41dbb"},
-    {file = "trailrunner-1.3.0.tar.gz", hash = "sha256:f16eb26c7da6f74158cb69b8f2c756139cedb53f01d7562ea0a3564380b67275"},
+    {file = "trailrunner-1.4.0-py3-none-any.whl", hash = "sha256:a286d39f2723f28d167347f41cf8f232832648709366e722f55cf5545772a48e"},
+    {file = "trailrunner-1.4.0.tar.gz", hash = "sha256:3fe61e259e6b2e5192f321c265985b7a0dc18497ced62b2da244f08104978398"},
 ]
 
 [package.dependencies]
 pathspec = ">=0.8.1"
 
 [package.extras]
-dev = ["attribution (==1.6.2)", "black (==22.3.0)", "coverage (==6.5)", "flake8 (==4.0.1)", "flake8-bugbear (==23.2.13)", "flit (==3.7.1)", "mypy (==1.1.1)", "ufmt (==2.0.1)", "usort (==1.0.5)"]
+dev = ["attribution (==1.6.2)", "black (==22.3.0)", "click (==8.1.3)", "coverage (==6.5)", "flake8 (==4.0.1)", "flake8-bugbear (==23.2.13)", "flit (==3.7.1)", "mypy (==1.1.1)", "rich (==13.3.2)", "ufmt (==2.0.1)", "usort (==1.0.5)"]
 docs = ["sphinx (==6.1.3)", "sphinx-mdinclude (==0.5.3)"]
 
 [[package]]
@@ -3177,38 +3177,38 @@ test = ["mypy", "pytest", "typing-extensions"]
 
 [[package]]
 name = "types-colorama"
-version = "0.4.15.8"
+version = "0.4.15.9"
 description = "Typing stubs for colorama"
 category = "dev"
 optional = false
 python-versions = "*"
 files = [
-    {file = "types-colorama-0.4.15.8.tar.gz", hash = "sha256:c6bb245aa868c7dd78c3b16bd48484cd366127d61e4efa15676eac23acd82b76"},
-    {file = "types_colorama-0.4.15.8-py3-none-any.whl", hash = "sha256:7ebcb66eb2c672c4f576fc7445a45860eba5f4f05e459de6cea413fac8ef4d2c"},
+    {file = "types-colorama-0.4.15.9.tar.gz", hash = "sha256:fb6e6d21ad3b01b1878fc6a7d3f266d1f8458b013d7145933bd908eb1e668fb2"},
+    {file = "types_colorama-0.4.15.9-py3-none-any.whl", hash = "sha256:ef41da74c762a80d7b32061aeeef7da50e86f025788b974896f197c23a64828d"},
 ]
 
 [[package]]
 name = "types-docutils"
-version = "0.19.1.6"
+version = "0.19.1.7"
 description = "Typing stubs for docutils"
 category = "dev"
 optional = false
 python-versions = "*"
 files = [
-    {file = "types-docutils-0.19.1.6.tar.gz", hash = "sha256:a334a703a8688910d0869464f1f6f8bd330d75843bdab4f893547bfb29417a01"},
-    {file = "types_docutils-0.19.1.6-py3-none-any.whl", hash = "sha256:b7e182f371cbe20828a8750ffb150219968452445946f66f33778b08e81c7d89"},
+    {file = "types-docutils-0.19.1.7.tar.gz", hash = "sha256:cb6e0dd1c895c723002ec4dc8334bf9df04726ef0cf13f5597501578b47eef30"},
+    {file = "types_docutils-0.19.1.7-py3-none-any.whl", hash = "sha256:bbf89cf3b9460ce780434f8cc52ce846b0f14505ff3496fc6a17acd9967aee9e"},
 ]
 
 [[package]]
 name = "types-pygments"
-version = "2.14.0.6"
+version = "2.14.0.7"
 description = "Typing stubs for Pygments"
 category = "dev"
 optional = false
 python-versions = "*"
 files = [
-    {file = "types-Pygments-2.14.0.6.tar.gz", hash = "sha256:111c2accae3b8f8e0449889b285f5313f54bdb0ccaed5c4742d56988f867ee9e"},
-    {file = "types_Pygments-2.14.0.6-py3-none-any.whl", hash = "sha256:26b3eb1d69d9e552c4b09060f9663e4245b8290a6fb8a6d6ad637de734347b2b"},
+    {file = "types-Pygments-2.14.0.7.tar.gz", hash = "sha256:29643151d4adb5a9f32ef3e232af1202a2e87e29444d70a1c777a7334fa23371"},
+    {file = "types_Pygments-2.14.0.7-py3-none-any.whl", hash = "sha256:361b24b239072f977b0fd7d105800a78bee9d33f1841110844e8d557a5ad8e67"},
 ]
 
 [package.dependencies]
@@ -3284,14 +3284,14 @@ typing-extensions = ">=3.7.4"
 
 [[package]]
 name = "ufmt"
-version = "2.0.1"
+version = "2.1.0"
 description = "Safe, atomic formatting with black and µsort"
 category = "dev"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "ufmt-2.0.1-py3-none-any.whl", hash = "sha256:826952624fcf6ea8b34bdace09059bf3e77f3ce041f3332ee7a9f5d3db3b51a0"},
-    {file = "ufmt-2.0.1.tar.gz", hash = "sha256:7e4518e13507984998f5c7c9a0d3f59fe014ddc213bdb5cae8d11a6a8935db8c"},
+    {file = "ufmt-2.1.0-py3-none-any.whl", hash = "sha256:7bae9b9e07a5afb407fc7b47ec03ad5c169965de24a7d798d72a36017d563d37"},
+    {file = "ufmt-2.1.0.tar.gz", hash = "sha256:d977f0fad0c054bd69518a4b5ca4af6e8f39960982c4f9fe719a1687aaf92638"},
 ]
 
 [package.dependencies]
@@ -3303,6 +3303,10 @@ tomlkit = ">=0.7.2"
 trailrunner = ">=1.2.1"
 typing-extensions = ">=4.0"
 usort = ">=1.0"
+
+[package.extras]
+dev = ["attribution (==1.6.2)", "black (==23.1.0)", "coverage (==7.2.1)", "flake8 (==5.0.4)", "flit (==3.7.1)", "mypy (==1.1.1)", "usort (==1.0.5)"]
+docs = ["sphinx (==6.1.3)", "sphinx-mdinclude (==0.5.3)"]
 
 [[package]]
 name = "urllib3"
