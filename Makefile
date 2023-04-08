@@ -21,6 +21,9 @@ poetrypython:
 	poetry env use python3.10
 	poetry update
 
+pyroma:
+	poetry run pyroma .
+
 poetrypypy:
 	poetry env use pypy
 	poetry update
@@ -72,6 +75,9 @@ install:
 
 clean:
 	rm -rf pyintlab.egg-info dist
+
+pyanalyze:
+	poetry run python -m pyanalyze src/pyintlab/scalar_interval.py
 
 pyre:
 	-niceload poetry run pyre

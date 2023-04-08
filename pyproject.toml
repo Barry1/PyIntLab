@@ -84,17 +84,30 @@ authors = ["Ebeling, Dr. Bastian <bastian.ebeling@web.de>"]
 python = "~3.11"
 radon = "^5.0.1"
 numpy = ">=1.22.0"
-
+flake8-pydocstyle = "^0.2.2"
+[tool.poetry.dependencies.prospector]
+extras = ["all"]
+version = "^1.9.0"
+[tool.poetry.dependencies.pylama]
+extras = ["all"]
+version = "^8.4.1"
 [tool.poetry.group.dev.dependencies]
 autopep8 = ">=1.6.0"
+bandit = "^1.7.4"
+bellybutton = "^0.3.1"
+callgraph = "^1.0.0"
 coverage = "*"
+deepsource = "^0.1.2"
+dlint = "^0.14.0"
 eradicate = "*"
 flake8 = ">=5"
 git-story = ">=0.1.4"
 interrogate = ">=1.5.0"
 isort = "*"
 mccabe = "*"
+modernize = "^0.8.0"
 MonkeyType = ">=22.2.0"
+mypy = "^1.0.1"
 pep257 = "*"
 pep8 = "*"
 prospector = ">=1.8"
@@ -107,8 +120,10 @@ pylama = "*"
 pylint = "*"
 pyre-check = "*"
 pyright = ">=1.1.235"
-pytest = "*"
+pyroma = "^4.2"
+pytest = ">=6"
 setuptools = ">=62.1.0"
+tox = "^4.4.11"
 types-colorama = "^0.4.15.4"
 types-pygments = "^2.14.0.0"
 types-setuptools = "*"
@@ -116,11 +131,10 @@ types-toml = "*"
 ufmt = ">=2.0.1"
 vermin = "*"
 vulture = "*"
-mypy = "^1.0.1"
 
 [tool.poetry.group.dev.dependencies.pytype]
-version = ">=2022.4.22"
-python = "~3.10"
+version = ">=2022"
+python = ">=3.7,<=3.10"
 
 #[tool.poetry.group.dev.dependencies.mypy]
 #git = "https://github.com/python/mypy.git"
@@ -131,3 +145,30 @@ allow-prereleases = true
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.tox]
+legacy_tox_ini = """
+    [tox]
+    requires =
+        tox>4
+        virtualenv>20.2
+    env_list =
+#        py310
+        py311
+#        type
+#        py39
+#        py312
+    minversion = 4.4.11
+
+    [testenv]
+    description = run the tests with pytest
+    package = wheel
+    wheel_build_env = .pkg
+    parallel_show_output = true 
+    platform =
+        linux
+    deps =
+        pytest>=6
+    commands =
+        pytest {tty:--color=yes} {posargs}
+"""
