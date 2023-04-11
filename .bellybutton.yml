@@ -1,3 +1,4 @@
+---
 settings:
   all_files: !settings &all_files
     included:
@@ -16,3 +17,5 @@ rules:
     example: ""
     instead: |
       """This module has a docstring."""
+---
+
