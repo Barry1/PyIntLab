@@ -1,0 +1,18 @@
+settings:
+  all_files: !settings &all_files
+    included:
+      - ~+/*
+    excluded:
+      - ~+/.tox/*
+      - ~+/.venv/*
+    allow_ignore: yes
+
+default_settings: *all_files
+
+rules:
+  ExampleRule:
+    description: Empty module.
+    expr: /Module/body[not(./*)]
+    example: ""
+    instead: |
+      """This module has a docstring."""
