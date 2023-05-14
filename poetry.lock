@@ -3102,14 +3102,14 @@ pbr = ">=2.0.0,<2.1.0 || >2.1.0"
 
 [[package]]
 name = "svgelements"
-version = "1.9.3"
+version = "1.9.4"
 description = "Svg Elements Parsing"
 category = "dev"
 optional = false
 python-versions = "*"
 files = [
-    {file = "svgelements-1.9.3-py2.py3-none-any.whl", hash = "sha256:43ef1a704c6daa444ae0670b46802db39afba6f5bdf260bdbafec838227ea82a"},
-    {file = "svgelements-1.9.3.tar.gz", hash = "sha256:631220a228acc0c3e5f72e1f0e13c4b86786c93561dd326213ebed42c70f28ee"},
+    {file = "svgelements-1.9.4-py2.py3-none-any.whl", hash = "sha256:5996250dcc2b68a20185bb863e1da68a597b41b7a109e82c6f13a551b9f6a600"},
+    {file = "svgelements-1.9.4.tar.gz", hash = "sha256:9e54b656355fcb430f8f51e8e5d41dc48d85aa792fa4fc54a4473cf28e5332d2"},
 ]
 
 [[package]]
