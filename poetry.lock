@@ -71,14 +71,14 @@ xpath = ["lxml (>=3.3.5)"]
 
 [[package]]
 name = "astroid"
-version = "2.15.4"
+version = "2.15.5"
 description = "An abstract syntax tree for Python with inference support."
 category = "main"
 optional = false
 python-versions = ">=3.7.2"
 files = [
-    {file = "astroid-2.15.4-py3-none-any.whl", hash = "sha256:a1b8543ef9d36ea777194bc9b17f5f8678d2c56ee6a45b2c2f17eec96f242347"},
-    {file = "astroid-2.15.4.tar.gz", hash = "sha256:c81e1c7fbac615037744d067a9bb5f9aeb655edf59b63ee8b59585475d6f80d8"},
+    {file = "astroid-2.15.5-py3-none-any.whl", hash = "sha256:078e5212f9885fa85fbb0cf0101978a336190aadea6e13305409d099f71b2324"},
+    {file = "astroid-2.15.5.tar.gz", hash = "sha256:1039262575027b441137ab4a62a793a9b43defb42c32d5670f38686207cd780f"},
 ]
 
 [package.dependencies]
@@ -3102,14 +3102,14 @@ pbr = ">=2.0.0,<2.1.0 || >2.1.0"
 
 [[package]]
 name = "svgelements"
-version = "1.9.4"
+version = "1.9.5"
 description = "Svg Elements Parsing"
 category = "dev"
 optional = false
 python-versions = "*"
 files = [
-    {file = "svgelements-1.9.4-py2.py3-none-any.whl", hash = "sha256:5996250dcc2b68a20185bb863e1da68a597b41b7a109e82c6f13a551b9f6a600"},
-    {file = "svgelements-1.9.4.tar.gz", hash = "sha256:9e54b656355fcb430f8f51e8e5d41dc48d85aa792fa4fc54a4473cf28e5332d2"},
+    {file = "svgelements-1.9.5-py2.py3-none-any.whl", hash = "sha256:32b583484a627eb19d66a4da923856336fa512698eac75540915446fd1ab28ff"},
+    {file = "svgelements-1.9.5.tar.gz", hash = "sha256:e192648ab7e07a67a355ce19b7f1d8a1497d62feca6debe3ddbd92d8617ef3be"},
 ]
 
 [[package]]
