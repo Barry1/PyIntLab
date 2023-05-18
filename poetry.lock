@@ -1716,14 +1716,14 @@ glcontext = ">=2.3.6,<3"
 
 [[package]]
 name = "moderngl-window"
-version = "2.4.3"
+version = "2.4.4"
 description = "A cross platform helper library for ModernGL making window creation and resource loading simple"
 category = "dev"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "moderngl-window-2.4.3.tar.gz", hash = "sha256:6e80cbba4102ab8e33902603d9dda0bb52ac9e34d1f565edf61182003373c327"},
-    {file = "moderngl_window-2.4.3-py3-none-any.whl", hash = "sha256:a52db1880522c48dcf696172defa97001c3839d6159613b552581d5baba45601"},
+    {file = "moderngl-window-2.4.4.tar.gz", hash = "sha256:66a9c5412b5eb0a5ca7cda351e4484ce02a167cf87eb4dc59bb82439c58130b5"},
+    {file = "moderngl_window-2.4.4-py3-none-any.whl", hash = "sha256:fddbca24afc3c7faaf98af7d1d45aa6b812a9a12e66401cb26284d645c4bb026"},
 ]
 
 [package.dependencies]
@@ -2597,14 +2597,14 @@ typing-inspect = "*"
 
 [[package]]
 name = "pyright"
-version = "1.1.308"
+version = "1.1.309"
 description = "Command line wrapper for pyright"
 category = "dev"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "pyright-1.1.308-py3-none-any.whl", hash = "sha256:40a541d21000d256bbd076f4337fc93d4265a92c63f06e5bedf893d77afb234d"},
-    {file = "pyright-1.1.308.tar.gz", hash = "sha256:7858a32d08555f8894931e2dc9571126cdc417e78e096f5be13e9418d8aed1e9"},
+    {file = "pyright-1.1.309-py3-none-any.whl", hash = "sha256:a8b052c1997f7334e80074998ea0f93bd149550e8cf27ccb5481d3b2e1aad161"},
+    {file = "pyright-1.1.309.tar.gz", hash = "sha256:1abcfa83814d792a5d70b38621cc6489acfade94ebb2279e55ba1f394d54296c"},
 ]
 
 [package.dependencies]
