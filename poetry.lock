@@ -3205,13 +3205,13 @@ test = ["mypy", "pytest", "typing-extensions"]
 
 [[package]]
 name = "types-colorama"
-version = "0.4.15.11"
+version = "0.4.15.12"
 description = "Typing stubs for colorama"
 optional = false
 python-versions = "*"
 files = [
-    {file = "types-colorama-0.4.15.11.tar.gz", hash = "sha256:a9421eb24d9cfc584880dc1d33b7fd406a14227c1f99f50c5ab9265e04d07638"},
-    {file = "types_colorama-0.4.15.11-py3-none-any.whl", hash = "sha256:d1e37571a19e152c930b3e789c316e9332e51a43bfcd4470b98225be974fb90c"},
+    {file = "types-colorama-0.4.15.12.tar.gz", hash = "sha256:fbdfc5d9d24d85c33bd054fbe33adc6cec44eedb19cfbbabfbbb57dc257ae4b8"},
+    {file = "types_colorama-0.4.15.12-py3-none-any.whl", hash = "sha256:23c9d4a00961227f7ef018d5a1c190c4bbc282119c3ee76a17677a793f13bb82"},
 ]
 
 [[package]]
@@ -3227,13 +3227,13 @@ files = [
 
 [[package]]
 name = "types-pygments"
-version = "2.15.0.1"
+version = "2.15.0.2"
 description = "Typing stubs for Pygments"
 optional = false
 python-versions = "*"
 files = [
-    {file = "types-Pygments-2.15.0.1.tar.gz", hash = "sha256:4fef924a4be98e4b0a3701f2822c33186cacd7dc317267853eaf451c3f361a97"},
-    {file = "types_Pygments-2.15.0.1-py3-none-any.whl", hash = "sha256:3a356cef78d667f55d3a27f5f73aa82994187dc93fcd93d970ba7479ed3f8534"},
+    {file = "types-Pygments-2.15.0.2.tar.gz", hash = "sha256:a1b56b792aa1015f6cecd092af00c71ecb12d9d5dd0a30313f9cb3839044389a"},
+    {file = "types_Pygments-2.15.0.2-py3-none-any.whl", hash = "sha256:60fc96777722942eafd4e7cd248568861aa8696246e3b1effcddabd51001a977"},
 ]
 
 [package.dependencies]
@@ -3242,24 +3242,24 @@ types-setuptools = "*"
 
 [[package]]
 name = "types-setuptools"
-version = "68.0.0.2"
+version = "68.0.0.3"
 description = "Typing stubs for setuptools"
 optional = false
 python-versions = "*"
 files = [
-    {file = "types-setuptools-68.0.0.2.tar.gz", hash = "sha256:fede8b46862dd9fe68a12f11a8444c3d240d11178eba7d584d6f22ca3114b894"},
-    {file = "types_setuptools-68.0.0.2-py3-none-any.whl", hash = "sha256:311a14819416716029d1113c7452143e2fa857e6cc19186bb6830aff69379c48"},
+    {file = "types-setuptools-68.0.0.3.tar.gz", hash = "sha256:d57ae6076100b5704b3cc869fdefc671e1baf4c2cd6643f84265dfc0b955bf05"},
+    {file = "types_setuptools-68.0.0.3-py3-none-any.whl", hash = "sha256:fec09e5c18264c5c09351c00be01a34456fb7a88e457abe97401325f84ad9d36"},
 ]
 
 [[package]]
 name = "types-toml"
-version = "0.10.8.6"
+version = "0.10.8.7"
 description = "Typing stubs for toml"
 optional = false
 python-versions = "*"
 files = [
-    {file = "types-toml-0.10.8.6.tar.gz", hash = "sha256:6d3ac79e36c9ee593c5d4fb33a50cca0e3adceb6ef5cff8b8e5aef67b4c4aaf2"},
-    {file = "types_toml-0.10.8.6-py3-none-any.whl", hash = "sha256:de7b2bb1831d6f7a4b554671ffe5875e729753496961b3e9b202745e4955dafa"},
+    {file = "types-toml-0.10.8.7.tar.gz", hash = "sha256:58b0781c681e671ff0b5c0319309910689f4ab40e8a2431e205d70c94bb6efb1"},
+    {file = "types_toml-0.10.8.7-py3-none-any.whl", hash = "sha256:61951da6ad410794c97bec035d59376ce1cbf4453dc9b6f90477e81e4442d631"},
 ]
 
 [[package]]
