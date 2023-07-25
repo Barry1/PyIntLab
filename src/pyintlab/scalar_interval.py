@@ -6,6 +6,8 @@ from __future__ import annotations
 import math
 from typing import SupportsFloat
 
+__all__: list[str] = []
+
 
 class ScalarInterval:  # inheritance from object could be suppressed
     """Class for scalars with uncertainty."""
@@ -192,6 +194,8 @@ class ScalarInterval:  # inheritance from object could be suppressed
         """Return the hyperbolic tangens of the interval."""
         return ScalarInterval(math.tanh(self.lowerbound), math.tanh(self.upperbound))
 
+
+__all__.append("ScalarInterval")
 
 ###############################################################################
 if __name__ == "__main__":  # Small application
