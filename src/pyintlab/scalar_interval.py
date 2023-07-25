@@ -20,7 +20,7 @@ class ScalarInterval:  # inheritance from object could be suppressed
     def __init__(self, *bounds: float) -> None:
         """Contructor for new ScalarInterval.
 
-        You can handover any count of (real) arguments, the resulting Interval
+        You can handover any number of (real) arguments, the resulting Interval
         will automatically be the convex hull (from min to max).
         """
         self.lowerbound = min(bounds)
@@ -50,26 +50,26 @@ class ScalarInterval:  # inheritance from object could be suppressed
     def __ge__(self, other: ScalarInterval | float) -> bool:
         """Dunder method for greater equals."""
         if isinstance(other, ScalarInterval):
-            return self.lowerbound >= other.lowerbound
+            return self.lowerbound >= other.upperbound
         return self.lowerbound >= other
 
     def __gt__(self, other: ScalarInterval | float) -> bool:
         """Dunder method for greater than."""
         if isinstance(other, ScalarInterval):
-            return self.lowerbound > other.lowerbound
+            return self.lowerbound > other.upperbound
         return self.lowerbound > other
 
     def __le__(self, other: ScalarInterval | float) -> bool:
         """Dunder method for less equals."""
         if isinstance(other, ScalarInterval):
-            return self.lowerbound <= other.lowerbound
-        return self.lowerbound <= other
+            return self.upperbound <= other.lowerbound
+        return self.upperbound <= other
 
     def __lt__(self, other: ScalarInterval | float) -> bool:
         """Dunder method for less than."""
         if isinstance(other, ScalarInterval):
-            return self.lowerbound < other.lowerbound
-        return self.lowerbound < other
+            return self.upperbound < other.lowerbound
+        return self.upperbound < other
 
     def __eq__(self, other: object) -> bool:
         """Dunder method for checking identity."""
