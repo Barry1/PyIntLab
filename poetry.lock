@@ -403,13 +403,13 @@ files = [
 
 [[package]]
 name = "chardet"
-version = "5.1.0"
+version = "5.2.0"
 description = "Universal encoding detector for Python 3"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "chardet-5.1.0-py3-none-any.whl", hash = "sha256:362777fb014af596ad31334fde1e8c327dfdb076e1960d1694662d46a6917ab9"},
-    {file = "chardet-5.1.0.tar.gz", hash = "sha256:0d62712b956bc154f85fb0a266e2a3c5913c2967e00348701b32411d6def31e5"},
+    {file = "chardet-5.2.0-py3-none-any.whl", hash = "sha256:e1cf59446890a00105fe7b7912492ea04b6e6f06d4b742b2c788469e34c82970"},
+    {file = "chardet-5.2.0.tar.gz", hash = "sha256:1b3b6ff479a8c414bc3fa2c0852995695c4a026dcd6d0633b2dd092ca39c1cf7"},
 ]
 
 [[package]]
@@ -3323,13 +3323,13 @@ files = [
 
 [[package]]
 name = "ufmt"
-version = "2.1.0"
+version = "2.2.0"
 description = "Safe, atomic formatting with black and µsort"
 optional = false
-python-versions = ">=3.7"
+python-versions = ">= 3.8"
 files = [
-    {file = "ufmt-2.1.0-py3-none-any.whl", hash = "sha256:7bae9b9e07a5afb407fc7b47ec03ad5c169965de24a7d798d72a36017d563d37"},
-    {file = "ufmt-2.1.0.tar.gz", hash = "sha256:d977f0fad0c054bd69518a4b5ca4af6e8f39960982c4f9fe719a1687aaf92638"},
+    {file = "ufmt-2.2.0-py3-none-any.whl", hash = "sha256:8ffa419091932b74f137d95cdd4e25970f5aa0d5e5d42bf6c5ddf968d634f529"},
+    {file = "ufmt-2.2.0.tar.gz", hash = "sha256:4a4f9a549c4a34697a1ab293c093ac6b4d3afb3ad5345895c0d3bbfeb3cf739d"},
 ]
 
 [package.dependencies]
@@ -3343,8 +3343,8 @@ typing-extensions = ">=4.0"
 usort = ">=1.0"
 
 [package.extras]
-dev = ["attribution (==1.6.2)", "black (==23.1.0)", "coverage (==7.2.1)", "flake8 (==5.0.4)", "flit (==3.7.1)", "mypy (==1.1.1)", "usort (==1.0.5)"]
-docs = ["sphinx (==6.1.3)", "sphinx-mdinclude (==0.5.3)"]
+dev = ["attribution (==1.6.2)", "black (==23.7.0)", "coverage (==7.2.7)", "flake8 (==6.1.0)", "flit (==3.9.0)", "mypy (==1.4.1)", "usort (==1.0.7)"]
+docs = ["sphinx (==7.1.1)", "sphinx-mdinclude (==0.5.3)"]
 
 [[package]]
 name = "urllib3"
