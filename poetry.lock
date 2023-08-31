@@ -337,13 +337,13 @@ graphviz = ">=0.8.2,<0.9.0"
 
 [[package]]
 name = "celery"
-version = "5.3.2"
+version = "5.3.3"
 description = "Distributed Task Queue."
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "celery-5.3.2-py3-none-any.whl", hash = "sha256:ebac6158429b82f9b502d64f0038ab6be4606cbb3656422cb1b8cfb673651c18"},
-    {file = "celery-5.3.2.tar.gz", hash = "sha256:abc24081f59aaa4a8663935227dde4a1e07b28aa1ae3de8640f3292caabd53e0"},
+    {file = "celery-5.3.3-py3-none-any.whl", hash = "sha256:d65c0be70d0949fcda8893876a071a7cfd9f248f9ad92e1919845e5cbc268db7"},
+    {file = "celery-5.3.3.tar.gz", hash = "sha256:bac90ef99b70b9b5b5d4cfcebf6f1ab5168b86c6120bc7c5814cd8234dfd9381"},
 ]
 
 [package.dependencies]
