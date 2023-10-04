@@ -2197,13 +2197,13 @@ files = [
 
 [[package]]
 name = "pyanalyze"
-version = "0.10.1"
+version = "0.11.0"
 description = "A static analyzer for Python"
 optional = false
-python-versions = ">=3.7"
+python-versions = ">=3.8"
 files = [
-    {file = "pyanalyze-0.10.1-py3-none-any.whl", hash = "sha256:9bd7a712b2ae144eeb5ce1235c95e8b691c70095252389fb9d36fcf05cfb1588"},
-    {file = "pyanalyze-0.10.1.tar.gz", hash = "sha256:9ca81243dbb616b3ad84b0a699e8709cc9b2184412c684f26abc787afe4ed42f"},
+    {file = "pyanalyze-0.11.0-py3-none-any.whl", hash = "sha256:f2e5c1023eca53f7825c64ef44721f667810f8f086f817df22711337bb9ab683"},
+    {file = "pyanalyze-0.11.0.tar.gz", hash = "sha256:0258648e2c919f849343cc942c61556fff189b03dea563f2b4c48620c4ca4ab5"},
 ]
 
 [package.dependencies]
@@ -2215,7 +2215,9 @@ qcore = ">=0.5.1"
 tomli = ">=1.1.0"
 typeshed-client = ">=2.1.0"
 typing-extensions = ">=4.1.0"
-typing-inspect = ">=0.7.0"
+
+[package.extras]
+tests = ["annotated-types", "attrs", "mypy-extensions", "pydantic", "pytest"]
 
 [[package]]
 name = "pyannotate"
