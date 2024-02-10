@@ -933,13 +933,13 @@ flake8 = "*"
 
 [[package]]
 name = "flake8-pydocstyle"
-version = "0.2.3"
+version = "0.2.4"
 description = "flake8 plugin that integrates pydocstyle"
 optional = false
 python-versions = ">=3.8.1,<4.0.0"
 files = [
-    {file = "flake8_pydocstyle-0.2.3-py3-none-any.whl", hash = "sha256:a8742d37eea00c7b956d4c9aed9ff3f5f4ab39585cdd228bac54756d3c0ff210"},
-    {file = "flake8_pydocstyle-0.2.3.tar.gz", hash = "sha256:31236976a2e18180173a38aeafb7fc156e97e216bbffca66881a452fd42c83a1"},
+    {file = "flake8_pydocstyle-0.2.4-py3-none-any.whl", hash = "sha256:a2febaeb70f50a21dcfefcc6c6935561632653498fea2438ca26e78917351155"},
+    {file = "flake8_pydocstyle-0.2.4.tar.gz", hash = "sha256:0786aef71d6ecb942bfcf789dd7d659bebfd0e0bc13a061b699e4896be80a18c"},
 ]
 
 [package.dependencies]
