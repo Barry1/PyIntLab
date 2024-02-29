@@ -2320,13 +2320,13 @@ files = [
 
 [[package]]
 name = "pyglet"
-version = "2.0.11"
+version = "2.0.12"
 description = "pyglet is a cross-platform games and multimedia package."
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "pyglet-2.0.11-py3-none-any.whl", hash = "sha256:430c2a4c151bc31ab38488d73c6264cd94653ba8e13e6d0540831fee391a64d9"},
-    {file = "pyglet-2.0.11.tar.gz", hash = "sha256:46618d32bcf85b8cb57d6704bf3332bd45d685b6f1c53acd975afddf5f0d7eac"},
+    {file = "pyglet-2.0.12-py3-none-any.whl", hash = "sha256:b713db0f1d939040b58dbe4583f5999540623ffae9de8c7171be26ece94eaecf"},
+    {file = "pyglet-2.0.12.tar.gz", hash = "sha256:d7dca1742ab1b469d4a6df44c03ef0329452d005177a9cb9bb24fe7b1b603d01"},
 ]
 
 [[package]]
@@ -2566,13 +2566,13 @@ typing-inspect = "*"
 
 [[package]]
 name = "pyright"
-version = "1.1.351"
+version = "1.1.352"
 description = "Command line wrapper for pyright"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "pyright-1.1.351-py3-none-any.whl", hash = "sha256:83b44b25396ae20661fc5f133c3fce30928ff1296d4f2e5ff0bca5fcf03eb89d"},
-    {file = "pyright-1.1.351.tar.gz", hash = "sha256:01124099714eebd7f6525d8cbfa350626b56dfaf771cfcd55c03e69f0f1efbbd"},
+    {file = "pyright-1.1.352-py3-none-any.whl", hash = "sha256:0040cf173c6a60704e553bfd129dfe54de59cc76d0b2b80f77cfab4f50701d64"},
+    {file = "pyright-1.1.352.tar.gz", hash = "sha256:a621c0dfbcf1291b3610641a07380fefaa1d0e182890a1b2a7f13b446e8109a9"},
 ]
 
 [package.dependencies]
@@ -2795,17 +2795,17 @@ mando = ">=0.6,<0.7"
 
 [[package]]
 name = "redis"
-version = "5.0.1"
+version = "5.0.2"
 description = "Python client for Redis database and key-value store"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "redis-5.0.1-py3-none-any.whl", hash = "sha256:ed4802971884ae19d640775ba3b03aa2e7bd5e8fb8dfaed2decce4d0fc48391f"},
-    {file = "redis-5.0.1.tar.gz", hash = "sha256:0dab495cd5753069d3bc650a0dde8a8f9edde16fc5691b689a566eda58100d0f"},
+    {file = "redis-5.0.2-py3-none-any.whl", hash = "sha256:4caa8e1fcb6f3c0ef28dba99535101d80934b7d4cd541bbb47f4a3826ee472d1"},
+    {file = "redis-5.0.2.tar.gz", hash = "sha256:3f82cc80d350e93042c8e6e7a5d0596e4dd68715babffba79492733e1f367037"},
 ]
 
 [package.dependencies]
-async-timeout = {version = ">=4.0.2", markers = "python_full_version <= \"3.11.2\""}
+async-timeout = ">=4.0.3"
 
 [package.extras]
 hiredis = ["hiredis (>=1.0.0)"]
@@ -2851,13 +2851,13 @@ toml = ">=0.10.2,<0.11.0"
 
 [[package]]
 name = "rich"
-version = "13.7.0"
+version = "13.7.1"
 description = "Render rich text, tables, progress bars, syntax highlighting, markdown and more to the terminal"
 optional = false
 python-versions = ">=3.7.0"
 files = [
-    {file = "rich-13.7.0-py3-none-any.whl", hash = "sha256:6da14c108c4866ee9520bbffa71f6fe3962e193b7da68720583850cd4548e235"},
-    {file = "rich-13.7.0.tar.gz", hash = "sha256:5cb5123b5cf9ee70584244246816e9114227e0b98ad9176eede6ad54bf5403fa"},
+    {file = "rich-13.7.1-py3-none-any.whl", hash = "sha256:4edbae314f59eb482f54e9e30bf00d33350aaa94f4bfcd4e9e3110e64d0d7222"},
+    {file = "rich-13.7.1.tar.gz", hash = "sha256:9be308cb1fe2f1f57d67ce99e95af38a1e2bc71ad9813b0e247cf7ffbcc3a432"},
 ]
 
 [package.dependencies]
@@ -3308,13 +3308,13 @@ types-setuptools = "*"
 
 [[package]]
 name = "types-setuptools"
-version = "69.1.0.20240223"
+version = "69.1.0.20240229"
 description = "Typing stubs for setuptools"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "types-setuptools-69.1.0.20240223.tar.gz", hash = "sha256:8a886a1fd06b668782dfbdaded4fd8a4e8c9f3d8d4c02acdd1240df098f50bf7"},
-    {file = "types_setuptools-69.1.0.20240223-py3-none-any.whl", hash = "sha256:30a0d9903a81a424bd0f979534552a016a4543760aaffd499b9a2fe85bae0bfd"},
+    {file = "types-setuptools-69.1.0.20240229.tar.gz", hash = "sha256:e16f1ec06ed8ffdb207471bdc19b10c0425617cd587b7837f5d8cad39a02a6b8"},
+    {file = "types_setuptools-69.1.0.20240229-py3-none-any.whl", hash = "sha256:de2dd992fd91e3c4b0585deaad8d049559df3fd2572caa76fe8d3d0a3804ac4d"},
 ]
 
 [[package]]
