@@ -3253,24 +3253,24 @@ test = ["mypy", "pytest", "typing-extensions"]
 
 [[package]]
 name = "types-colorama"
-version = "0.4.15.20240310"
+version = "0.4.15.20240311"
 description = "Typing stubs for colorama"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "types-colorama-0.4.15.20240310.tar.gz", hash = "sha256:7ebfdc9736d393cfbb1bfe60d50e246e70208310b659a652f1e577e580d6becf"},
-    {file = "types_colorama-0.4.15.20240310-py3-none-any.whl", hash = "sha256:7b3c55d207b927a74f07fe89a8a35884ef64b410d42d5f746fed6f5e7f98ba66"},
+    {file = "types-colorama-0.4.15.20240311.tar.gz", hash = "sha256:a28e7f98d17d2b14fb9565d32388e419f4108f557a7d939a66319969b2b99c7a"},
+    {file = "types_colorama-0.4.15.20240311-py3-none-any.whl", hash = "sha256:6391de60ddc0db3f147e31ecb230006a6823e81e380862ffca1e4695c13a0b8e"},
 ]
 
 [[package]]
 name = "types-docutils"
-version = "0.20.0.20240310"
+version = "0.20.0.20240311"
 description = "Typing stubs for docutils"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "types-docutils-0.20.0.20240310.tar.gz", hash = "sha256:84a8e82ebcb2e3b3440f3755862f4c29019c452150886998fab2f53ad403f0bd"},
-    {file = "types_docutils-0.20.0.20240310-py3-none-any.whl", hash = "sha256:858e637e369f17ceec124344ff8a86164a46f200aacc20efd5929ae850c6b95a"},
+    {file = "types-docutils-0.20.0.20240311.tar.gz", hash = "sha256:b29df362e9e6efcba68e27af78135902d56614f6fa76c073d29989272eedb069"},
+    {file = "types_docutils-0.20.0.20240311-py3-none-any.whl", hash = "sha256:7d6ade724d89c7cbec390da4c63104f46d3f4e3eff0804998b38a274aa1e3d0c"},
 ]
 
 [[package]]
