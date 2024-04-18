@@ -131,6 +131,8 @@ types-toml = "*"
 ufmt = ">=2.0.1"
 vermin = "*"
 vulture = "*"
+ruff = "^0.3.7"
+pylyzer = "^0.0.51"
 
 [tool.poetry.group.dev.dependencies.pytype]
 version = ">=2022"
