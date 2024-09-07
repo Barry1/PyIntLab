@@ -3434,13 +3434,13 @@ files = [
 
 [[package]]
 name = "types-docutils"
-version = "0.21.0.20240724"
+version = "0.21.0.20240907"
 description = "Typing stubs for docutils"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "types-docutils-0.21.0.20240724.tar.gz", hash = "sha256:29ff7e27660f4fe76ea61d7e54d05ca3ce3b733ca9e8e8721e0fa587dbc10489"},
-    {file = "types_docutils-0.21.0.20240724-py3-none-any.whl", hash = "sha256:bf51c6c488d23c0412f9b3ba10686fb1a6cb0b957ef04b45128d8a55c79ebb00"},
+    {file = "types-docutils-0.21.0.20240907.tar.gz", hash = "sha256:5dd2aa5e2e06fcfa090020bc4115479b4dd28da3329ab708563ee29894bd3c0d"},
+    {file = "types_docutils-0.21.0.20240907-py3-none-any.whl", hash = "sha256:9c8ed6d90583944af00f6b5fa3aecc2101e20672f6b1a4a299c6bf7d1e47084d"},
 ]
 
 [[package]]
@@ -3460,13 +3460,13 @@ types-setuptools = "*"
 
 [[package]]
 name = "types-setuptools"
-version = "74.1.0.20240906"
+version = "74.1.0.20240907"
 description = "Typing stubs for setuptools"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "types-setuptools-74.1.0.20240906.tar.gz", hash = "sha256:e51329b968617885ce45f4089b389c6563f26ebb3de8ef4505917174eed23f79"},
-    {file = "types_setuptools-74.1.0.20240906-py3-none-any.whl", hash = "sha256:8c8e4c1cfaaa68d4457dbfe575938c09b2db5f9ef1b7a639e739ba541d3a20ae"},
+    {file = "types-setuptools-74.1.0.20240907.tar.gz", hash = "sha256:0abdb082552ca966c1e5fc244e4853adc62971f6cd724fb1d8a3713b580e5a65"},
+    {file = "types_setuptools-74.1.0.20240907-py3-none-any.whl", hash = "sha256:15b38c8e63ca34f42f6063ff4b1dd662ea20086166d5ad6a102e670a52574120"},
 ]
 
 [[package]]
