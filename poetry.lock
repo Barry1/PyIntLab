@@ -225,13 +225,13 @@ dev = ["future (>=0.16.0)", "pytest (==3.1.2)"]
 
 [[package]]
 name = "billiard"
-version = "4.2.0"
+version = "4.2.1"
 description = "Python multiprocessing fork with improvements and bugfixes"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "billiard-4.2.0-py3-none-any.whl", hash = "sha256:07aa978b308f334ff8282bd4a746e681b3513db5c9a514cbdd810cbbdc19714d"},
-    {file = "billiard-4.2.0.tar.gz", hash = "sha256:9a3c3184cb275aa17a732f93f65b20c525d3d9f253722d26a82194803ade5a2c"},
+    {file = "billiard-4.2.1-py3-none-any.whl", hash = "sha256:40b59a4ac8806ba2c2369ea98d876bc6108b051c227baffd928c644d15d8f3cb"},
+    {file = "billiard-4.2.1.tar.gz", hash = "sha256:12b641b0c539073fc8d3f5b8b7be998956665c4233c7c1fcd66a7e677c4fb36f"},
 ]
 
 [[package]]
@@ -3543,13 +3543,13 @@ files = [
 
 [[package]]
 name = "ufmt"
-version = "2.7.2"
+version = "2.7.3"
 description = "Safe, atomic formatting with black and µsort"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "ufmt-2.7.2-py3-none-any.whl", hash = "sha256:5f823378f1c42378c335af7a415664690acedfa91d601f623da0ecd4d7e69db4"},
-    {file = "ufmt-2.7.2.tar.gz", hash = "sha256:2b584978342c4d84ff1f794bb4bad6dafa934bf5b679a4abe39a60192745fbd5"},
+    {file = "ufmt-2.7.3-py3-none-any.whl", hash = "sha256:1a3d2515e3108ba7a68425ebdeb4cbb1fdfbcffbd031dac8f56a1f386a7b396e"},
+    {file = "ufmt-2.7.3.tar.gz", hash = "sha256:b661c575bfb95a617d04fa4fe5cde550d21eb848094b3f9c438165459bc04f77"},
 ]
 
 [package.dependencies]
