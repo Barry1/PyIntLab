@@ -138,7 +138,7 @@ class ScalarInterval:  # inheritance from object could be suppressed
         return ScalarInterval(self.lowerbound - other, self.upperbound - other)
 
     def __truediv__(self, other: ScalarInterval | float) -> ScalarInterval:
-        """Dunder method for true division."""
+        """Dunder method for (left) true division."""
         if isinstance(other, ScalarInterval):
             return self.__mul__(other.reciproc())
         return ScalarInterval(self.lowerbound / other, self.upperbound / other)
