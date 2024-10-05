@@ -2,6 +2,7 @@
 
 Some details where taken from <https://setuptools.readthedocs.io/en/latest/>
 """
+
 import site
 import sys
 

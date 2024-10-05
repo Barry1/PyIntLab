@@ -1,4 +1,5 @@
 """Bastian versucht sich an Interval-Arithmetik."""
+
 import math
 
 from pytest import raises
