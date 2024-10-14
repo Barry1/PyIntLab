@@ -4,7 +4,7 @@
 # supported CodeQL languages.
 #
 name: "CodeQL"
-
+permissions: none
 on:
   workflow_dispatch:
   #  push:

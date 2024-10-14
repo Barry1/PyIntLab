@@ -15,7 +15,7 @@ lint:
     - autopep8@2.3.1
     - bandit@1.7.10
     - black@24.10.0
-    - checkov@3.2.257
+    - checkov@3.2.260
     - flake8@7.1.1
     - git-diff-check
     - gitleaks@8.20.1
@@ -38,7 +38,7 @@ runtimes:
 tools:
   enabled:
     - sourcery@1.23.0
-    - poetry@1.8.3
+    - poetry@1.8.4
 actions:
   enabled:
     - trunk-check-pre-push
