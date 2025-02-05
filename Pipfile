@@ -8,6 +8,7 @@ name = "pypi"
 [dev-packages]
 numpy = ">=2.2.2"
 pytest = ">=8.3.4"
+ruff = "*"
 sourcery = ">=1.33"
 
 [requires]
