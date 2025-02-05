@@ -15,23 +15,19 @@ from pyintlab import ScalarInterval
 ###########################################
 def test_matrix_product() -> None:
     """Two simple matrices of ScalarIntervals in dot product."""
-    left_matrix: numpy.typing.NDArray[numpy.object_] = (
-        numpy.array(  # pyright: ignore [reportUnknownMemberType]
-            [
-                [ScalarInterval(1), ScalarInterval(3)],
-                [ScalarInterval(2), ScalarInterval(4)],
-            ],
-            dtype=ScalarInterval,
-        )
+    left_matrix: numpy.typing.NDArray[numpy.object_] = numpy.array(  # pyright: ignore [reportUnknownMemberType]
+        [
+            [ScalarInterval(1), ScalarInterval(3)],
+            [ScalarInterval(2), ScalarInterval(4)],
+        ],
+        dtype=ScalarInterval,
     )
-    right_matrix: numpy.typing.NDArray[numpy.object_] = (
-        numpy.array(  # pyright: ignore [reportUnknownMemberType]
-            [
-                [ScalarInterval(5), ScalarInterval(7)],
-                [ScalarInterval(6), ScalarInterval(8)],
-            ],
-            dtype=ScalarInterval,
-        )
+    right_matrix: numpy.typing.NDArray[numpy.object_] = numpy.array(  # pyright: ignore [reportUnknownMemberType]
+        [
+            [ScalarInterval(5), ScalarInterval(7)],
+            [ScalarInterval(6), ScalarInterval(8)],
+        ],
+        dtype=ScalarInterval,
     )
     res_matrix = left_matrix.dot(  # pyright: ignore [reportUnknownMemberType]
         right_matrix
