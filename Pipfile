@@ -1,0 +1,15 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+
+[dev-packages]
+numpy = ">=2.2.2"
+pytest = ">=8.3.4"
+sourcery = ">=1.33"
+
+[requires]
+python_version = "3.13"
+python_full_version = "3.13.2"
