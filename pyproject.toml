@@ -147,24 +147,15 @@ requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.tox]
-legacy_tox_ini = """
-    [tox]
-    requires =
-        tox>4
-        virtualenv>20.2
-    env_list =
-        py313
-    minversion = 4.22.0
+requires = ["tox>4", "virtualenv>20.2"]
+env_list = ["py310", "py311", "py312", "py313", "bastipytest"]
+minversion = "4.22.0"
 
-    [testenv]
-    description = run the tests with pytest
-    package = wheel
-    wheel_build_env = .pkg
-    parallel_show_output = true 
-    platform =
-        linux
-    deps =
-        pytest>=6
-    commands =
-        pytest {tty:--color=yes} {posargs}
-"""
+[tool.tox.env.bastipytest]
+description = "run the tests with pytest"
+package = "wheel"
+wheel_build_env = ".pkg"
+parallel_show_output = true
+platform = "linux"
+deps = ["pytest>=6", "pytest-sugar"]
+commands = [["pytest", "{tty:--color=yes}", "{posargs}"]]
