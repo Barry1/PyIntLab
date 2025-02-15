@@ -12,7 +12,7 @@ recursive = true
 [tool.black]
 #line-length = 88
 color = true
-safe = true
+#save = true
 target-version = ['py311'] #'py37', 'py38',
 
 [tool.darker]

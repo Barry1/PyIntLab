@@ -207,5 +207,5 @@ if __name__ == "__main__":  # Small application
     print(f"radius {rtest}")
     print("========== OUTPUT ==========")
     print(f"diameter {rtest + rtest}")
-    print(f"area {rtest*rtest*pitest}")
-    print(f"volume {4/3*rtest*rtest*rtest*pitest}")
+    print(f"area {rtest * rtest * pitest}")
+    print(f"volume {4 / 3 * rtest * rtest * rtest * pitest}")
