@@ -85,12 +85,6 @@ python = "^3.11"
 radon = "^5.0.1"
 numpy = ">=1.22.0"
 flake8-pydocstyle = "^0.2.2"
-[tool.poetry.dependencies.prospector]
-extras = ["all"]
-version = "^1.9.0"
-[tool.poetry.dependencies.pylama]
-extras = ["all"]
-version = "^8.4.1"
 [tool.poetry.group.dev.dependencies]
 autopep8 = ">=1.6.0"
 bandit = "^1.7.4"
@@ -110,13 +104,11 @@ MonkeyType = ">=22.2.0"
 mypy = "^1.0.1"
 pep257 = "*"
 pep8 = "*"
-prospector = ">=1.8"
 pyanalyze = ">=0.7.0"
 pyannotate = ">=1.2.0"
 pycodestyle = "*"
 pydocstyle = "*"
 pyflakes = "*"
-pylama = "*"
 pylint = "*"
 pyre-check = "*"
 pyright = ">=1.1.235"
@@ -134,43 +126,36 @@ vulture = "*"
 ruff = "^0.3.7"
 #pylyzer = "^0.0.51"
 
+[tool.poetry.group.dev.dependencies.prospector]
+extras = ["all"]
+version = "^1.9.0"
+
+[tool.poetry.group.dev.dependencies.pylama]
+extras = ["all"]
+version = "^8.4.1"
+
 [tool.poetry.group.dev.dependencies.pytype]
 version = ">=2022"
 python = ">=3.7,<=3.10"
 
-#[tool.poetry.group.dev.dependencies.mypy]
-#git = "https://github.com/python/mypy.git"
 [tool.poetry.group.dev.dependencies.black]
 version = ">22"
-allow-prereleases = true
+#allow-prereleases = true
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.tox]
-legacy_tox_ini = """
-    [tox]
-    requires =
-        tox>4
-        virtualenv>20.2
-    env_list =
-#        py310
-        py311
-#        type
-#        py39
-#        py312
-    minversion = 4.4.11
+requires = ["tox>4", "virtualenv>20.2"]
+env_list = ["py310", "py311", "py312", "py313", "bastipytest"]
+minversion = "4.22.0"
 
-    [testenv]
-    description = run the tests with pytest
-    package = wheel
-    wheel_build_env = .pkg
-    parallel_show_output = true 
-    platform =
-        linux
-    deps =
-        pytest>=6
-    commands =
-        pytest {tty:--color=yes} {posargs}
-"""
+[tool.tox.env.bastipytest]
+description = "run the tests with pytest"
+package = "wheel"
+wheel_build_env = ".pkg"
+parallel_show_output = true
+platform = "linux"
+deps = ["pytest>=6", "pytest-sugar"]
+commands = [["pytest", "{tty:--color=yes}", "{posargs}"]]
