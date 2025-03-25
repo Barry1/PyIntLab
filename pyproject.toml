@@ -76,7 +76,7 @@ addopts = ["--verbose"]
 
 [tool.poetry]
 name = "pyintlab"
-version = "0.1.1-alpha.0"
+version = "0.1.1"
 description = "package in memoriam of intlab=Matlab Interval Laboratory"
 authors = ["Ebeling, Dr. Bastian <bastian.ebeling@web.de>"]
 

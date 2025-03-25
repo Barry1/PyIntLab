@@ -191,6 +191,19 @@ class ScalarInterval:  # inheritance from object could be suppressed
             math.log(self.lowerbound, base), math.log(self.upperbound, base)
         )
 
+    def __pow__(self, exponent: ScalarInterval | int | float) -> ScalarInterval:
+        """Return the interval to the power of the given exponent."""
+        if isinstance(exponent, ScalarInterval):
+            return ScalarInterval(
+                self.lowerbound**exponent.lowerbound,
+                self.lowerbound**exponent.upperbound,
+                self.upperbound**exponent.lowerbound,
+                self.upperbound**exponent.upperbound,
+            )
+        if isinstance(exponent, int):
+            return ScalarInterval(self.lowerbound**exponent, self.upperbound**exponent)
+        return (self.log() * exponent).exp()
+
     def tanh(self) -> ScalarInterval:
         """Return the hyperbolic tangens of the interval."""
         return ScalarInterval(math.tanh(self.lowerbound), math.tanh(self.upperbound))
