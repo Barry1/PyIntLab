@@ -125,6 +125,7 @@ vermin = "*"
 vulture = "*"
 ruff = "^0.3.7"
 #pylyzer = "^0.0.51"
+sourcery = "^1.35.0"
 
 [tool.poetry.group.dev.dependencies.prospector]
 extras = ["all"]
