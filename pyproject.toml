@@ -74,17 +74,14 @@ addopts = ["--verbose"]
 
 [tool.towncrier]
 
-[tool.poetry]
+[project]
 name = "pyintlab"
 version = "0.1.1"
 description = "package in memoriam of intlab=Matlab Interval Laboratory"
-authors = ["Ebeling, Dr. Bastian <bastian.ebeling@web.de>"]
+authors = [{ name = "Ebeling, Dr. Bastian", email = "bastian.ebeling@web.de" }]
+dependencies = ["numpy>=1.22.0", "radon >=5.0.1", "flake8-pydocstyle>=0.2.2"]
+requires-python = ">=3.11"
 
-[tool.poetry.dependencies]
-python = "^3.11"
-radon = "^5.0.1"
-numpy = ">=1.22.0"
-flake8-pydocstyle = "^0.2.2"
 [tool.poetry.group.dev.dependencies]
 autopep8 = ">=1.6.0"
 bandit = "^1.7.4"

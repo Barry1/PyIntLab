@@ -15,20 +15,20 @@ lint:
     - autopep8@2.3.2
     - bandit@1.8.3
     - black@25.1.0
-    - checkov@3.2.403
+    - checkov@3.2.407
     - flake8@7.2.0
     - git-diff-check
-    - gitleaks@8.24.2
+    - gitleaks@8.24.3
     - isort@6.0.1
     - markdownlint@0.44.0
     - mypy@1.15.0
     - osv-scanner@2.0.1
     - prettier@3.5.3
     - pyright@1.1.399
-    - ruff@0.11.5
+    - ruff@0.11.6
     - taplo@0.9.3
-    - trivy@0.61.0
-    - trufflehog@3.88.23
+    - trivy@0.61.1
+    - trufflehog@3.88.24
     - yamllint@1.37.0
 runtimes:
   enabled:
