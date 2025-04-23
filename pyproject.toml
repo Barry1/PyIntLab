@@ -114,7 +114,7 @@ pyroma = "^4.2"
 pytest = ">=6"
 radon = "^5.0.1"
 setuptools = ">=62.1.0"
-sourcery = "*"
+sourcery = "^1.35.0"
 tox = "^4.4.11"
 types-colorama = "^0.4.15.4"
 types-pygments = "^2.14.0.0"
@@ -125,7 +125,6 @@ vermin = "*"
 vulture = "*"
 ruff = "^0.3.7"
 #pylyzer = "^0.0.51"
-sourcery = "^1.35.0"
 
 [tool.poetry.group.dev.dependencies.prospector]
 extras = ["all"]
