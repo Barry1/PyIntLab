@@ -74,17 +74,14 @@ addopts = ["--verbose"]
 
 [tool.towncrier]
 
-[tool.poetry]
+[project]
 name = "pyintlab"
-version = "0.1.1"
+version = "0.1.2"
 description = "package in memoriam of intlab=Matlab Interval Laboratory"
-authors = ["Ebeling, Dr. Bastian <bastian.ebeling@web.de>"]
+authors = [{name="Ebeling, Dr. Bastian",email="bastian.ebeling@web.de"}]
+requires-python = "^3.11"
+dependencies = ["numpy>2.2"]
 
-[tool.poetry.dependencies]
-python = "^3.11"
-radon = "^5.0.1"
-numpy = ">=1.22.0"
-flake8-pydocstyle = "^0.2.2"
 [tool.poetry.group.dev.dependencies]
 autopep8 = ">=1.6.0"
 bandit = "^1.7.4"
@@ -95,13 +92,14 @@ deepsource = "^0.1.2"
 dlint = "^0.14.0"
 eradicate = "*"
 flake8 = ">=5"
+flake8-pydocstyle = "^0.2.2"
 # git-story = ">=0.1.4" # issue with python3.13
 interrogate = ">=1.5.0"
-isort = "*"
+isort = ">=6"
 mccabe = "*"
 modernize = "^0.8.0"
 MonkeyType = ">=22.2.0"
-mypy = "^1.0.1"
+mypy = ">=1.15"
 pep257 = "*"
 pep8 = "*"
 pyanalyze = ">=0.7.0"
@@ -114,7 +112,9 @@ pyre-check = "*"
 pyright = ">=1.1.235"
 pyroma = "^4.2"
 pytest = ">=6"
+radon = "^5.0.1"
 setuptools = ">=62.1.0"
+sourcery = "*"
 tox = "^4.4.11"
 types-colorama = "^0.4.15.4"
 types-pygments = "^2.14.0.0"
@@ -139,7 +139,7 @@ version = ">=2022"
 python = ">=3.7,<=3.10"
 
 [tool.poetry.group.dev.dependencies.black]
-version = ">22"
+version = ">=25"
 #allow-prereleases = true
 
 [build-system]
