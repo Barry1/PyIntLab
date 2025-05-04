@@ -2,9 +2,9 @@
 
 import math
 
-from pyintlab import ScalarInterval  # pylint: disable=E0402
-
 from pytest import raises
+
+from pyintlab import ScalarInterval  # pylint: disable=E0402
 
 
 def test_explog_in() -> None:

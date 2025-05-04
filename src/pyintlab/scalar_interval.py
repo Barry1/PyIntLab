@@ -1,7 +1,5 @@
 """Bastian is working on interval arithmetics."""
 
-# to reference class type in annotations within class definition
-# from py311 simple use Self from module typing
 from __future__ import annotations
 
 import math
@@ -19,11 +17,13 @@ class ScalarInterval:  # inheritance from object could be suppressed
     # __new__ is not needed as the default is sufficient
 
     def __init__(self, *bounds: float) -> None:
-        """Contructor for new ScalarInterval.
+        """Constructor for new ScalarInterval.
 
         You can handover any number of (real) arguments, the resulting Interval
         will automatically be the convex hull (from min to max).
         """
+        if not bounds:
+            raise ValueError("At least one bound must be provided.")
         self.lowerbound = min(bounds)
         self.upperbound = max(bounds)
 
@@ -92,7 +92,7 @@ class ScalarInterval:  # inheritance from object could be suppressed
 
     def reciproc(self) -> ScalarInterval:
         """Build 1/x for ScalarInterval x."""
-        if self:
+        if self:  # calls __bool__ method
             return ScalarInterval(1 / self.upperbound, 1 / self.lowerbound)
         raise ZeroDivisionError(
             f"Can not build the reziprocal of indefinite Interval {self}."

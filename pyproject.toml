@@ -78,7 +78,7 @@ addopts = ["--verbose"]
 name = "pyintlab"
 version = "0.1.2"
 description = "package in memoriam of intlab=Matlab Interval Laboratory"
-authors = [{name="Ebeling, Dr. Bastian",email="bastian.ebeling@web.de"}]
+authors = [{ name = "Ebeling, Dr. Bastian", email = "bastian.ebeling@web.de" }]
 requires-python = "^3.11"
 dependencies = ["numpy>2.2"]
 
