@@ -76,10 +76,10 @@ addopts = ["--verbose"]
 
 [project]
 name = "pyintlab"
-version = "0.1.2"
+version = "0.1.3"
 description = "package in memoriam of intlab=Matlab Interval Laboratory"
 authors = [{ name = "Ebeling, Dr. Bastian", email = "bastian.ebeling@web.de" }]
-requires-python = "^3.11"
+requires-python = ">=3.11"
 dependencies = ["numpy>2.2"]
 
 [tool.poetry.group.dev.dependencies]
