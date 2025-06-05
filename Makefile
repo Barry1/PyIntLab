@@ -18,7 +18,7 @@ pyflakes:
 	niceload poetry run pyflakes src
 
 pytype:
-	niceload poetry run pytype src
+	niceload poetry run pytype --precise-return src/pyintlab
 
 poetrypython:
 	poetry env use python3.10
