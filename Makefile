@@ -21,7 +21,7 @@ pytype:
 	niceload poetry run pytype --precise-return src/pyintlab
 
 poetrypython:
-	poetry env use python3.10
+	poetry env use python3.11
 	poetry update
 
 pyroma:
