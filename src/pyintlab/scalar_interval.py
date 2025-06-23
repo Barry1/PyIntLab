@@ -92,6 +92,15 @@ class ScalarInterval:  # inheritance from object could be suppressed
             self.lowerbound + float(other), self.upperbound + float(other)
         )
 
+    def __radd__(self, other: ScalarInterval | float) -> ScalarInterval:
+        """Dunder method for right addition."""
+        if isinstance(other, ScalarInterval):
+            return ScalarInterval(
+                self.lowerbound + other.lowerbound,
+                self.upperbound + other.upperbound,
+            )
+        return ScalarInterval(self.lowerbound + other, self.upperbound + other)
+
     def reciproc(self) -> ScalarInterval:
         """Build 1/x for ScalarInterval x."""
         if self:  # calls __bool__ method
@@ -145,7 +154,16 @@ class ScalarInterval:  # inheritance from object could be suppressed
             self.lowerbound - float(other), self.upperbound - float(other)
         )
 
-    def __truediv__(self, other: ScalarInterval | SupportsFloat) -> ScalarInterval:
+    def __rsub__(self, other: ScalarInterval | SupportsFloat) -> ScalarInterval:
+        """Dunder method for rightsubtraction."""
+        if isinstance(other, ScalarInterval):
+            return ScalarInterval(
+                other.lowerbound - self.upperbound,
+                other.upperbound - self.lowerbound,
+            )
+        return ScalarInterval(float(other) - self.lowerbound, float(other) - self.upperbound)
+
+    def __truediv__(self, other: ScalarInterval | float) -> ScalarInterval:
         """Dunder method for (left) true division."""
         if isinstance(other, ScalarInterval):
             return self.__mul__(other.reciproc())
