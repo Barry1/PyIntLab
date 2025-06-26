@@ -161,7 +161,9 @@ class ScalarInterval:  # inheritance from object could be suppressed
                 other.lowerbound - self.upperbound,
                 other.upperbound - self.lowerbound,
             )
-        return ScalarInterval(float(other) - self.lowerbound, float(other) - self.upperbound)
+        return ScalarInterval(
+            float(other) - self.lowerbound, float(other) - self.upperbound
+        )
 
     def __truediv__(self, other: ScalarInterval | float) -> ScalarInterval:
         """Dunder method for (left) true division."""
