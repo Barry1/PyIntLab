@@ -5,6 +5,9 @@
 #OBJS=$(shell find src -regex ".*\.pyi?$$")
 OBJS!=find src -regex ".*\.pyi?$$"
 
+pyrefly:
+	poetry run pyrefly check
+
 sourcery:
 	poetry run sourcery review --fix --summary --verbose src/pyintlab
 
