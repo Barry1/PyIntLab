@@ -5,6 +5,8 @@ from __future__ import annotations
 import math
 from typing import SupportsFloat
 
+from Cython import float
+
 __all__: list[str] = []
 
 
