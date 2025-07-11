@@ -4,13 +4,14 @@ from __future__ import annotations
 
 import math
 from logging import Logger, getLogger
-from typing import SupportsFloat
+from typing import TYPE_CHECKING, SupportsFloat
 
 thelogger: Logger = getLogger(__name__)
-try:
-    from Cython import float
-except ImportError:
-    thelogger.info("No cython here. Using python float instead.")
+if not TYPE_CHECKING:
+    try:
+        from Cython import float
+    except ImportError:
+        thelogger.info("No cython here. Using python float instead.")
 
 __all__: list[str] = []
 
@@ -49,7 +50,7 @@ class ScalarInterval:  # inheritance from object could be suppressed
 
     def __str__(self) -> str:
         """Show a readable representation of the Interval."""
-        return f"[{self.lowerbound},{self.upperbound}] <{self.mid},{self.rad}>"
+        return f"[{self.lowerbound},{self.upperbound}] <{self.mid}±{self.rad}>"
 
     def __repr__(self) -> str:
         """Show a representation of the Interval for reconstruction."""
@@ -172,7 +173,7 @@ class ScalarInterval:  # inheritance from object could be suppressed
             float(other) - self.lowerbound, float(other) - self.upperbound
         )
 
-    def __truediv__(self, other: ScalarInterval | float) -> ScalarInterval:
+    def __truediv__(self, other: ScalarInterval | SupportsFloat) -> ScalarInterval:
         """Dunder method for (left) true division."""
         if isinstance(other, ScalarInterval):
             return self.__mul__(other.reciproc())
@@ -183,7 +184,7 @@ class ScalarInterval:  # inheritance from object could be suppressed
     # https://docs.python.org/3.6/reference/datamodel.html#object.__radd__
     def __rtruediv__(self, other: float) -> ScalarInterval:
         """Dunder method for right true division."""
-        return other * self.reciproc()
+        return self.reciproc() * other
 
     def __contains__(self, item: ScalarInterval | SupportsFloat) -> bool:
         """Return boolean indicator if item is within interval."""
