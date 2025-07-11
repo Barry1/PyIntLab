@@ -3,9 +3,14 @@
 from __future__ import annotations
 
 import math
+from logging import Logger, getLogger
 from typing import SupportsFloat
 
-from Cython import float
+thelogger: Logger = getLogger(__name__)
+try:
+    from Cython import float
+except ImportError:
+    thelogger.info("No cython here. Using python float instead.")
 
 __all__: list[str] = []
 
