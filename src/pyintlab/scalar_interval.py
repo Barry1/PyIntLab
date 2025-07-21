@@ -23,12 +23,15 @@ class ScalarInterval:  # inheritance from object could be suppressed
         "lowerbound",
         "upperbound",
     )
+    # measured with from pympler import asizeof by using __slots__ memory
+    # usage of one ScalerInterval has been reduced from 504 to 96 bytes.
+    # That is less than 20% of the original size.
     lowerbound: float
     upperbound: float
     # __new__ is not needed as the default is sufficient
 
     def __init__(self, *bounds: float) -> None:
-        """Constructor for new ScalarInterval.
+        """Construct for new ScalarInterval.
 
         You can handover any number of (real) arguments, the resulting Interval
         will automatically be the convex hull (from min to max).
