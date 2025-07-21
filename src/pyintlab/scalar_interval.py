@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import math
 from logging import Logger, getLogger
-from typing import TYPE_CHECKING, SupportsFloat
+from typing import TYPE_CHECKING, Literal, SupportsFloat
 
 thelogger: Logger = getLogger(__name__)
 if not TYPE_CHECKING:
@@ -19,9 +19,12 @@ __all__: list[str] = []
 class ScalarInterval:  # inheritance from object could be suppressed
     """Class for scalars with uncertainty."""
 
+    __slots__: tuple[Literal["lowerbound"], Literal["upperbound"]] = (
+        "lowerbound",
+        "upperbound",
+    )
     lowerbound: float
     upperbound: float
-
     # __new__ is not needed as the default is sufficient
 
     def __init__(self, *bounds: float) -> None:
