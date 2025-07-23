@@ -9,6 +9,7 @@ from typing import TYPE_CHECKING, Literal, SupportsFloat
 thelogger: Logger = getLogger(__name__)
 if not TYPE_CHECKING:
     try:
+        # pylint: disable=redefined-builtin
         from Cython import float
     except ImportError:
         thelogger.info("No cython here. Using python float instead.")
@@ -30,16 +31,20 @@ class ScalarInterval:  # inheritance from object could be suppressed
     upperbound: float
     # __new__ is not needed as the default is sufficient
 
-    def __init__(self, *bounds: float) -> None:
-        """Construct new ScalarInterval.
+    def __init__(self, *bounds: float, orderguaranteed: bool = False) -> None:
+        """Construct for new ScalarInterval.
 
         You can handover any number of (real) arguments, the resulting Interval
         will automatically be the convex hull (from min to max).
         """
         if not bounds:
             raise ValueError("At least one bound must be provided.")
-        self.lowerbound = min(bounds)
-        self.upperbound = max(bounds)
+        if orderguaranteed:
+            self.lowerbound = bounds[0]
+            self.upperbound = bounds[-1]
+        else:
+            self.lowerbound = min(bounds)
+            self.upperbound = max(bounds)
 
     @property
     def mid(self) -> float:
@@ -136,19 +141,20 @@ class ScalarInterval:  # inheritance from object could be suppressed
     def __mul__(self, other: ScalarInterval | SupportsFloat) -> ScalarInterval:
         """Dunder method for (left) multiplication."""
         if isinstance(other, ScalarInterval):
-            return ScalarInterval(
+            products: tuple[float, float, float, float] = (
                 self.lowerbound * other.lowerbound,
                 self.lowerbound * other.upperbound,
                 self.upperbound * other.lowerbound,
                 self.upperbound * other.upperbound,
             )
+            return ScalarInterval(min(products), max(products), orderguaranteed=True)
         return ScalarInterval(
             self.lowerbound * float(other), self.upperbound * float(other)
         )
 
     def __neg__(self) -> ScalarInterval:
         """Switches the sign of ScalarInterval x ==> -x."""
-        return ScalarInterval(-self.upperbound, -self.lowerbound)
+        return ScalarInterval(-self.upperbound, -self.lowerbound, orderguaranteed=True)
 
     def __rmul__(self, other: ScalarInterval | SupportsFloat) -> ScalarInterval:
         """Dunder method for right multiplikation."""
@@ -248,12 +254,13 @@ class ScalarInterval:  # inheritance from object could be suppressed
     def __pow__(self, exponent: ScalarInterval | int | float) -> ScalarInterval:
         """Return the interval to the power of the given exponent."""
         if isinstance(exponent, ScalarInterval):
-            return ScalarInterval(
+            pows: tuple[float, float, float, float] = (
                 self.lowerbound**exponent.lowerbound,
                 self.lowerbound**exponent.upperbound,
                 self.upperbound**exponent.lowerbound,
                 self.upperbound**exponent.upperbound,
             )
+            return ScalarInterval(min(pows), max(pows), orderguaranteed=True)
         if isinstance(exponent, int):
             return ScalarInterval(self.lowerbound**exponent, self.upperbound**exponent)
         return (self.log() * exponent).exp()
