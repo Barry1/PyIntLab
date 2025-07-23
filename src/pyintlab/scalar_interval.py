@@ -106,13 +106,16 @@ class ScalarInterval:  # inheritance from object could be suppressed
             return ScalarInterval(
                 self.lowerbound + other.lowerbound,
                 self.upperbound + other.upperbound,
+                orderguaranteed=True,
             )
         return ScalarInterval(
-            self.lowerbound + float(other), self.upperbound + float(other)
+            self.lowerbound + float(other),
+            self.upperbound + float(other),
+            orderguaranteed=True,
         )
 
     def __iadd__(self, other: ScalarInterval | SupportsFloat) -> ScalarInterval:
-        """Dunder method for inplaceaddition."""
+        """Dunder method for inplace addition."""
         if isinstance(other, ScalarInterval):
             self.lowerbound += other.lowerbound
             self.upperbound += other.upperbound
@@ -179,10 +182,24 @@ class ScalarInterval:  # inheritance from object could be suppressed
             return ScalarInterval(
                 self.lowerbound - other.upperbound,
                 self.upperbound - other.lowerbound,
+                orderguaranteed=True,
             )
         return ScalarInterval(
-            self.lowerbound - float(other), self.upperbound - float(other)
+            self.lowerbound - float(other),
+            self.upperbound - float(other),
+            orderguaranteed=True,
         )
+
+    def __isub__(self, other: ScalarInterval | SupportsFloat) -> ScalarInterval:
+        """Dunder method for inplace subtraction."""
+        if isinstance(other, ScalarInterval):
+
+            self.lowerbound -= other.upperbound
+            self.upperbound -= other.lowerbound
+            return self
+        self.lowerbound -= float(other)
+        self.upperbound -= float(other)
+        return self
 
     def __rsub__(self, other: ScalarInterval | SupportsFloat) -> ScalarInterval:
         """Dunder method for rightsubtraction."""

@@ -15,7 +15,7 @@ lint:
     - autopep8@2.3.2
     - bandit@1.8.6
     - black@25.1.0
-    - checkov@3.2.451
+    - checkov@3.2.452
     - flake8@7.3.0
     - git-diff-check
     - gitleaks@8.28.0
