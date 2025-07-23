@@ -31,7 +31,7 @@ class ScalarInterval:  # inheritance from object could be suppressed
     # __new__ is not needed as the default is sufficient
 
     def __init__(self, *bounds: float) -> None:
-        """Construct for new ScalarInterval.
+        """Construct new ScalarInterval.
 
         You can handover any number of (real) arguments, the resulting Interval
         will automatically be the convex hull (from min to max).
@@ -105,6 +105,16 @@ class ScalarInterval:  # inheritance from object could be suppressed
         return ScalarInterval(
             self.lowerbound + float(other), self.upperbound + float(other)
         )
+
+    def __iadd__(self, other: ScalarInterval | SupportsFloat) -> ScalarInterval:
+        """Dunder method for inplaceaddition."""
+        if isinstance(other, ScalarInterval):
+            self.lowerbound += other.lowerbound
+            self.upperbound += other.upperbound
+            return self
+        self.lowerbound += float(other)
+        self.upperbound += float(other)
+        return self
 
     def __radd__(self, other: ScalarInterval | float) -> ScalarInterval:
         """Dunder method for right addition."""
