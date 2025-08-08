@@ -70,13 +70,14 @@ disable = "duplicate-code"
 
 [tool.pytest.ini_options]
 minversion = "6.2"
-addopts = ["--verbose"]
+addopts = ["--verbose", "--cov", "--typeguard-packages=pyintlab"]
+required_plugins = ["pytest-cov", "typeguard", "pytest-sugar"]
 
 [tool.towncrier]
 
 [project]
 name = "pyintlab"
-version = "0.1.9"
+version = "0.1.10"
 description = "package in memoriam of intlab=Matlab Interval Laboratory"
 authors = [{ name = "Ebeling, Dr. Bastian", email = "bastian.ebeling@web.de" }]
 requires-python = ">=3.11,<4.0"
@@ -127,6 +128,9 @@ ruff = "^0.3.7"
 #pylyzer = "^0.0.51"
 pyrefly = "^0.21.0"
 basedpyright = "^1.30.1"
+pytest-cov = "^6.2.1"
+pytest-sugar = "^1.0.0"
+typeguard = "^4.4.4"
 
 [tool.poetry.group.dev.dependencies.prospector]
 extras = ["all"]
@@ -135,6 +139,7 @@ version = "^1.9.0"
 [tool.poetry.group.dev.dependencies.pylama]
 extras = ["all"]
 version = "^8.4.1"
+python = "<3.11"
 
 [tool.poetry.group.dev.dependencies.pytype]
 version = ">=2022"
