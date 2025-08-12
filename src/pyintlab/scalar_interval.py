@@ -60,9 +60,11 @@ class ScalarInterval:  # inheritance from object could be suppressed
     # <https://rszalski.github.io/magicmethods/>
 
     def __abs__(self) -> ScalarInterval:
-        """Absolute value of the Interval"""
-        """Open thaught: The absInterval is the Interval containing
-           all abs values from all elements of the given Interval."""
+        """Absolute value of the Interval
+
+        Open thaught: The absInterval is the Interval containing
+        all abs values from all elements of the given Interval.
+        """
         if self:
             # meaning self does not contain 0
             return ScalarInterval(abs(self.lowerbound), abs(self.upperbound))
