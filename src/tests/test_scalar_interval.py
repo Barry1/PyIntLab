@@ -7,6 +7,12 @@ from pytest import raises
 from pyintlab import ScalarInterval  # pylint: disable=E0402
 
 
+def test_abs() -> None:
+    assert abs(ScalarInterval(1, 2)) == ScalarInterval(1, 2)
+    assert abs(ScalarInterval(-4, 3)) == ScalarInterval(0, 4)
+    assert abs(ScalarInterval(-5, -6)) == ScalarInterval(5, 6)
+
+
 def test_explog_in() -> None:
     """Test if x in e^log(x)."""
     for myx in [
