@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import math
 from logging import Logger, getLogger
-from typing import TYPE_CHECKING, Literal, SupportsFloat
+from typing import TYPE_CHECKING, Literal, Self, SupportsFloat
 
 thelogger: Logger = getLogger(__name__)
 if not TYPE_CHECKING:
@@ -128,7 +128,7 @@ class ScalarInterval:  # inheritance from object could be suppressed
             orderguaranteed=True,
         )
 
-    def __iadd__(self, other: ScalarInterval | SupportsFloat) -> ScalarInterval:
+    def __iadd__(self, other: ScalarInterval | SupportsFloat) -> Self:
         """Dunder method for inplace addition."""
         if isinstance(other, ScalarInterval):
             self.lowerbound += other.lowerbound
@@ -204,7 +204,7 @@ class ScalarInterval:  # inheritance from object could be suppressed
             orderguaranteed=True,
         )
 
-    def __isub__(self, other: ScalarInterval | SupportsFloat) -> ScalarInterval:
+    def __isub__(self, other: ScalarInterval | SupportsFloat) -> Self:
         """Dunder method for inplace subtraction."""
         if isinstance(other, ScalarInterval):
 
