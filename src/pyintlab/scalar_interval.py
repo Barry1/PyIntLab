@@ -6,6 +6,8 @@ import math
 from logging import Logger, getLogger
 from typing import TYPE_CHECKING, Literal, Self, SupportsFloat
 
+from numpy import dtype, void
+
 thelogger: Logger = getLogger(__name__)
 if not TYPE_CHECKING:
     try:
