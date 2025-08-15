@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import math
 from logging import Logger, getLogger
-from typing import TYPE_CHECKING, Literal, SupportsFloat
+from typing import TYPE_CHECKING, Literal, Self, SupportsFloat
 
 thelogger: Logger = getLogger(__name__)
 if not TYPE_CHECKING:
@@ -58,6 +58,20 @@ class ScalarInterval:  # inheritance from object could be suppressed
 
     # <https://www.tutorialsteacher.com/python/magic-methods-in-python>
     # <https://rszalski.github.io/magicmethods/>
+
+    def __abs__(self) -> ScalarInterval:
+        """Absolute value of the Interval
+
+        Open thaught: The absInterval is the Interval containing
+        all abs values from all elements of the given Interval.
+        """
+        if self:
+            # meaning self does not contain 0
+            return ScalarInterval(abs(self.lowerbound), abs(self.upperbound))
+        else:
+            return ScalarInterval(
+                0, max(abs(self.lowerbound), self.upperbound), orderguaranteed=True
+            )
 
     def __str__(self) -> str:
         """Show a readable representation of the Interval."""
@@ -114,7 +128,7 @@ class ScalarInterval:  # inheritance from object could be suppressed
             orderguaranteed=True,
         )
 
-    def __iadd__(self, other: ScalarInterval | SupportsFloat) -> ScalarInterval:
+    def __iadd__(self, other: ScalarInterval | SupportsFloat) -> Self:
         """Dunder method for inplace addition."""
         if isinstance(other, ScalarInterval):
             self.lowerbound += other.lowerbound
@@ -190,7 +204,7 @@ class ScalarInterval:  # inheritance from object could be suppressed
             orderguaranteed=True,
         )
 
-    def __isub__(self, other: ScalarInterval | SupportsFloat) -> ScalarInterval:
+    def __isub__(self, other: ScalarInterval | SupportsFloat) -> Self:
         """Dunder method for inplace subtraction."""
         if isinstance(other, ScalarInterval):
 
