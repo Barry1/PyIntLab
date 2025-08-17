@@ -6,8 +6,6 @@ import math
 from logging import Logger, getLogger
 from typing import TYPE_CHECKING, Literal, Self, SupportsFloat
 
-from numpy import dtype, void
-
 thelogger: Logger = getLogger(__name__)
 if not TYPE_CHECKING:
     try:
@@ -62,7 +60,7 @@ class ScalarInterval:  # inheritance from object could be suppressed
     # <https://rszalski.github.io/magicmethods/>
 
     def __abs__(self) -> ScalarInterval:
-        """Absolute value of the Interval
+        """Absolute value of the Interval.
 
         Open thaught: The absInterval is the Interval containing
         all abs values from all elements of the given Interval.

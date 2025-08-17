@@ -1,9 +1,10 @@
-"""class for Order >= 1 Tensors of Intervals"""
+"""class for Order >= 1 Tensors of Intervals."""
 
 from typing import Self
 
 from numpy import array, ndarray, unravel_index
-from scalar_interval import ScalarInterval
+
+from .scalar_interval import ScalarInterval
 
 # https://numpy.org/doc/stable/user/basics.subclassing.html
 
@@ -20,7 +21,7 @@ def solve(A, b):
     [rows, cols] = A.shape
     # Erster Schritt
     pivpos = abs(A).argmax()
-    [therow, thecol] = unravel_index(pivpos, A.shape)
+    therow, thecol = unravel_index(pivpos, A.shape)
     b[therow, 0] /= b[therow, 0]
     A[therow, :] /= A[therow, thecol]
     A[therow, thecol] = 1
