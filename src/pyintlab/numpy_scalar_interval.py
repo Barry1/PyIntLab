@@ -51,14 +51,24 @@ class NPScalarInterval:  # inheritance from object could be suppressed
         thelogger.info("New Interval %s of dimension %i.", self, self.data.ndim)
 
     @property
+    def lowerbound(self) -> float:
+        """Lower bound of interval."""
+        return self.data["lowerbound"].item()
+
+    @property
+    def upperbound(self) -> float:
+        """Upper bound of interval."""
+        return self.data["upperbound"].item()
+
+    @property
     def mid(self) -> float:
         """Midpoint of interval."""
-        return (self.data["lowerbound"] + self.data["upperbound"]) / 2
+        return (self.data["lowerbound"].item() + self.data["upperbound"].item()) / 2
 
     @property
     def rad(self) -> float:
         """Radius of interval."""
-        return (self.data["upperbound"] - self.data["lowerbound"]) / 2
+        return (self.data["upperbound"].item() - self.data["lowerbound"].item()) / 2
 
     def __str__(self) -> str:
         """Show a readable representation of the Interval."""
