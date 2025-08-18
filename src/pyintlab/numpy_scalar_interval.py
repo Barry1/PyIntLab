@@ -1,10 +1,13 @@
 """Bastian is working on interval arithmetics."""
 
+from __future__ import annotations
+
 import math
-from logging import Logger, getLogger
+from logging import INFO, Logger, basicConfig, getLogger
 from typing import TYPE_CHECKING, Self, SupportsFloat
 
 import numpy
+from numpy.typing import NDArray
 
 if not TYPE_CHECKING:
     try:
@@ -26,7 +29,7 @@ class NPScalarInterval:  # inheritance from object could be suppressed
     # measured with from pympler import asizeof by using __slots__ memory
     # usage of one ScalerInterval has been reduced from 504 to 96 bytes.
     # That is less than 20% of the original size.
-    data: numpy.ndarray
+    data: NDArray[scalar_interval_dtype]
     # __new__ is not needed as the default is sufficient
 
     def __init__(self, *bounds: float, orderguaranteed: bool = False) -> None:
@@ -45,6 +48,7 @@ class NPScalarInterval:  # inheritance from object could be suppressed
             self.data = numpy.array(
                 (min(bounds), max(bounds)), dtype=scalar_interval_dtype
             )
+        thelogger.info("New Interval %s of dimension %i.", self, self.data.ndim)
 
     @property
     def mid(self) -> float:
@@ -115,7 +119,7 @@ class NPScalarInterval:  # inheritance from object could be suppressed
             )
         return NotImplemented
 
-    def __add__(self, other: Self | SupportsFloat) -> Self:
+    def __add__(self, other: Self | SupportsFloat) -> NPScalarInterval:
         """Dunder method for addition."""
         if isinstance(other, NPScalarInterval):
             return NPScalarInterval(
@@ -139,7 +143,7 @@ class NPScalarInterval:  # inheritance from object could be suppressed
         self.data["upperbound"] += float(other)
         return self
 
-    def __radd__(self, other: Self | float) -> Self:
+    def __radd__(self, other: Self | float) -> NPScalarInterval:
         """Dunder method for right addition."""
         if isinstance(other, NPScalarInterval):
             return NPScalarInterval(
@@ -150,7 +154,7 @@ class NPScalarInterval:  # inheritance from object could be suppressed
             self.data["lowerbound"] + other, self.data["upperbound"] + other
         )
 
-    def reciproc(self) -> Self:
+    def reciproc(self) -> NPScalarInterval:
         """Build 1/x for NPScalarInterval x."""
         if self:  # calls __bool__ method
             return NPScalarInterval(
@@ -160,7 +164,7 @@ class NPScalarInterval:  # inheritance from object could be suppressed
             f"Can not build the reziprocal of indefinite Interval {self}."
         )
 
-    def __mul__(self, other: Self | SupportsFloat) -> Self:
+    def __mul__(self, other: Self | SupportsFloat) -> NPScalarInterval:
         """Dunder method for (left) multiplication."""
         if isinstance(other, NPScalarInterval):
             products: tuple[float, float, float, float] = (
@@ -175,13 +179,13 @@ class NPScalarInterval:  # inheritance from object could be suppressed
             self.data["upperbound"] * float(other),
         )
 
-    def __neg__(self) -> Self:
+    def __neg__(self) -> NPScalarInterval:
         """Switches the sign of NPScalarInterval x ==> -x."""
         return NPScalarInterval(
             -self.data["upperbound"], -self.data["lowerbound"], orderguaranteed=True
         )
 
-    def __rmul__(self, other: Self | SupportsFloat) -> Self:
+    def __rmul__(self, other: Self | SupportsFloat) -> NPScalarInterval:
         """Dunder method for right multiplikation."""
         if isinstance(other, NPScalarInterval):
             return NPScalarInterval(
@@ -199,7 +203,7 @@ class NPScalarInterval:  # inheritance from object could be suppressed
         """Dunder method for definiteness (does not contain zero)."""
         return self.data["lowerbound"] * self.data["upperbound"] > 0
 
-    def __sub__(self, other: Self | SupportsFloat) -> Self:
+    def __sub__(self, other: Self | SupportsFloat) -> NPScalarInterval:
         """Dunder method for subtraction."""
         if isinstance(other, Self):
             return NPScalarInterval(
@@ -224,7 +228,7 @@ class NPScalarInterval:  # inheritance from object could be suppressed
         self.data["upperbound"] -= float(other)
         return self
 
-    def __rsub__(self, other: Self | SupportsFloat) -> Self:
+    def __rsub__(self, other: Self | SupportsFloat) -> NPScalarInterval:
         """Dunder method for rightsubtraction."""
         if isinstance(other, NPScalarInterval):
             return NPScalarInterval(
@@ -236,7 +240,7 @@ class NPScalarInterval:  # inheritance from object could be suppressed
             float(other) - self.data["upperbound"],
         )
 
-    def __truediv__(self, other: Self | SupportsFloat) -> Self:
+    def __truediv__(self, other: Self | SupportsFloat) -> NPScalarInterval:
         """Dunder method for (left) true division."""
         if isinstance(other, NPScalarInterval):
             return self.__mul__(other.reciproc())
@@ -246,7 +250,7 @@ class NPScalarInterval:  # inheritance from object could be suppressed
         )
 
     # https://docs.python.org/3.6/reference/datamodel.html#object.__radd__
-    def __rtruediv__(self, other: float) -> Self:
+    def __rtruediv__(self, other: float) -> NPScalarInterval:
         """Dunder method for right true division."""
         return self.reciproc() * other
 
@@ -254,64 +258,64 @@ class NPScalarInterval:  # inheritance from object could be suppressed
         """Return boolean indicator if item is within interval."""
         if isinstance(item, NPScalarInterval):
             return (
-                item.lowerbound >= self.data["lowerbound"]
-                and item.upperbound <= self.data["upperbound"]
+                item.data["lowerbound"] >= self.data["lowerbound"]
+                and item.data["upperbound"] <= self.data["upperbound"]
             )
         return self.data["lowerbound"] <= float(item) <= self.data["upperbound"]
 
     ###########################################################################
     # following are implementations of monoton increasing functions
     ###########################################################################
-    def sqrt(self) -> Self:
+    def sqrt(self) -> NPScalarInterval:
         """Return the square root of the interval."""
         return NPScalarInterval(
             math.sqrt(self.data["lowerbound"]), math.sqrt(self.data["upperbound"])
         )
 
-    def log10(self) -> Self:
+    def log10(self) -> NPScalarInterval:
         """Return the base 10 logarithm of the interval."""
         return NPScalarInterval(
             math.log10(self.data["lowerbound"]), math.log10(self.data["upperbound"])
         )
 
-    def log1p(self) -> Self:
+    def log1p(self) -> NPScalarInterval:
         """Return the natural logarithm of 1+x."""
         return NPScalarInterval(
             math.log1p(self.data["lowerbound"]), math.log1p(self.data["upperbound"])
         )
 
-    def log2(self) -> Self:
+    def log2(self) -> NPScalarInterval:
         """Return the base 2 logarithm of the interval."""
         return NPScalarInterval(
             math.log2(self.data["lowerbound"]), math.log2(self.data["upperbound"])
         )
 
-    def exp(self) -> Self:
+    def exp(self) -> NPScalarInterval:
         """Return e to the power of the interval."""
         return NPScalarInterval(
             math.exp(self.data["lowerbound"]), math.exp(self.data["upperbound"])
         )
 
-    def log(self, base: Self | SupportsFloat = math.e) -> Self:
+    def log(self, base: Self | SupportsFloat = math.e) -> NPScalarInterval:
         """Return the logarithm to the given base or natural if omitted."""
         if isinstance(base, NPScalarInterval):
             return NPScalarInterval(
-                math.log(self.data["lowerbound"], base.upperbound),
-                math.log(self.data["upperbound"], base.lowerbound),
+                math.log(self.data["lowerbound"], base.data["upperbound"]),
+                math.log(self.data["upperbound"], base.data["lowerbound"]),
             )
         return NPScalarInterval(
             math.log(self.data["lowerbound"], base),
             math.log(self.data["upperbound"], base),
         )
 
-    def __pow__(self, exponent: Self | int | float) -> Self:
+    def __pow__(self, exponent: Self | int | float) -> NPScalarInterval:
         """Return the interval to the power of the given exponent."""
         if isinstance(exponent, NPScalarInterval):
             pows: tuple[float, float, float, float] = (
-                self.data["lowerbound"] ** exponent.lowerbound,
-                self.data["lowerbound"] ** exponent.upperbound,
-                self.data["upperbound"] ** exponent.lowerbound,
-                self.data["upperbound"] ** exponent.upperbound,
+                self.data["lowerbound"] ** exponent.data["lowerbound"],
+                self.data["lowerbound"] ** exponent.data["upperbound"],
+                self.data["upperbound"] ** exponent.data["lowerbound"],
+                self.data["upperbound"] ** exponent.data["upperbound"],
             )
             return NPScalarInterval(min(pows), max(pows), orderguaranteed=True)
         if isinstance(exponent, int):
@@ -320,7 +324,7 @@ class NPScalarInterval:  # inheritance from object could be suppressed
             )
         return (self.log() * exponent).exp()
 
-    def tanh(self) -> Self:
+    def tanh(self) -> NPScalarInterval:
         """Return the hyperbolic tangens of the interval."""
         return NPScalarInterval(
             math.tanh(self.data["lowerbound"]), math.tanh(self.data["upperbound"])
@@ -331,6 +335,8 @@ __all__.append("NPScalarInterval")
 
 ###############################################################################
 if __name__ == "__main__":  # Small application
+    if __debug__:
+        basicConfig(level=INFO)
     pitest: NPScalarInterval = NPScalarInterval(3, 4, orderguaranteed=True)
     rtest: NPScalarInterval = NPScalarInterval(2.2, 2.4)
     print("========== INPUT ==========")
