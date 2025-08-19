@@ -33,8 +33,8 @@ generate_badge = "."
 verbose = 2
 
 [tool.mypy]
-install_types = true
-non_interactive = true
+# install_types = true # crashing pytest-mypy
+# non_interactive = true # crashing pytest-mypy
 # plugins = "numpy.typing.mypy_plugin" # deprecated from 2.3
 show_error_codes = true
 show_error_context = true
@@ -68,10 +68,10 @@ tool.pyright.executionEnvironments = [
 [tool.pylint."MESSAGES CONTROL"]
 disable = "duplicate-code"
 
-[tool.pytest.ini_options]
-minversion = "6.2"
-addopts = ["--verbose", "--cov", "--typeguard-packages=pyintlab"]
-required_plugins = ["pytest-cov", "typeguard", "pytest-sugar"]
+#[tool.pytest.ini_options]
+#minversion = "6.2"
+#addopts = ["--verbose", "--cov", "--typeguard-packages=pyintlab"]
+#required_plugins = ["pytest-cov", "typeguard", "pytest-sugar"]
 
 [tool.towncrier]
 
@@ -131,6 +131,14 @@ basedpyright = "^1.30.1"
 pytest-cov = "^6.2.1"
 pytest-sugar = "^1.0.0"
 typeguard = "^4.4.4"
+pytest-bandit = "^0.6.1"
+pytest-black = "^0.6.0"
+pytest-colordots = "^1.1"
+pytest-monkeytype = "^1.1.0"
+pytest-mypy = "^1.0.1"
+pytest-pyright = "^0.0.6"
+pytest-beartype = "^0.2.0"
+beartype = "^0.21.0"
 
 [tool.poetry.group.dev.dependencies.prospector]
 extras = ["all"]
