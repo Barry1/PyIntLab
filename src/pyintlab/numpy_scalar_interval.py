@@ -126,7 +126,7 @@ class NPScalarInterval:  # inheritance from object could be suppressed
             return (
                 self.data["lowerbound"] == other.data["lowerbound"]
                 and self.data["upperbound"] == other.data["upperbound"]
-            )
+            ).item()
         return NotImplemented
 
     def __add__(self, other: Self | SupportsFloat) -> NPScalarInterval:
@@ -211,11 +211,11 @@ class NPScalarInterval:  # inheritance from object could be suppressed
 
     def __bool__(self) -> bool:  # python3
         """Dunder method for definiteness (does not contain zero)."""
-        return self.data["lowerbound"] * self.data["upperbound"] > 0
+        return (self.data["lowerbound"] * self.data["upperbound"] > 0).item()
 
     def __sub__(self, other: Self | SupportsFloat) -> NPScalarInterval:
         """Dunder method for subtraction."""
-        if isinstance(other, Self):
+        if isinstance(other, NPScalarInterval):
             return NPScalarInterval(
                 self.data["lowerbound"] - other.data["upperbound"],
                 self.data["upperbound"] - other.data["lowerbound"],
@@ -270,8 +270,10 @@ class NPScalarInterval:  # inheritance from object could be suppressed
             return (
                 item.data["lowerbound"] >= self.data["lowerbound"]
                 and item.data["upperbound"] <= self.data["upperbound"]
-            )
-        return self.data["lowerbound"] <= float(item) <= self.data["upperbound"]
+            ).item()
+        return (
+            self.data["lowerbound"] <= float(item) <= self.data["upperbound"]
+        ).item()
 
     ###########################################################################
     # following are implementations of monoton increasing functions
