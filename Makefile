@@ -1,4 +1,4 @@
-.PHONY: all pretty test install clean pyflakes pytype poetryupdate pyre build vermincheck mypy poetrypython poetrypypy pcktree sourcery
+.PHONY: all pretty test install clean pyflakes pytype poetryupdate pyre build vermincheck mypy poetrypython poetrypypy pcktree sourcery tox
 # https://www.gnu.org/software/make/manual/html_node/Setting.html#:~:text=The%20shell%20assignment%20operator%20%E2%80%98!%3D%E2%80%99
 # OBJS=$(shell tree -if | egrep "\.pyi?$$")
 #OBJS!=tree -if | egrep "\.pyi?$$"
@@ -131,3 +131,6 @@ pydocstyle:
 
 pylint:
 	poetry run pylint src/pyintlab/*.py
+
+tox:
+	poetry run tox run-parallel

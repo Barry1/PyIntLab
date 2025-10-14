@@ -93,8 +93,8 @@ class NPScalarInterval:  # inheritance from object could be suppressed
             return NPScalarInterval(
                 0,
                 max(
-                    abs(self.data["lowerbound"].item()), self.data["upperbound"]
-                ).item(),
+                    abs(self.data["lowerbound"].item()), self.data["upperbound"].item()
+                ),
                 orderguaranteed=True,
             )
 
