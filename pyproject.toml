@@ -140,6 +140,7 @@ pytest-pyright = "^0.0.6"
 pytest-beartype = "^0.2.0"
 beartype = "^0.21.0"
 nox = "^2025.5.1"
+hatch = "^1.14.2"
 
 [tool.poetry.group.dev.dependencies.prospector]
 extras = ["all"]
