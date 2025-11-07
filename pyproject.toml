@@ -13,7 +13,7 @@ recursive = true
 #line-length = 88
 color = true
 #save = true
-target-version = ['py311'] #'py37', 'py38',
+#target-version = ['py311'] #'py37', 'py38',
 
 [tool.darker]
 check = true
@@ -44,7 +44,7 @@ strict = true
 # https://pycqa.github.io/isort/docs/configuration/options
 color_output = true
 profile = "black"
-py_version = 311
+#py_version = 311
 
 [tool.pylama.pep8]
 max_line_length = 88
@@ -115,7 +115,7 @@ pyroma = "^4.2"
 pytest = ">=6"
 radon = "^5.0.1"
 setuptools = ">=62.1.0"
-sourcery = "^1.35.0"
+sourcery = "^1.35.0,!=1.41.1"
 tox = "^4.4.11"
 types-colorama = "^0.4.15.4"
 types-pygments = "^2.14.0.0"
