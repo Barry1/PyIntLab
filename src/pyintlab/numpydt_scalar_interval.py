@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import math
+
+# from pympler import asizeof
 from logging import INFO, Logger, basicConfig, getLogger
 from typing import TYPE_CHECKING, Self, SupportsFloat
 
@@ -45,7 +47,11 @@ class NPScalarInterval:  # inheritance from object could be suppressed
             self.data = numpy.void(
                 (min(bounds), max(bounds)), dtype=scalar_interval_dtype
             )
-        thelogger.info("New Interval %s of dimension %i.", self, self.data)
+        thelogger.info(
+            "New Interval %s created needing approx %i Bytes.",
+            self,
+            self.__sizeof__() + self.data.__sizeof__(),
+        ),
 
     @property
     def lowerbound(self) -> float:
