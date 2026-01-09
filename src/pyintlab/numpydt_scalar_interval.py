@@ -3,8 +3,6 @@
 from __future__ import annotations
 
 import math
-
-# from pympler import asizeof
 from logging import INFO, Logger, basicConfig, getLogger
 from typing import TYPE_CHECKING, Self, SupportsFloat
 
@@ -27,9 +25,6 @@ class NPScalarInterval:  # inheritance from object could be suppressed
     """Class for scalars with uncertainty."""
 
     __slots__: tuple[str] = ("data",)
-    # measured with from pympler import asizeof by using __slots__ memory
-    # usage of one ScalerInterval has been reduced from 504 to 96 bytes.
-    # That is less than 20% of the original size.
     data: numpy.void
     # __new__ is not needed as the default is sufficient
 
@@ -39,19 +34,22 @@ class NPScalarInterval:  # inheritance from object could be suppressed
         You can handover any number of (real) arguments, the resulting Interval
         will automatically be the convex hull (from min to max).
         """
+        thelogger.info("__init__ Creating new Interval from bounds: %s", bounds)
         if not bounds:
             raise ValueError("At least one bound must be provided.")
-        if orderguaranteed:
-            self.data = numpy.void((bounds[0], bounds[-1]), dtype=scalar_interval_dtype)
-        else:
-            self.data = numpy.void(
-                (min(bounds), max(bounds)), dtype=scalar_interval_dtype
-            )
+        self.data = (
+            numpy.void((bounds[0], bounds[-1]), dtype=scalar_interval_dtype)
+            if orderguaranteed
+            else numpy.void((min(bounds), max(bounds)), dtype=scalar_interval_dtype)
+        )
+        print(str(self))
+        print(self)
+        print(self.data)
         thelogger.info(
-            "New Interval %s created needing approx %i Bytes.",
+            "New Interval %s needing approx. %i Bytes of memory.",
             self,
             self.__sizeof__() + self.data.__sizeof__(),
-        ),
+        )
 
     @property
     def lowerbound(self) -> float:
