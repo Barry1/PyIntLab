@@ -30,7 +30,7 @@ class NPScalarInterval:  # inheritance from object could be suppressed
     # __new__ is not needed as the default is sufficient
 
     def __init__(self, *bounds: float, orderguaranteed: bool = False) -> None:
-        """Construct for new NPScalarInterval.
+        """Constructor for new NPScalarInterval.
 
         You can handover any number of (real) arguments, the resulting Interval
         will automatically be the convex hull (from min to max).

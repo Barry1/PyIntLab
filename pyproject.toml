@@ -77,7 +77,7 @@ disable = "duplicate-code"
 
 [project]
 name = "pyintlab"
-version = "0.1.10"
+version = "0.1.11"
 description = "package in memoriam of intlab=Matlab Interval Laboratory"
 authors = [{ name = "Ebeling, Dr. Bastian", email = "bastian.ebeling@web.de" }]
 requires-python = ">=3.11,<4.0"

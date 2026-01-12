@@ -1,4 +1,5 @@
-from pyintlab import ScalarInterval
+# from pyintlab import ScalarInterval
+from pyintlab.numpydt_scalar_interval import NPScalarInterval as ScalarInterval
 
 Kreditsumme: ScalarInterval = ScalarInterval(240000, 275000)
 Monatszins: ScalarInterval = ScalarInterval(3.3, 3.7) / 1200
