@@ -3,12 +3,13 @@
 from __future__ import annotations
 
 import math
-from logging import INFO, Logger, basicConfig, getLogger
+from logging import DEBUG, INFO, Logger, basicConfig, getLogger
 from typing import TYPE_CHECKING, Self, SupportsFloat
 
 import numpy
 
 thelogger: Logger = getLogger(__name__)
+basicConfig(level=DEBUG if __debug__ else INFO)
 if not TYPE_CHECKING:
     try:
         # pylint: disable=redefined-builtin
@@ -34,7 +35,7 @@ class NPScalarInterval:  # inheritance from object could be suppressed
         You can handover any number of (real) arguments, the resulting Interval
         will automatically be the convex hull (from min to max).
         """
-        thelogger.info("__init__ Creating new Interval from bounds: %s", bounds)
+        thelogger.debug("__init__ Creating new Interval from bounds: %s", bounds)
         if not bounds:
             raise ValueError("At least one bound must be provided.")
         self.data = (
@@ -42,10 +43,7 @@ class NPScalarInterval:  # inheritance from object could be suppressed
             if orderguaranteed
             else numpy.void((min(bounds), max(bounds)), dtype=scalar_interval_dtype)
         )
-        print(str(self))
-        print(self)
-        print(self.data)
-        thelogger.info(
+        thelogger.debug(
             "New Interval %s needing approx. %i Bytes of memory.",
             self,
             self.__sizeof__() + self.data.__sizeof__(),
@@ -350,8 +348,7 @@ __all__.append("NPScalarInterval")
 
 ###############################################################################
 if __name__ == "__main__":  # Small application
-    if __debug__:
-        basicConfig(level=INFO)
+    # basicConfig(level=DEBUG if __debug__ else INFO)
     pitest: NPScalarInterval = NPScalarInterval(3, 4, orderguaranteed=True)
     rtest: NPScalarInterval = NPScalarInterval(2.2, 2.4)
     print("========== INPUT ==========")
