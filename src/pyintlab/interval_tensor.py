@@ -4,7 +4,8 @@ from typing import Self
 
 from numpy import array, ndarray, unravel_index
 
-from .scalar_interval import ScalarInterval
+# from .scalar_interval import ScalarInterval
+from pyintlab.numpydt_scalar_interval import NPScalarInterval as ScalarInterval
 
 # https://numpy.org/doc/stable/user/basics.subclassing.html
 

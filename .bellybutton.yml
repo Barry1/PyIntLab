@@ -18,4 +18,3 @@ rules:
     instead: |
       """This module has a docstring."""
 ---
-

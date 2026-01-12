@@ -213,7 +213,7 @@ class NPScalarInterval:  # inheritance from object could be suppressed
 
     def __bool__(self) -> bool:  # python3
         """Dunder method for definiteness (does not contain zero)."""
-        return self.data["lowerbound"] * self.data["upperbound"] > 0
+        return (self.data["lowerbound"] * self.data["upperbound"]).item() > 0
 
     def __sub__(self, other: Self | SupportsFloat) -> NPScalarInterval:
         """Dunder method for subtraction."""
