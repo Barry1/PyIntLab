@@ -174,7 +174,7 @@ class NPScalarInterval:  # inheritance from object could be suppressed
             f"Can not build the reziprocal of indefinite Interval {self}."
         )
 
-    def __mul__(self, other: Self | SupportsFloat) -> NPScalarInterval:
+    def __mul__(self, other: NPScalarInterval | SupportsFloat) -> NPScalarInterval:
         """Dunder method for (left) multiplication."""
         if isinstance(other, NPScalarInterval):
             products: tuple[float, float, float, float] = (
@@ -213,7 +213,7 @@ class NPScalarInterval:  # inheritance from object could be suppressed
 
     def __bool__(self) -> bool:  # python3
         """Dunder method for definiteness (does not contain zero)."""
-        return bool(self.data["lowerbound"] * self.data["upperbound"] > 0)
+        return self.data["lowerbound"] * self.data["upperbound"] > 0
 
     def __sub__(self, other: Self | SupportsFloat) -> NPScalarInterval:
         """Dunder method for subtraction."""
@@ -323,24 +323,27 @@ class NPScalarInterval:  # inheritance from object could be suppressed
     def __pow__(self, exponent: Self | int | float) -> NPScalarInterval:
         """Return the interval to the power of the given exponent."""
         if isinstance(exponent, NPScalarInterval):
-            pows: tuple[float, float, float, float] = (
+            return NPScalarInterval(
                 self.data["lowerbound"] ** exponent.data["lowerbound"],
                 self.data["lowerbound"] ** exponent.data["upperbound"],
                 self.data["upperbound"] ** exponent.data["lowerbound"],
                 self.data["upperbound"] ** exponent.data["upperbound"],
+                orderguaranteed=False,
             )
-            return NPScalarInterval(min(pows), max(pows), orderguaranteed=True)
         if isinstance(exponent, int):
             return NPScalarInterval(
                 self.data["lowerbound"] ** exponent,
                 self.data["upperbound"] ** exponent,
+                orderguaranteed=False,
             )
         return (self.log() * exponent).exp()
 
     def tanh(self) -> NPScalarInterval:
         """Return the hyperbolic tangens of the interval."""
         return NPScalarInterval(
-            math.tanh(self.data["lowerbound"]), math.tanh(self.data["upperbound"])
+            math.tanh(self.data["lowerbound"]),
+            math.tanh(self.data["upperbound"]),
+            orderguaranteed=False,
         )
 
 
