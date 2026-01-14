@@ -73,16 +73,16 @@ class ScalarInterval:  # inheritance from object could be suppressed
     def __abs__(self) -> ScalarInterval:
         """Absolute value of the Interval.
 
-        Open thaught: The absInterval is the Interval containing
+        Open thought: The absInterval is the Interval containing
         all abs values from all elements of the given Interval.
         """
-        if self:
-            # meaning self does not contain 0
-            return ScalarInterval(abs(self.lowerbound), abs(self.upperbound))
-        else:
-            return ScalarInterval(
-                0, max(abs(self.lowerbound), self.upperbound), orderguaranteed=True
+        return (
+            ScalarInterval(abs(self.lowerbound), abs(self.upperbound))
+            if self
+            else ScalarInterval(
+                0, max(-self.lowerbound, self.upperbound), orderguaranteed=True
             )
+        )
 
     def __str__(self) -> str:
         """Show a readable representation of the Interval."""
@@ -94,49 +94,61 @@ class ScalarInterval:  # inheritance from object could be suppressed
 
     def __ge__(self, other: ScalarInterval | SupportsFloat) -> bool:
         """Dunder method for greater equals."""
-        if isinstance(other, ScalarInterval):
-            return self.lowerbound >= other.upperbound
-        return self.lowerbound >= float(other)
+        return (
+            self.lowerbound >= other.upperbound
+            if isinstance(other, ScalarInterval)
+            else self.lowerbound >= float(other)
+        )
 
     def __gt__(self, other: ScalarInterval | SupportsFloat) -> bool:
         """Dunder method for greater than."""
-        if isinstance(other, ScalarInterval):
-            return self.lowerbound > other.upperbound
-        return self.lowerbound > float(other)
+        return (
+            self.lowerbound > other.upperbound
+            if isinstance(other, ScalarInterval)
+            else self.lowerbound > float(other)
+        )
 
     def __le__(self, other: ScalarInterval | SupportsFloat) -> bool:
         """Dunder method for less equals."""
-        if isinstance(other, ScalarInterval):
-            return self.upperbound <= other.lowerbound
-        return self.upperbound <= float(other)
+        return (
+            self.upperbound <= other.lowerbound
+            if isinstance(other, ScalarInterval)
+            else self.upperbound <= float(other)
+        )
 
     def __lt__(self, other: ScalarInterval | SupportsFloat) -> bool:
         """Dunder method for less than."""
-        if isinstance(other, ScalarInterval):
-            return self.upperbound < other.lowerbound
-        return self.upperbound < float(other)
+        return (
+            self.upperbound < other.lowerbound
+            if isinstance(other, ScalarInterval)
+            else self.upperbound < float(other)
+        )
 
     def __eq__(self, other: object) -> bool:
         """Dunder method for checking identity."""
-        if isinstance(other, ScalarInterval):
-            return (
+        return (
+            (
                 self.lowerbound == other.lowerbound
                 and self.upperbound == other.upperbound
             )
-        return NotImplemented
+            if isinstance(other, ScalarInterval)
+            else NotImplemented
+        )
 
     def __add__(self, other: ScalarInterval | SupportsFloat) -> ScalarInterval:
         """Dunder method for addition."""
-        if isinstance(other, ScalarInterval):
-            return ScalarInterval(
+        return (
+            ScalarInterval(
                 self.lowerbound + other.lowerbound,
                 self.upperbound + other.upperbound,
                 orderguaranteed=True,
             )
-        return ScalarInterval(
-            self.lowerbound + float(other),
-            self.upperbound + float(other),
-            orderguaranteed=True,
+            if isinstance(other, ScalarInterval)
+            else ScalarInterval(
+                self.lowerbound + float(other),
+                self.upperbound + float(other),
+                orderguaranteed=True,
+            )
         )
 
     def __iadd__(self, other: ScalarInterval | SupportsFloat) -> Self:
