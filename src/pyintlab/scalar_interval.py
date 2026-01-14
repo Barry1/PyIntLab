@@ -31,8 +31,8 @@ class ScalarInterval:  # inheritance from object could be suppressed
     upperbound: float
     # __new__ is not needed as the default is sufficient
 
-    def __init__(self, *bounds: float, orderguaranteed: bool = False) -> None:
-        """Construct for new ScalarInterval.
+    def __init__(self, *bounds: float | int, orderguaranteed: bool = False) -> None:
+        """Constructor for new ScalarInterval.
 
         You can handover any number of (real) arguments, the resulting Interval
         will automatically be the convex hull (from min to max).
@@ -40,11 +40,22 @@ class ScalarInterval:  # inheritance from object could be suppressed
         if not bounds:
             raise ValueError("At least one bound must be provided.")
         if orderguaranteed:
-            self.lowerbound = bounds[0]
-            self.upperbound = bounds[-1]
+            # self.lowerbound = math.nextafter(bounds[0], -math.inf)
+            # self.upperbound = math.nextafter(bounds[-1], math.inf)
+            self.lowerbound, self.upperbound = ScalarInterval._outward(
+                bounds[0], bounds[-1]
+            )
         else:
-            self.lowerbound = min(bounds)
-            self.upperbound = max(bounds)
+            # self.lowerbound = math.nextafter(min(bounds), -math.inf)
+            # self.upperbound = math.nextafter(max(bounds), math.inf)
+            self.lowerbound, self.upperbound = ScalarInterval._outward(
+                min(bounds), max(bounds)
+            )
+
+    @staticmethod
+    def _outward(lo: float | int, hi: float | int) -> tuple[float, float]:
+        """Konservative Outward-Rundung: lo -> -inf, hi -> +inf."""
+        return math.nextafter(lo, -math.inf), math.nextafter(hi, math.inf)
 
     @property
     def mid(self) -> float:
