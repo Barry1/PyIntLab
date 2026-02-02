@@ -3,7 +3,7 @@
 # OBJS=$(shell tree -if | egrep "\.pyi?$$")
 #OBJS!=tree -if | egrep "\.pyi?$$"
 #OBJS=$(shell find src -regex ".*\.pyi?$$")
-OBJS!=find src -regex ".*\.pyi?$$"
+OBJS!=find src -regex ".*\.pyi?"
 
 pyrefly:
 	poetry run pyrefly check
@@ -33,6 +33,9 @@ pyroma:
 poetrypypy:
 	poetry env use pypy
 	poetry update
+
+pyupgrade:
+	niceload poetry run pyupgrade --py313-plus --exit-zero-even-if-changed $(OBJS)
 
 all: test
 
