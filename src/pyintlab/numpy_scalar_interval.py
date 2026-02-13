@@ -9,6 +9,7 @@ from typing import TYPE_CHECKING, Self, SupportsFloat
 import numpy
 from numpy.typing import NDArray
 
+thelogger: Logger = getLogger(__name__)
 if not TYPE_CHECKING:
     try:
         # pylint: disable=redefined-builtin
@@ -18,7 +19,6 @@ if not TYPE_CHECKING:
 scalar_interval_dtype: numpy.dtype[numpy.void] = numpy.dtype(
     [("lowerbound", numpy.float64), ("upperbound", numpy.float64)]
 )
-thelogger: Logger = getLogger(__name__)
 __all__: list[str] = []
 
 
