@@ -1,5 +1,6 @@
 """Bastian is working on interval arithmetics."""
 
+# mypy: disable-error-code="no-any-return"
 from __future__ import annotations
 
 import math
@@ -88,12 +89,11 @@ class NPScalarInterval:  # inheritance from object could be suppressed
             return NPScalarInterval(
                 abs(self.data["lowerbound"]), abs(self.data["upperbound"])
             )
-        else:
-            return NPScalarInterval(
-                0,
-                max(abs(self.data["lowerbound"]), self.data["upperbound"]),
-                orderguaranteed=True,
-            )
+        return NPScalarInterval(
+            0,
+            max(abs(self.data["lowerbound"]), self.data["upperbound"]),
+            orderguaranteed=True,
+        )
 
     def __ge__(self, other: Self | SupportsFloat) -> bool:
         """Dunder method for greater equals."""
