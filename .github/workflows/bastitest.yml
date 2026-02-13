@@ -29,4 +29,4 @@ jobs:
       - name: Checks-out your repository under $GITHUB_WORKSPACE
         uses: actions/checkout@v2
       - name: Codecov
-        uses: codecov/codecov-action@v2.0.2
+        uses: codecov/codecov-action@latest
