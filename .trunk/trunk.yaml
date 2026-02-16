@@ -10,26 +10,26 @@ plugins:
 lint:
   disabled:
   enabled:
-    - sourcery@1.41.1
+    - sourcery@1.43.0
     - actionlint@1.7.10
     - autopep8@2.3.2
-    - bandit@1.9.2
-    - black@25.12.0
-    - checkov@3.2.497
+    - bandit@1.9.3
+    - black@26.1.0
+    - checkov@3.2.500
     - flake8@7.3.0
     - git-diff-check
     - gitleaks@8.30.0
     - isort@7.0.0
     - markdownlint@0.47.0
     - mypy@1.19.1
-    - osv-scanner@2.3.1
-    - prettier@3.7.4
-    - pyright@1.1.407
-    - ruff@0.14.11
+    - osv-scanner@2.3.2
+    - prettier@3.8.1
+    - pyright@1.1.408
+    - ruff@0.14.14
     - taplo@0.10.0
-    - trivy@0.68.2
-    - trufflehog@3.92.4
-    - yamllint@1.37.1
+    - trivy@0.69.0
+    - trufflehog@3.92.5
+    - yamllint@1.38.0
 runtimes:
   enabled:
     - python@3.12.2
@@ -37,8 +37,8 @@ runtimes:
     - node@22.16.0
 tools:
   enabled:
-    - sourcery@1.41.1
-    - poetry@2.2.1
+    - sourcery@1.43.0
+    - poetry@2.3.2
 actions:
   enabled:
     - trunk-check-pre-push

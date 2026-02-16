@@ -4,7 +4,9 @@ from __future__ import annotations
 
 import math
 from logging import Logger, getLogger
-from typing import TYPE_CHECKING, Literal, Self, SupportsFloat
+
+from valuefragments.mathhelpers import is_exact_float
+from valuefragments.valuetyping import TYPE_CHECKING, Literal, Self, SupportsFloat
 
 thelogger: Logger = getLogger(__name__)
 if not TYPE_CHECKING:
@@ -55,7 +57,9 @@ class ScalarInterval:  # inheritance from object could be suppressed
     @staticmethod
     def _outward(lo: float | int, hi: float | int) -> tuple[float, float]:
         """Konservative Outward-Rundung: lo -> -inf, hi -> +inf."""
-        return math.nextafter(lo, -math.inf), math.nextafter(hi, math.inf)
+        return lo if is_exact_float(lo) else math.nextafter(lo, -math.inf), (
+            hi if is_exact_float(hi) else math.nextafter(hi, math.inf)
+        )
 
     @property
     def mid(self) -> float:

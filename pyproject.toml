@@ -61,7 +61,7 @@ reportMissingTypeStubs = false
 typeCheckingMode = "strict"
 tool.pyright.executionEnvironments = [
   "root = src/pyintlab",
-  "pythonVersion = 3.11",
+  "pythonVersion = 3.12",
   "pythonPlatform = Linux",
 ]
 
@@ -77,11 +77,15 @@ disable = "duplicate-code"
 
 [project]
 name = "pyintlab"
-version = "0.1.13"
+version = "0.1.15"
 description = "package in memoriam of intlab=Matlab Interval Laboratory"
 authors = [{ name = "Ebeling, Dr. Bastian", email = "bastian.ebeling@web.de" }]
-requires-python = ">=3.11,<4.0"
-dependencies = ["numpy>2.2", "cython (>=3.1.2,<4.0.0)"]
+requires-python = ">=3.12,<4.0"
+dependencies = [
+  "numpy>2.2",
+  "cython (>=3.1.2,<4.0.0)",
+  "valuefragments @ git+https://github.com/Barry1/PyValueFragments",
+]
 
 [tool.poetry.group.dev.dependencies]
 autopep8 = ">=1.6.0"
