@@ -46,9 +46,6 @@ color_output = true
 profile = "black"
 #py_version = 311
 
-[tool.pylama.pep8]
-max_line_length = 88
-
 [tool.pylint.MASTER]
 include-naming-hint = "y"
 jobs = 0
@@ -151,11 +148,6 @@ pyupgrade = ">=3.21.2"
 [tool.poetry.group.dev.dependencies.prospector]
 extras = ["all"]
 version = "^1.9.0"
-
-[tool.poetry.group.dev.dependencies.pylama]
-extras = ["all"]
-version = "^8.4.1"
-python = "<3.11"
 
 [tool.poetry.group.dev.dependencies.pytype]
 version = ">=2022"

@@ -13,19 +13,19 @@ lint:
     - sourcery@1.43.0
     - actionlint@1.7.10
     - autopep8@2.3.2
-    - bandit@1.9.3
+    - bandit@1.9.4
     - black@26.1.0
-    - checkov@3.2.500
+    - checkov@3.2.507
     - flake8@7.3.0
     - git-diff-check
     - gitleaks@8.30.0
-    - isort@7.0.0
+    - isort@8.0.1
     - markdownlint@0.47.0
     - mypy@1.19.1
     - osv-scanner@2.3.2
     - prettier@3.8.1
     - pyright@1.1.408
-    - ruff@0.14.14
+    - ruff@0.15.5
     - taplo@0.10.0
     - trivy@0.69.0
     - trufflehog@3.92.5
