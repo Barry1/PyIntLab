@@ -16,7 +16,7 @@ if not TYPE_CHECKING:
     except ImportError:
         thelogger.info("No cython here. Using python float instead.")
 
-__all__: list[str] = []
+__all__: list[str] = ["ScalarInterval"]
 
 
 class ScalarInterval:  # inheritance from object could be suppressed
@@ -161,8 +161,9 @@ class ScalarInterval:  # inheritance from object could be suppressed
             self.lowerbound += other.lowerbound
             self.upperbound += other.upperbound
             return self
-        self.lowerbound += float(other)
-        self.upperbound += float(other)
+        _val: float = float(x)
+        self.lowerbound += _val
+        self.upperbound += _val
         return self
 
     def __radd__(self, other: ScalarInterval | float) -> ScalarInterval:
@@ -192,9 +193,8 @@ class ScalarInterval:  # inheritance from object could be suppressed
                 self.upperbound * other.upperbound,
             )
             return ScalarInterval(min(products), max(products), orderguaranteed=True)
-        return ScalarInterval(
-            self.lowerbound * float(other), self.upperbound * float(other)
-        )
+        _val: float = float(x)
+        return ScalarInterval(self.lowerbound * _val, self.upperbound * _val)
 
     def __neg__(self) -> ScalarInterval:
         """Switches the sign of ScalarInterval x ==> -x."""
@@ -209,9 +209,8 @@ class ScalarInterval:  # inheritance from object could be suppressed
                 other.upperbound * self.lowerbound,
                 other.upperbound * self.upperbound,
             )
-        return ScalarInterval(
-            float(other) * self.lowerbound, float(other) * self.upperbound
-        )
+        _val: float = float(other)
+        return ScalarInterval(_val * self.lowerbound, _val * self.upperbound)
 
     def __bool__(self) -> bool:  # python3
         """Dunder method for definiteness (does not contain zero)."""
@@ -225,9 +224,10 @@ class ScalarInterval:  # inheritance from object could be suppressed
                 self.upperbound - other.lowerbound,
                 orderguaranteed=True,
             )
+        _val: float = float(other)
         return ScalarInterval(
-            self.lowerbound - float(other),
-            self.upperbound - float(other),
+            self.lowerbound - _val,
+            self.upperbound - _val,
             orderguaranteed=True,
         )
 
@@ -238,8 +238,9 @@ class ScalarInterval:  # inheritance from object could be suppressed
             self.lowerbound -= other.upperbound
             self.upperbound -= other.lowerbound
             return self
-        self.lowerbound -= float(other)
-        self.upperbound -= float(other)
+        _val: float = float(other)
+        self.lowerbound -= _val
+        self.upperbound -= _val
         return self
 
     def __rsub__(self, other: ScalarInterval | SupportsFloat) -> ScalarInterval:
@@ -249,17 +250,15 @@ class ScalarInterval:  # inheritance from object could be suppressed
                 other.lowerbound - self.upperbound,
                 other.upperbound - self.lowerbound,
             )
-        return ScalarInterval(
-            float(other) - self.lowerbound, float(other) - self.upperbound
-        )
+        _val: float = float(other)
+        return ScalarInterval(_val - self.lowerbound, _val - self.upperbound)
 
     def __truediv__(self, other: ScalarInterval | SupportsFloat) -> ScalarInterval:
         """Dunder method for (left) true division."""
         if isinstance(other, ScalarInterval):
             return self.__mul__(other.reciproc())
-        return ScalarInterval(
-            self.lowerbound / float(other), self.upperbound / float(other)
-        )
+        _val: float = float(other)
+        return ScalarInterval(self.lowerbound / _val, self.upperbound / _val)
 
     # https://docs.python.org/3.6/reference/datamodel.html#object.__radd__
     def __rtruediv__(self, other: float) -> ScalarInterval:
@@ -327,8 +326,6 @@ class ScalarInterval:  # inheritance from object could be suppressed
         """Return the hyperbolic tangens of the interval."""
         return ScalarInterval(math.tanh(self.lowerbound), math.tanh(self.upperbound))
 
-
-__all__.append("ScalarInterval")
 
 ###############################################################################
 if __name__ == "__main__":  # Small application
