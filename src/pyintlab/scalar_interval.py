@@ -196,6 +196,24 @@ class ScalarInterval:  # inheritance from object could be suppressed
         _val: float = float(x)
         return ScalarInterval(self.lowerbound * _val, self.upperbound * _val)
 
+    def __imul__(self, other: ScalarInterval | SupportsFloat) -> Self:
+        """Dunder method for (left) multiplication."""
+        if isinstance(other, ScalarInterval):
+            products: tuple[float, float, float, float] = (
+                self.lowerbound * other.lowerbound,
+                self.lowerbound * other.upperbound,
+                self.upperbound * other.lowerbound,
+                self.upperbound * other.upperbound,
+            )
+            return ScalarInterval(min(products), max(products), orderguaranteed=True)
+        else:
+            _val: float = float(x)
+            self.lowerbound *= _val
+            self.upperbound *= _val
+            if _val <= 0:
+                self.lowerbound, self.upperbound = self.upperbound, self.lowerbound
+        return self
+
     def __neg__(self) -> ScalarInterval:
         """Switches the sign of ScalarInterval x ==> -x."""
         return ScalarInterval(-self.upperbound, -self.lowerbound, orderguaranteed=True)
@@ -274,6 +292,20 @@ class ScalarInterval:  # inheritance from object could be suppressed
             )
         return self.lowerbound <= float(item) <= self.upperbound
 
+    def __pow__(self, exponent: ScalarInterval | int | float) -> ScalarInterval:
+        """Return the interval to the power of the given exponent."""
+        if isinstance(exponent, ScalarInterval):
+            pows: tuple[float, float, float, float] = (
+                self.lowerbound**exponent.lowerbound,
+                self.lowerbound**exponent.upperbound,
+                self.upperbound**exponent.lowerbound,
+                self.upperbound**exponent.upperbound,
+            )
+            return ScalarInterval(min(pows), max(pows), orderguaranteed=True)
+        if isinstance(exponent, int):
+            return ScalarInterval(self.lowerbound**exponent, self.upperbound**exponent)
+        return (self.log() * exponent).exp()
+
     ###########################################################################
     # following are implementations of monoton increasing functions
     ###########################################################################
@@ -307,20 +339,6 @@ class ScalarInterval:  # inheritance from object could be suppressed
         return ScalarInterval(
             math.log(self.lowerbound, base), math.log(self.upperbound, base)
         )
-
-    def __pow__(self, exponent: ScalarInterval | int | float) -> ScalarInterval:
-        """Return the interval to the power of the given exponent."""
-        if isinstance(exponent, ScalarInterval):
-            pows: tuple[float, float, float, float] = (
-                self.lowerbound**exponent.lowerbound,
-                self.lowerbound**exponent.upperbound,
-                self.upperbound**exponent.lowerbound,
-                self.upperbound**exponent.upperbound,
-            )
-            return ScalarInterval(min(pows), max(pows), orderguaranteed=True)
-        if isinstance(exponent, int):
-            return ScalarInterval(self.lowerbound**exponent, self.upperbound**exponent)
-        return (self.log() * exponent).exp()
 
     def tanh(self) -> ScalarInterval:
         """Return the hyperbolic tangens of the interval."""
