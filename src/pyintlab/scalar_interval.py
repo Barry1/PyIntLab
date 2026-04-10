@@ -33,7 +33,7 @@ class ScalarInterval:  # inheritance from object could be suppressed
     upperbound: float
     # __new__ is not needed as the default is sufficient
 
-    def __init__(self, *bounds: float | int, orderguaranteed: bool = False) -> None:
+    def __init__(self, *bounds: SupportsFloat, orderguaranteed: bool = False) -> None:
         """Constructor for new ScalarInterval.
 
         You can handover any number of (real) arguments, the resulting Interval
