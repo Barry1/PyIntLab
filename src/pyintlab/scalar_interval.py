@@ -22,7 +22,7 @@ __all__: list[str] = []
 class ScalarInterval:  # inheritance from object could be suppressed
     """Class for scalars with uncertainty."""
 
-    __slots__: tuple[Literal["lowerbound"], Literal["upperbound"]] = (
+    __slots__ = (
         "lowerbound",
         "upperbound",
     )

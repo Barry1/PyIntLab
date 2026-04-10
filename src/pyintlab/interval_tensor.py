@@ -17,7 +17,7 @@ class IntervallTensor(ndarray):
         return array(object=input_array, dtype=ScalarInterval).view(cls)
 
 
-def solve(A, b):
+def solve(A: IntervallTensor, b) -> None:
     """Solve the linear equation Ax = b."""
     [rows, cols] = A.shape
     # Erster Schritt

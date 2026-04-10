@@ -29,7 +29,7 @@ class NPScalarInterval:  # inheritance from object could be suppressed
     # measured with from pympler import asizeof by using __slots__ memory
     # usage of one ScalerInterval has been reduced from 504 to 96 bytes.
     # That is less than 20% of the original size.
-    data: NDArray[scalar_interval_dtype]
+    data: NDArray[numpy.void]
     # __new__ is not needed as the default is sufficient
 
     def __init__(self, *bounds: float, orderguaranteed: bool = False) -> None:
