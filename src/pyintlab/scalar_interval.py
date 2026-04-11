@@ -50,7 +50,7 @@ class ScalarInterval:  # inheritance from object could be suppressed
 
     @upperbound.setter
     def upperbound(self, value: SupportsFloat) -> None:
-        """Setter for the upper bound of the interval."""
+        """Setter for the upper  bound of the interval."""
         self._upperbound = ScalarInterval._upward(value)
 
     def __init__(self, *bounds: SupportsFloat, _orderguaranteed: bool = False) -> None:
@@ -191,7 +191,7 @@ class ScalarInterval:  # inheritance from object could be suppressed
             self.lowerbound += other.lowerbound
             self.upperbound += other.upperbound
             return self
-        _val: float = float(x)
+        _val: float = float(other)
         self.lowerbound += _val
         self.upperbound += _val
         return self
@@ -223,7 +223,7 @@ class ScalarInterval:  # inheritance from object could be suppressed
                 self.upperbound * other.upperbound,
             )
             return ScalarInterval(min(products), max(products), _orderguaranteed=True)
-        _val: float = float(x)
+        _val: float = float(other)
         return ScalarInterval(self.lowerbound * _val, self.upperbound * _val)
 
     def __imul__(self, other: ScalarInterval | SupportsFloat) -> Self:
@@ -237,7 +237,7 @@ class ScalarInterval:  # inheritance from object could be suppressed
             )
             return ScalarInterval(min(products), max(products), _orderguaranteed=True)
         else:
-            _val: float = float(x)
+            _val: float = float(other)
             self.lowerbound *= _val
             self.upperbound *= _val
             if _val <= 0:
