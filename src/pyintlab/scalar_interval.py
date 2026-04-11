@@ -23,15 +23,31 @@ class ScalarInterval:  # inheritance from object could be suppressed
     """Class for scalars with uncertainty."""
 
     __slots__ = (
-        "lowerbound",
-        "upperbound",
+        "_lowerbound",
+        "_upperbound",
     )
     # measured with from pympler import asizeof by using __slots__ memory
     # usage of one ScalerInterval has been reduced from 504 to 96 bytes.
     # That is less than 20% of the original size.
-    lowerbound: float
-    upperbound: float
+    _lowerbound: float
+    _upperbound: float
     # __new__ is not needed as the default is sufficient
+
+    @property
+    def lowerbound(self) -> float:
+        return self._lowerbound
+
+    @lowerbound.setter
+    def lowerbound(self, value: SupportsFloat) -> None:
+        self._lowerbound = ScalarInterval._downward(value)
+
+    @property
+    def upperbound(self) -> float:
+        return self._upperbound
+
+    @upperbound.setter
+    def upperbound(self, value: SupportsFloat) -> None:
+        self._upperbound = ScalarInterval._upward(value)
 
     def __init__(self, *bounds: SupportsFloat, _orderguaranteed: bool = False) -> None:
         """Constructor for new ScalarInterval.
@@ -55,11 +71,21 @@ class ScalarInterval:  # inheritance from object could be suppressed
             )
 
     @staticmethod
-    def _outward(lo: float | int, hi: float | int) -> tuple[float, float]:
+    def _outward(lo: SupportsFloat, hi: SupportsFloat) -> tuple[float, float]:
         """Konservative Outward-Rundung: lo -> -inf, hi -> +inf."""
         return lo if is_exact_float(lo) else math.nextafter(lo, -math.inf), (
             hi if is_exact_float(hi) else math.nextafter(hi, math.inf)
         )
+
+    @staticmethod
+    def _upward(val: SupportsFloat) -> float:
+        """Konservative Upward-Rundung: -> +inf."""
+        return val if is_exact_float(val) else math.nextafter(val, math.inf)
+
+    @staticmethod
+    def _downward(val: SupportsFloat) -> float:
+        """Konservative Downward-Rundung: -> -inf."""
+        return val if is_exact_float(val) else math.nextafter(val, -math.inf)
 
     @property
     def mid(self) -> float:
@@ -177,11 +203,11 @@ class ScalarInterval:  # inheritance from object could be suppressed
 
     def reciproc(self) -> ScalarInterval:
         """Build 1/x for ScalarInterval x."""
-        if self:  # calls __bool__ method
-            return ScalarInterval(1 / self.upperbound, 1 / self.lowerbound)
-        raise ZeroDivisionError(
-            f"Can not build the reziprocal of indefinite Interval {self}."
-        )
+        if not self:  # calls __bool__ method
+            raise ZeroDivisionError(
+                f"Can not build the reziprocal of indefinite Interval {self}."
+            )
+        return ScalarInterval(1 / self.upperbound, 1 / self.lowerbound)
 
     def __mul__(self, other: ScalarInterval | SupportsFloat) -> ScalarInterval:
         """Dunder method for (left) multiplication."""
