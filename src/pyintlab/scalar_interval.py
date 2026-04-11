@@ -35,18 +35,22 @@ class ScalarInterval:  # inheritance from object could be suppressed
 
     @property
     def lowerbound(self) -> float:
+        """Getter for the lower bound of the interval."""
         return self._lowerbound
 
     @lowerbound.setter
     def lowerbound(self, value: SupportsFloat) -> None:
+        """Setter for the lower bound of the interval."""
         self._lowerbound = ScalarInterval._downward(value)
 
     @property
     def upperbound(self) -> float:
+        """Getter for the upper bound of the interval."""
         return self._upperbound
 
     @upperbound.setter
     def upperbound(self, value: SupportsFloat) -> None:
+        """Setter for the upper bound of the interval."""
         self._upperbound = ScalarInterval._upward(value)
 
     def __init__(self, *bounds: SupportsFloat, _orderguaranteed: bool = False) -> None:
