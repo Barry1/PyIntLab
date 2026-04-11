@@ -62,17 +62,11 @@ class ScalarInterval:  # inheritance from object could be suppressed
         if not bounds:
             raise ValueError("At least one bound must be provided.")
         if _orderguaranteed:
-            # self.lowerbound = math.nextafter(bounds[0], -math.inf)
-            # self.upperbound = math.nextafter(bounds[-1], math.inf)
-            self.lowerbound, self.upperbound = ScalarInterval._outward(
-                bounds[0], bounds[-1]
-            )
+            self.lowerbound = bounds[0]
+            self.upperbound = bounds[-1]
         else:
-            # self.lowerbound = math.nextafter(min(bounds), -math.inf)
-            # self.upperbound = math.nextafter(max(bounds), math.inf)
-            self.lowerbound, self.upperbound = ScalarInterval._outward(
-                min(bounds), max(bounds)
-            )
+            self.lowerbound = min(bounds)
+            self.upperbound = max(bounds)
 
     @staticmethod
     def _outward(lo: SupportsFloat, hi: SupportsFloat) -> tuple[float, float]:
