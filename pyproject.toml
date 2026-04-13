@@ -1,3 +1,24 @@
+[project]
+name = "pyintlab"
+version = "0.1.18"
+description = "package in memoriam of intlab=Matlab Interval Laboratory"
+authors = [{ name = "Ebeling, Dr. Bastian", email = "bastian.ebeling@web.de" }]
+requires-python = ">=3.12,<4.0"
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+]
+dependencies = [
+  "numpy>=2.4",
+  "valuefragments @ git+https://github.com/Barry1/PyValueFragments",
+]
+
+[build-system]
+requires = ["uv_build>=0.10.0,<0.11.0"]
+build-backend = "uv_build"
+
 # Learn more at <https://github.com/carlosperate/awesome-pyproject>
 # Cool info <https://blog.pilosus.org/posts/2019/12/26/python-third-party-tools-configuration/>
 # https://github.com/hhatto/autopep8/blob/master/README.rst#pyproject-toml
@@ -8,10 +29,77 @@ jobs = 0
 max_line_length = 88
 recursive = true
 
+[dependency-groups]
+dev = [
+  "autopep8>=1.6.0",
+  "bandit>=1.7.4,<2",
+  "basedpyright>=1.30.1,<2",
+  "beartype>=0.21.0,<0.22",
+  "bellybutton>=0.3.1,<0.4",
+  "callgraph>=1.0.0,<2",
+  "coverage",
+  "deepsource>=0.1.2,<0.2",
+  "dlint>=0.14.0,<0.15",
+  "eradicate",
+  "flake8>=5",
+  "flake8-pydocstyle>=0.2.2,<0.3",
+  "hatch>=1.14.2",
+  "interrogate>=1.5.0",
+  "isort>=6",
+  "mccabe",
+  "modernize>=0.8.0,<0.9",
+  "MonkeyType>=22.2.0",
+  "mypy>=1.15",
+  "nox>=2025.5.1",
+  "pep257",
+  "pep8",
+  "pipdeptree>=2.35",
+  "pyanalyze>=0.7.0",
+  "pyannotate>=1.2.0",
+  "pycodestyle",
+  "pydocstyle",
+  "pyflakes",
+  "pylint",
+  "pyre-check",
+  "pyrefly>=0.21.0",
+  "pyright>=1.1.235",
+  "pyroma>=4.2,<5",
+  "pytest>=6",
+  "pytest-bandit>=0.6.1,<0.7",
+  "pytest-beartype>=0.2.0,<0.3",
+  "pytest-black>=0.6.0,<0.7",
+  "pytest-colordots>=1.1,<2",
+  "pytest-cov>=6.2.1,<7",
+  "pytest-monkeytype>=1.1.0,<2",
+  "pytest-mypy>=1.0.1,<2",
+  "pytest-pyright>=0.0.6,<0.0.7",
+  "pytest-sugar>=1.0.0,<2",
+  "pyupgrade>=3.21.2",
+  "radon>=5.0.1,<6",
+  "ruff>=0.3.7,<0.4",
+  "setuptools>=62.1.0",
+  "sourcery>=1.43",
+  "tox>=4.4.11,<5",
+  "ty>=0.0.11",
+  "typeguard>=4.4.4,<5",
+  "types-colorama>=0.4.15",
+  "types-pygments>=2.20",
+  "types-setuptools>=82",
+  "types-toml>=0.10",
+  "ufmt>=2.8",
+  "vermin>=1.8",
+  "vulture>=2.15",
+  "prospector[all]>=1.9.0,<2",
+  "black>=25",
+]
+
 # https://black.readthedocs.io/en/stable/usage_and_configuration/the_basics.html#configuration-via-a-file
 [tool.black]
 #line-length = 88
 color = true
+
+[tool.uv]
+default-groups = "all"
 #save = true
 #target-version = ['py311'] #'py37', 'py38',
 
@@ -71,95 +159,6 @@ disable = "duplicate-code"
 #required_plugins = ["pytest-cov", "typeguard", "pytest-sugar"]
 
 [tool.towncrier]
-
-[project]
-name = "pyintlab"
-version = "0.1.18"
-description = "package in memoriam of intlab=Matlab Interval Laboratory"
-authors = [{ name = "Ebeling, Dr. Bastian", email = "bastian.ebeling@web.de" }]
-requires-python = ">=3.12,<4.0"
-dependencies = [
-  "numpy>=2.4",
-  #  "cython (>=3.1.2,<4.0.0)",comes with valuefragments
-  "valuefragments @ git+https://github.com/Barry1/PyValueFragments",
-]
-
-[tool.poetry.group.dev.dependencies]
-# git-story = ">=0.1.4" # issue with python3.13
-autopep8 = ">=1.6.0"
-bandit = "^1.7.4"
-basedpyright = "^1.30.1"
-beartype = "^0.21.0"
-bellybutton = "^0.3.1"
-callgraph = "^1.0.0"
-coverage = "*"
-deepsource = "^0.1.2"
-dlint = "^0.14.0"
-eradicate = "*"
-flake8 = ">=5"
-flake8-pydocstyle = "^0.2.2"
-hatch = ">=1.14.2"
-interrogate = ">=1.5.0"
-isort = ">=6"
-mccabe = "*"
-modernize = "^0.8.0"
-MonkeyType = ">=22.2.0"
-mypy = ">=1.15"
-nox = ">=2025.5.1"
-pep257 = "*"
-pep8 = "*"
-pipdeptree = ">=2.35"
-pyanalyze = ">=0.7.0"
-pyannotate = ">=1.2.0"
-pycodestyle = "*"
-pydocstyle = "*"
-pyflakes = "*"
-pylint = "*"
-pyre-check = "*"
-pyrefly = ">=0.21.0"
-pyright = ">=1.1.235"
-pyroma = "^4.2"
-pytest = ">=6"
-pytest-bandit = "^0.6.1"
-pytest-beartype = "^0.2.0"
-pytest-black = "^0.6.0"
-pytest-colordots = "^1.1"
-pytest-cov = "^6.2.1"
-pytest-monkeytype = "^1.1.0"
-pytest-mypy = "^1.0.1"
-pytest-pyright = "^0.0.6"
-pytest-sugar = "^1.0.0"
-pyupgrade = ">=3.21.2"
-radon = "^5.0.1"
-ruff = "^0.3.7"
-setuptools = ">=62.1.0"
-sourcery = ">=1.43"
-tox = "^4.4.11"
-ty = ">=0.0.11"
-typeguard = "^4.4.4"
-types-colorama = ">=0.4.15"
-types-pygments = ">=2.20"
-types-setuptools = ">=82"
-types-toml = ">=0.10"
-ufmt = ">=2.8"
-vermin = ">=1.8"
-vulture = ">=2.15"
-
-[tool.poetry.group.dev.dependencies.prospector]
-extras = ["all"]
-version = "^1.9.0"
-
-[tool.poetry.group.dev.dependencies.pytype]
-version = ">=2022"
-#python = ">=3.7,<=3.10"
-
-[tool.poetry.group.dev.dependencies.black]
-version = ">=25"
-#allow-prereleases = true
-
-[build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
 
 [tool.tox]
 #https://tox.wiki/en/stable/config.html#pyproject-toml-native
