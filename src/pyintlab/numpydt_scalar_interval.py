@@ -232,7 +232,6 @@ class NPScalarInterval:  # inheritance from object could be suppressed
     def __isub__(self, other: Self | SupportsFloat) -> Self:
         """Dunder method for inplace subtraction."""
         if isinstance(other, NPScalarInterval):
-
             self.data["lowerbound"] -= other.data["upperbound"]
             self.data["upperbound"] -= other.data["lowerbound"]
             return self

@@ -6,7 +6,7 @@ import math
 from logging import Logger, getLogger
 
 from valuefragments.mathhelpers import is_exact_float
-from valuefragments.valuetyping import TYPE_CHECKING, Literal, Self, SupportsFloat
+from valuefragments.valuetyping import TYPE_CHECKING, Self, SupportsFloat
 
 thelogger: Logger = getLogger(__name__)
 if not TYPE_CHECKING:
@@ -276,7 +276,6 @@ class ScalarInterval:  # inheritance from object could be suppressed
     def __isub__(self, other: ScalarInterval | SupportsFloat) -> Self:
         """Dunder method for inplace subtraction."""
         if isinstance(other, ScalarInterval):
-
             self.lowerbound -= other.upperbound
             self.upperbound -= other.lowerbound
             return self
