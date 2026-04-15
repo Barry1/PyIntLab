@@ -1,6 +1,6 @@
 [project]
 name = "pyintlab"
-version = "0.1.18"
+version = "0.1.19"
 description = "package in memoriam of intlab=Matlab Interval Laboratory"
 authors = [{ name = "Ebeling, Dr. Bastian", email = "bastian.ebeling@web.de" }]
 requires-python = ">=3.12,<4.0"
@@ -144,27 +144,71 @@ output-format = "colorized"
 reportMissingImports = true
 reportMissingTypeStubs = false
 typeCheckingMode = "strict"
-tool.pyright.executionEnvironments = [
-  "root = src/pyintlab",
-  "pythonVersion = 3.12",
-  "pythonPlatform = Linux",
+executionEnvironments = [
+  { root = "src/pyintlab", pythonVersion = "3.12", pythonPlatform = "Linux" },
+  { root = "src/pyintlab", pythonVersion = "3.13", pythonPlatform = "Linux" },
+  { root = "src/pyintlab", pythonVersion = "3.14", pythonPlatform = "Linux" },
 ]
 
 [tool.pylint."MESSAGES CONTROL"]
 disable = "duplicate-code"
 
-#[tool.pytest.ini_options]
-#minversion = "6.2"
-#addopts = ["--verbose", "--cov", "--typeguard-packages=pyintlab"]
-#required_plugins = ["pytest-cov", "typeguard", "pytest-sugar"]
+[tool.pytest.ini_options]
+minversion = "6.2"
+testpaths = ["src/tests"]
+pythonpath = ["src"]
+addopts = [
+  "--verbose",
+  "--cov=src/pyintlab",
+  "--cov-report=term-missing",
+  "--typeguard-packages=pyintlab",
+  "--color=yes",
+]
+required_plugins = ["pytest-cov", "typeguard", "pytest-sugar"]
 
 [tool.towncrier]
 
 [tool.tox]
 #https://tox.wiki/en/stable/config.html#pyproject-toml-native
 requires = ["tox>4", "virtualenv>20.2"]
-env_list = ["py311", "py312", "py313", "py314", "bastipytest"]
+env_list = [
+  { product = [
+    { prefix = "3.", start = 12, stop = 15 },
+    [
+      "",
+      "dev",
+    ],
+  ] },
+  "bastipytest",
+]
 minversion = "4.22.0"
+description = "Run test under {envname}"
+
+
+[tool.tox.env_run_base]
+description = "Run test under {base_python}"
+package = "wheel"
+wheel_build_env = ".pkg"
+parallel_show_output = true
+allowlist_externals = ["coverage"]
+deps = ["pytest>=8", "pytest-sugar>=1", "pytest-cov>=6", "typeguard>=4"]
+commands = [
+  [
+    "pytest",
+    "--verbose",
+    "--cov=src/pyintlab",
+    "--cov-report=term-missing",
+    "--typeguard-packages=pyintlab",
+    "--color=yes",
+    "{posargs}",
+  ],
+  [
+    "coverage",
+    "report",
+    "--fail-under=90",
+  ],
+]
+passenv = ["PYTHONPATH"]
 
 [tool.tox.env.bastipytest]
 description = "run the tests with pytest"
@@ -174,5 +218,10 @@ parallel_show_output = true
 platform = "linux"
 deps = ["pytest>=6", "pytest-sugar"]
 commands = [["pytest", "{tty:--color=yes}", "{posargs}"]]
+
+[tool.tox.env.typecheck]
+description = "run the type checks with pyright"
+deps = ["pyright>=1.1.235"]
+commands = [["pyright", "src/pyintlab"]]
 
 [tool.pyrefly]

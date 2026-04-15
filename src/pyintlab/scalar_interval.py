@@ -238,6 +238,14 @@ class ScalarInterval:  # inheritance from object could be suppressed
                 self.lowerbound, self.upperbound = self.upperbound, self.lowerbound
         return self
 
+    def __pos__(self) -> ScalarInterval:
+        """Dunder method for positive."""
+        return self
+
+    def __ne__(self, other: object) -> bool:
+        """Dunder method for checking non-identity."""
+        return not self.__eq__(other)
+
     def __neg__(self) -> ScalarInterval:
         """Switches the sign of ScalarInterval x ==> -x."""
         return ScalarInterval(-self.upperbound, -self.lowerbound, _orderguaranteed=True)
