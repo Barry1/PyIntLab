@@ -211,6 +211,10 @@ class ScalarInterval:  # inheritance from object could be suppressed
     def _mulbounds(
         lb1: float, ub1: float, lb2: float, ub2: float
     ) -> tuple[float, float]:
+        if lb1 >= 0 and lb2 >= 0:
+            return lb1 * lb2, ub1 * ub2
+        if ub1 <= 0 and ub2 <= 0:
+            return ub1 * ub2, lb1 * lb2
         products: tuple[float, float, float, float] = (
             lb1 * lb2,
             lb1 * ub2,
