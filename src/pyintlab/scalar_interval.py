@@ -265,10 +265,10 @@ class ScalarInterval:  # inheritance from object could be suppressed
         """Dunder method for right multiplikation."""
         if isinstance(other, ScalarInterval):
             return ScalarInterval(
-                other.lowerbound * self.lowerbound,
-                other.lowerbound * self.upperbound,
-                other.upperbound * self.lowerbound,
-                other.upperbound * self.upperbound,
+                *ScalarInterval._mulbounds(
+                    other.lowerbound, other.upperbound, self.lowerbound, self.upperbound
+                ),
+                _orderguaranteed=True,
             )
         _val: float = float(other)
         return ScalarInterval(_val * self.lowerbound, _val * self.upperbound)
