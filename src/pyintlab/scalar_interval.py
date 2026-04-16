@@ -255,7 +255,7 @@ class ScalarInterval:  # inheritance from object could be suppressed
             _val: float = float(other)
             self.lowerbound *= _val
             self.upperbound *= _val
-            if _val <= 0:
+            if _val < 0:
                 self.lowerbound, self.upperbound = (
                     self.upperbound,
                     self.lowerbound,

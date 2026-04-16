@@ -95,8 +95,10 @@ dev = [
 
 # https://black.readthedocs.io/en/stable/usage_and_configuration/the_basics.html#configuration-via-a-file
 [tool.black]
-#line-length = 88
+line-length = 79
 color = true
+[tool.ruff]
+line-length = 79
 
 [tool.uv]
 default-groups = "all"
