@@ -207,29 +207,36 @@ class ScalarInterval:  # inheritance from object could be suppressed
             )
         return ScalarInterval(1 / self.upperbound, 1 / self.lowerbound)
 
+    @staticmethod
+    def _mulbounds(
+        lb1: float, ub1: float, lb2: float, ub2: float
+    ) -> tuple[float, float]:
+        products: tuple[float, float, float, float] = (
+            lb1 * lb2,
+            lb1 * ub2,
+            ub1 * lb2,
+            ub1 * ub2,
+        )
+        return min(products), max(products)
+
     def __mul__(self, other: ScalarInterval | SupportsFloat) -> ScalarInterval:
         """Dunder method for (left) multiplication."""
         if isinstance(other, ScalarInterval):
-            products: tuple[float, float, float, float] = (
-                self.lowerbound * other.lowerbound,
-                self.lowerbound * other.upperbound,
-                self.upperbound * other.lowerbound,
-                self.upperbound * other.upperbound,
+            return ScalarInterval(
+                *ScalarInterval._mulbounds(
+                    self.lowerbound, self.upperbound, other.lowerbound, other.upperbound
+                ),
+                _orderguaranteed=True,
             )
-            return ScalarInterval(min(products), max(products), _orderguaranteed=True)
         _val: float = float(other)
         return ScalarInterval(self.lowerbound * _val, self.upperbound * _val)
 
     def __imul__(self, other: ScalarInterval | SupportsFloat) -> Self:
-        """Dunder method for (left) multiplication."""
+        """Dunder method for (left) inplace multiplication."""
         if isinstance(other, ScalarInterval):
-            products: tuple[float, float, float, float] = (
-                self.lowerbound * other.lowerbound,
-                self.lowerbound * other.upperbound,
-                self.upperbound * other.lowerbound,
-                self.upperbound * other.upperbound,
+            self.lowerbound, self.upperbound = ScalarInterval._mulbounds(
+                self.lowerbound, self.upperbound, other.lowerbound, other.upperbound
             )
-            return ScalarInterval(min(products), max(products), _orderguaranteed=True)
         else:
             _val: float = float(other)
             self.lowerbound *= _val
@@ -310,6 +317,17 @@ class ScalarInterval:  # inheritance from object could be suppressed
             return self.__mul__(other.reciproc())
         _val: float = float(other)
         return ScalarInterval(self.lowerbound / _val, self.upperbound / _val)
+
+    def __itruediv__(self, other: ScalarInterval | SupportsFloat) -> ScalarInterval:
+        """Dunder method for (left) true inplace division."""
+        if not other:
+            raise ZeroDivisionError(f"Can not divide by indefinite Interval {other}.")
+        if isinstance(other, ScalarInterval):
+            return self.__imul__(other.reciproc())
+        _val: float = float(other)
+        self.lowerbound /= _val
+        self.upperbound /= _val
+        return self
 
     # https://docs.python.org/3.6/reference/datamodel.html#object.__radd__
     def __rtruediv__(self, other: float) -> ScalarInterval:
