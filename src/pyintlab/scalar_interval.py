@@ -53,7 +53,9 @@ class ScalarInterval:  # inheritance from object could be suppressed
         """Setter for the upper  bound of the interval."""
         self._upperbound = ScalarInterval._upward(value)
 
-    def __init__(self, *bounds: SupportsFloat, _orderguaranteed: bool = False) -> None:
+    def __init__(
+        self, *bounds: SupportsFloat, _orderguaranteed: bool = False
+    ) -> None:
         """Constructor for new ScalarInterval.
 
         You can handover any number of (real) arguments, the resulting Interval
@@ -108,7 +110,9 @@ class ScalarInterval:  # inheritance from object could be suppressed
             ScalarInterval(abs(self.lowerbound), abs(self.upperbound))
             if self
             else ScalarInterval(
-                0, max(-self.lowerbound, self.upperbound), _orderguaranteed=True
+                0,
+                max(-self.lowerbound, self.upperbound),
+                _orderguaranteed=True,
             )
         )
 
@@ -228,7 +232,10 @@ class ScalarInterval:  # inheritance from object could be suppressed
         if isinstance(other, ScalarInterval):
             return ScalarInterval(
                 *ScalarInterval._mulbounds(
-                    self.lowerbound, self.upperbound, other.lowerbound, other.upperbound
+                    self.lowerbound,
+                    self.upperbound,
+                    other.lowerbound,
+                    other.upperbound,
                 ),
                 _orderguaranteed=True,
             )
@@ -239,14 +246,20 @@ class ScalarInterval:  # inheritance from object could be suppressed
         """Dunder method for (left) inplace multiplication."""
         if isinstance(other, ScalarInterval):
             self.lowerbound, self.upperbound = ScalarInterval._mulbounds(
-                self.lowerbound, self.upperbound, other.lowerbound, other.upperbound
+                self.lowerbound,
+                self.upperbound,
+                other.lowerbound,
+                other.upperbound,
             )
         else:
             _val: float = float(other)
             self.lowerbound *= _val
             self.upperbound *= _val
             if _val <= 0:
-                self.lowerbound, self.upperbound = self.upperbound, self.lowerbound
+                self.lowerbound, self.upperbound = (
+                    self.upperbound,
+                    self.lowerbound,
+                )
         return self
 
     def __pos__(self) -> ScalarInterval:
@@ -259,14 +272,21 @@ class ScalarInterval:  # inheritance from object could be suppressed
 
     def __neg__(self) -> ScalarInterval:
         """Switches the sign of ScalarInterval x ==> -x."""
-        return ScalarInterval(-self.upperbound, -self.lowerbound, _orderguaranteed=True)
+        return ScalarInterval(
+            -self.upperbound, -self.lowerbound, _orderguaranteed=True
+        )
 
-    def __rmul__(self, other: ScalarInterval | SupportsFloat) -> ScalarInterval:
+    def __rmul__(
+        self, other: ScalarInterval | SupportsFloat
+    ) -> ScalarInterval:
         """Dunder method for right multiplikation."""
         if isinstance(other, ScalarInterval):
             return ScalarInterval(
                 *ScalarInterval._mulbounds(
-                    other.lowerbound, other.upperbound, self.lowerbound, self.upperbound
+                    other.lowerbound,
+                    other.upperbound,
+                    self.lowerbound,
+                    self.upperbound,
                 ),
                 _orderguaranteed=True,
             )
@@ -303,7 +323,9 @@ class ScalarInterval:  # inheritance from object could be suppressed
         self.upperbound -= _val
         return self
 
-    def __rsub__(self, other: ScalarInterval | SupportsFloat) -> ScalarInterval:
+    def __rsub__(
+        self, other: ScalarInterval | SupportsFloat
+    ) -> ScalarInterval:
         """Dunder method for rightsubtraction."""
         if isinstance(other, ScalarInterval):
             return ScalarInterval(
@@ -313,19 +335,27 @@ class ScalarInterval:  # inheritance from object could be suppressed
         _val: float = float(other)
         return ScalarInterval(_val - self.lowerbound, _val - self.upperbound)
 
-    def __truediv__(self, other: ScalarInterval | SupportsFloat) -> ScalarInterval:
+    def __truediv__(
+        self, other: ScalarInterval | SupportsFloat
+    ) -> ScalarInterval:
         """Dunder method for (left) true division."""
         if not other:
-            raise ZeroDivisionError(f"Can not divide by indefinite Interval {other}.")
+            raise ZeroDivisionError(
+                f"Can not divide by indefinite Interval {other}."
+            )
         if isinstance(other, ScalarInterval):
             return self.__mul__(other.reciproc())
         _val: float = float(other)
         return ScalarInterval(self.lowerbound / _val, self.upperbound / _val)
 
-    def __itruediv__(self, other: ScalarInterval | SupportsFloat) -> ScalarInterval:
+    def __itruediv__(
+        self, other: ScalarInterval | SupportsFloat
+    ) -> ScalarInterval:
         """Dunder method for (left) true inplace division."""
         if not other:
-            raise ZeroDivisionError(f"Can not divide by indefinite Interval {other}.")
+            raise ZeroDivisionError(
+                f"Can not divide by indefinite Interval {other}."
+            )
         if isinstance(other, ScalarInterval):
             return self.__imul__(other.reciproc())
         _val: float = float(other)
@@ -347,7 +377,9 @@ class ScalarInterval:  # inheritance from object could be suppressed
             )
         return self.lowerbound <= float(item) <= self.upperbound
 
-    def __pow__(self, exponent: ScalarInterval | int | float) -> ScalarInterval:
+    def __pow__(
+        self, exponent: ScalarInterval | int | float
+    ) -> ScalarInterval:
         """Return the interval to the power of the given exponent."""
         if isinstance(exponent, ScalarInterval):
             pows: tuple[float, float, float, float] = (
@@ -358,7 +390,9 @@ class ScalarInterval:  # inheritance from object could be suppressed
             )
             return ScalarInterval(min(pows), max(pows), _orderguaranteed=True)
         if isinstance(exponent, int):
-            return ScalarInterval(self.lowerbound**exponent, self.upperbound**exponent)
+            return ScalarInterval(
+                self.lowerbound**exponent, self.upperbound**exponent
+            )
         return (self.log() * exponent).exp()
 
     ###########################################################################
@@ -366,25 +400,37 @@ class ScalarInterval:  # inheritance from object could be suppressed
     ###########################################################################
     def sqrt(self) -> ScalarInterval:
         """Return the square root of the interval."""
-        return ScalarInterval(math.sqrt(self.lowerbound), math.sqrt(self.upperbound))
+        return ScalarInterval(
+            math.sqrt(self.lowerbound), math.sqrt(self.upperbound)
+        )
 
     def log10(self) -> ScalarInterval:
         """Return the base 10 logarithm of the interval."""
-        return ScalarInterval(math.log10(self.lowerbound), math.log10(self.upperbound))
+        return ScalarInterval(
+            math.log10(self.lowerbound), math.log10(self.upperbound)
+        )
 
     def log1p(self) -> ScalarInterval:
         """Return the natural logarithm of 1+x."""
-        return ScalarInterval(math.log1p(self.lowerbound), math.log1p(self.upperbound))
+        return ScalarInterval(
+            math.log1p(self.lowerbound), math.log1p(self.upperbound)
+        )
 
     def log2(self) -> ScalarInterval:
         """Return the base 2 logarithm of the interval."""
-        return ScalarInterval(math.log2(self.lowerbound), math.log2(self.upperbound))
+        return ScalarInterval(
+            math.log2(self.lowerbound), math.log2(self.upperbound)
+        )
 
     def exp(self) -> ScalarInterval:
         """Return e to the power of the interval."""
-        return ScalarInterval(math.exp(self.lowerbound), math.exp(self.upperbound))
+        return ScalarInterval(
+            math.exp(self.lowerbound), math.exp(self.upperbound)
+        )
 
-    def log(self, base: ScalarInterval | SupportsFloat = math.e) -> ScalarInterval:
+    def log(
+        self, base: ScalarInterval | SupportsFloat = math.e
+    ) -> ScalarInterval:
         """Return the logarithm to the given base or natural if omitted."""
         if isinstance(base, ScalarInterval):
             return ScalarInterval(
@@ -397,7 +443,9 @@ class ScalarInterval:  # inheritance from object could be suppressed
 
     def tanh(self) -> ScalarInterval:
         """Return the hyperbolic tangens of the interval."""
-        return ScalarInterval(math.tanh(self.lowerbound), math.tanh(self.upperbound))
+        return ScalarInterval(
+            math.tanh(self.lowerbound), math.tanh(self.upperbound)
+        )
 
 
 ###############################################################################

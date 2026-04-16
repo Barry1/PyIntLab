@@ -48,7 +48,9 @@ class NPScalarInterval:  # inheritance from object could be suppressed
             self.data = numpy.array(
                 (min(bounds), max(bounds)), dtype=scalar_interval_dtype
             )
-        thelogger.info("New Interval %s of dimension %i.", self, self.data.ndim)
+        thelogger.info(
+            "New Interval %s of dimension %i.", self, self.data.ndim
+        )
 
     @property
     def lowerbound(self) -> float:
@@ -63,12 +65,16 @@ class NPScalarInterval:  # inheritance from object could be suppressed
     @property
     def mid(self) -> float:
         """Midpoint of interval."""
-        return (self.data["lowerbound"].item() + self.data["upperbound"].item()) / 2
+        return (
+            self.data["lowerbound"].item() + self.data["upperbound"].item()
+        ) / 2
 
     @property
     def rad(self) -> float:
         """Radius of interval."""
-        return (self.data["upperbound"].item() - self.data["lowerbound"].item()) / 2
+        return (
+            self.data["upperbound"].item() - self.data["lowerbound"].item()
+        ) / 2
 
     def __str__(self) -> str:
         """Show a readable representation of the Interval."""
@@ -87,13 +93,15 @@ class NPScalarInterval:  # inheritance from object could be suppressed
         if self:
             # meaning self does not contain 0
             return NPScalarInterval(
-                abs(self.data["lowerbound"].item()), abs(self.data["upperbound"].item())
+                abs(self.data["lowerbound"].item()),
+                abs(self.data["upperbound"].item()),
             )
         else:
             return NPScalarInterval(
                 0,
                 max(
-                    abs(self.data["lowerbound"].item()), self.data["upperbound"].item()
+                    abs(self.data["lowerbound"].item()),
+                    self.data["upperbound"].item(),
                 ),
                 orderguaranteed=True,
             )
@@ -171,7 +179,8 @@ class NPScalarInterval:  # inheritance from object could be suppressed
         """Build 1/x for NPScalarInterval x."""
         if self:  # calls __bool__ method
             return NPScalarInterval(
-                1 / self.data["upperbound"].item(), 1 / self.data["lowerbound"].item()
+                1 / self.data["upperbound"].item(),
+                1 / self.data["lowerbound"].item(),
             )
         raise ZeroDivisionError(
             f"Can not build the reziprocal of indefinite Interval {self}."
@@ -186,7 +195,9 @@ class NPScalarInterval:  # inheritance from object could be suppressed
                 self.data["upperbound"] * other.data["lowerbound"],
                 self.data["upperbound"] * other.data["upperbound"],
             )
-            return NPScalarInterval(min(products), max(products), orderguaranteed=True)
+            return NPScalarInterval(
+                min(products), max(products), orderguaranteed=True
+            )
         return NPScalarInterval(
             self.data["lowerbound"].item() * float(other),
             self.data["upperbound"].item() * float(other),
@@ -285,31 +296,36 @@ class NPScalarInterval:  # inheritance from object could be suppressed
     def sqrt(self) -> NPScalarInterval:
         """Return the square root of the interval."""
         return NPScalarInterval(
-            math.sqrt(self.data["lowerbound"]), math.sqrt(self.data["upperbound"])
+            math.sqrt(self.data["lowerbound"]),
+            math.sqrt(self.data["upperbound"]),
         )
 
     def log10(self) -> NPScalarInterval:
         """Return the base 10 logarithm of the interval."""
         return NPScalarInterval(
-            math.log10(self.data["lowerbound"]), math.log10(self.data["upperbound"])
+            math.log10(self.data["lowerbound"]),
+            math.log10(self.data["upperbound"]),
         )
 
     def log1p(self) -> NPScalarInterval:
         """Return the natural logarithm of 1+x."""
         return NPScalarInterval(
-            math.log1p(self.data["lowerbound"]), math.log1p(self.data["upperbound"])
+            math.log1p(self.data["lowerbound"]),
+            math.log1p(self.data["upperbound"]),
         )
 
     def log2(self) -> NPScalarInterval:
         """Return the base 2 logarithm of the interval."""
         return NPScalarInterval(
-            math.log2(self.data["lowerbound"]), math.log2(self.data["upperbound"])
+            math.log2(self.data["lowerbound"]),
+            math.log2(self.data["upperbound"]),
         )
 
     def exp(self) -> NPScalarInterval:
         """Return e to the power of the interval."""
         return NPScalarInterval(
-            math.exp(self.data["lowerbound"]), math.exp(self.data["upperbound"])
+            math.exp(self.data["lowerbound"]),
+            math.exp(self.data["upperbound"]),
         )
 
     def log(self, base: Self | SupportsFloat = math.e) -> NPScalarInterval:
@@ -328,10 +344,14 @@ class NPScalarInterval:  # inheritance from object could be suppressed
         """Return the interval to the power of the given exponent."""
         if isinstance(exponent, NPScalarInterval):
             pows: tuple[float, float, float, float] = (
-                self.data["lowerbound"].item() ** exponent.data["lowerbound"].item(),
-                self.data["lowerbound"].item() ** exponent.data["upperbound"].item(),
-                self.data["upperbound"].item() ** exponent.data["lowerbound"].item(),
-                self.data["upperbound"].item() ** exponent.data["upperbound"].item(),
+                self.data["lowerbound"].item()
+                ** exponent.data["lowerbound"].item(),
+                self.data["lowerbound"].item()
+                ** exponent.data["upperbound"].item(),
+                self.data["upperbound"].item()
+                ** exponent.data["lowerbound"].item(),
+                self.data["upperbound"].item()
+                ** exponent.data["upperbound"].item(),
             )
             return NPScalarInterval(min(pows), max(pows), orderguaranteed=True)
         if isinstance(exponent, int):
@@ -344,7 +364,8 @@ class NPScalarInterval:  # inheritance from object could be suppressed
     def tanh(self) -> NPScalarInterval:
         """Return the hyperbolic tangens of the interval."""
         return NPScalarInterval(
-            math.tanh(self.data["lowerbound"]), math.tanh(self.data["upperbound"])
+            math.tanh(self.data["lowerbound"]),
+            math.tanh(self.data["upperbound"]),
         )
 
 

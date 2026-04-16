@@ -36,13 +36,17 @@ class NPScalarInterval:  # inheritance from object could be suppressed
         You can handover any number of (real) arguments, the resulting Interval
         will automatically be the convex hull (from min to max).
         """
-        thelogger.debug("__init__ Creating new Interval from bounds: %s", bounds)
+        thelogger.debug(
+            "__init__ Creating new Interval from bounds: %s", bounds
+        )
         if not bounds:
             raise ValueError("At least one bound must be provided.")
         self.data = (
             numpy.void((bounds[0], bounds[-1]), dtype=scalar_interval_dtype)
             if orderguaranteed
-            else numpy.void((min(bounds), max(bounds)), dtype=scalar_interval_dtype)
+            else numpy.void(
+                (min(bounds), max(bounds)), dtype=scalar_interval_dtype
+            )
         )
         thelogger.debug(
             "New Interval %s needing approx. %i Bytes of memory.",
@@ -174,7 +178,9 @@ class NPScalarInterval:  # inheritance from object could be suppressed
             f"Can not build the reziprocal of indefinite Interval {self}."
         )
 
-    def __mul__(self, other: NPScalarInterval | SupportsFloat) -> NPScalarInterval:
+    def __mul__(
+        self, other: NPScalarInterval | SupportsFloat
+    ) -> NPScalarInterval:
         """Dunder method for (left) multiplication."""
         if isinstance(other, NPScalarInterval):
             products: tuple[float, float, float, float] = (
@@ -183,7 +189,9 @@ class NPScalarInterval:  # inheritance from object could be suppressed
                 self.data["upperbound"] * other.data["lowerbound"],
                 self.data["upperbound"] * other.data["upperbound"],
             )
-            return NPScalarInterval(min(products), max(products), orderguaranteed=True)
+            return NPScalarInterval(
+                min(products), max(products), orderguaranteed=True
+            )
         return NPScalarInterval(
             self.data["lowerbound"] * float(other),
             self.data["upperbound"] * float(other),
@@ -272,7 +280,9 @@ class NPScalarInterval:  # inheritance from object could be suppressed
                 item.data["lowerbound"] >= self.data["lowerbound"]
                 and item.data["upperbound"] <= self.data["upperbound"]
             )
-        return self.data["lowerbound"] <= float(item) <= self.data["upperbound"]
+        return (
+            self.data["lowerbound"] <= float(item) <= self.data["upperbound"]
+        )
 
     ###########################################################################
     # following are implementations of monoton increasing functions
@@ -280,31 +290,36 @@ class NPScalarInterval:  # inheritance from object could be suppressed
     def sqrt(self) -> NPScalarInterval:
         """Return the square root of the interval."""
         return NPScalarInterval(
-            math.sqrt(self.data["lowerbound"]), math.sqrt(self.data["upperbound"])
+            math.sqrt(self.data["lowerbound"]),
+            math.sqrt(self.data["upperbound"]),
         )
 
     def log10(self) -> NPScalarInterval:
         """Return the base 10 logarithm of the interval."""
         return NPScalarInterval(
-            math.log10(self.data["lowerbound"]), math.log10(self.data["upperbound"])
+            math.log10(self.data["lowerbound"]),
+            math.log10(self.data["upperbound"]),
         )
 
     def log1p(self) -> NPScalarInterval:
         """Return the natural logarithm of 1+x."""
         return NPScalarInterval(
-            math.log1p(self.data["lowerbound"]), math.log1p(self.data["upperbound"])
+            math.log1p(self.data["lowerbound"]),
+            math.log1p(self.data["upperbound"]),
         )
 
     def log2(self) -> NPScalarInterval:
         """Return the base 2 logarithm of the interval."""
         return NPScalarInterval(
-            math.log2(self.data["lowerbound"]), math.log2(self.data["upperbound"])
+            math.log2(self.data["lowerbound"]),
+            math.log2(self.data["upperbound"]),
         )
 
     def exp(self) -> NPScalarInterval:
         """Return e to the power of the interval."""
         return NPScalarInterval(
-            math.exp(self.data["lowerbound"]), math.exp(self.data["upperbound"])
+            math.exp(self.data["lowerbound"]),
+            math.exp(self.data["upperbound"]),
         )
 
     def log(self, base: Self | SupportsFloat = math.e) -> NPScalarInterval:
