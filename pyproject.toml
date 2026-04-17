@@ -91,6 +91,7 @@ dev = [
   "vulture>=2.15",
   "prospector[all]>=1.9.0,<2",
   "black>=25",
+  "pytest-benchmark (>=5.2.3,<6.0.0)",
 ]
 
 # https://black.readthedocs.io/en/stable/usage_and_configuration/the_basics.html#configuration-via-a-file
