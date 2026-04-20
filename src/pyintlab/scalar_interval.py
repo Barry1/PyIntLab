@@ -348,9 +348,7 @@ class ScalarInterval:  # inheritance from object could be suppressed
         _val: float = float(other)
         return ScalarInterval(self.lowerbound / _val, self.upperbound / _val)
 
-    def __itruediv__(
-        self, other: ScalarInterval | SupportsFloat
-    ) -> Self:
+    def __itruediv__(self, other: ScalarInterval | SupportsFloat) -> Self:
         """Dunder method for (left) true inplace division."""
         if not other:
             raise ZeroDivisionError(

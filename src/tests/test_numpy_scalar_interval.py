@@ -5,7 +5,9 @@ import math
 from numpy import seterr
 from pytest import raises
 
-from pyintlab import NPScalarInterval as ScalarInterval  # pylint: disable=E0402
+from pyintlab import (
+    NPScalarInterval as ScalarInterval,
+)  # pylint: disable=E0402
 
 
 def test_abs() -> None:

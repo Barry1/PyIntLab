@@ -26,7 +26,7 @@ build-backend = "uv_build"
 [tool.autopep8]
 in-place = true
 jobs = 0
-max_line_length = 88
+max_line_length = 79
 recursive = true
 
 [dependency-groups]
@@ -115,7 +115,7 @@ log_level = "INFO"
 revision = "main"
 
 [tool.flake8]
-max-line-length = 88
+max-line-length = 79
 
 # https://interrogate.readthedocs.io/en/latest/#configuration
 [tool.interrogate]
