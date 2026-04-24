@@ -4,9 +4,11 @@ from __future__ import annotations
 
 import math
 from logging import Logger, getLogger
+from typing import TYPE_CHECKING, Self, SupportsFloat
 
 from valuefragments.mathhelpers import is_exact_float
-from valuefragments.valuetyping import TYPE_CHECKING, Self, SupportsFloat
+
+# from valuefragments.valuetyping import
 
 thelogger: Logger = getLogger(__name__)
 if not TYPE_CHECKING:
@@ -67,25 +69,33 @@ class ScalarInterval:  # inheritance from object could be suppressed
             self.lowerbound = bounds[0]
             self.upperbound = bounds[-1]
         else:
-            self.lowerbound = min(bounds)
-            self.upperbound = max(bounds)
+            self.lowerbound = min(float(x) for x in bounds)
+            self.upperbound = max(float(x) for x in bounds)
 
     @staticmethod
     def _outward(lo: SupportsFloat, hi: SupportsFloat) -> tuple[float, float]:
         """Konservative Outward-Rundung: lo -> -inf, hi -> +inf."""
-        return lo if is_exact_float(lo) else math.nextafter(lo, -math.inf), (
-            hi if is_exact_float(hi) else math.nextafter(hi, math.inf)
-        )
+        return (
+            float(lo) if is_exact_float(lo) else math.nextafter(lo, -math.inf)
+        ), (float(hi) if is_exact_float(hi) else math.nextafter(hi, math.inf))
 
     @staticmethod
     def _upward(val: SupportsFloat) -> float:
         """Konservative Upward-Rundung: -> +inf."""
-        return val if is_exact_float(val) else math.nextafter(val, math.inf)
+        return (
+            float(val)
+            if is_exact_float(val)
+            else math.nextafter(val, math.inf)
+        )
 
     @staticmethod
     def _downward(val: SupportsFloat) -> float:
         """Konservative Downward-Rundung: -> -inf."""
-        return val if is_exact_float(val) else math.nextafter(val, -math.inf)
+        return (
+            float(val)
+            if is_exact_float(val)
+            else math.nextafter(val, -math.inf)
+        )
 
     @property
     def mid(self) -> float:
