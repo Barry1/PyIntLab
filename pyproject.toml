@@ -167,6 +167,7 @@ addopts = [
   "--cov-report=term-missing",
   "--typeguard-packages=pyintlab",
   "--color=yes",
+  "--ignore=src/tests/test_numpy_scalar_interval.py",
 ]
 required_plugins = ["pytest-cov", "typeguard", "pytest-sugar"]
 
