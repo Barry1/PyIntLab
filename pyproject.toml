@@ -19,6 +19,12 @@ dependencies = [
 requires = ["setuptools>=80", "wheel"]
 build-backend = "setuptools.build_meta"
 
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
 # Learn more at <https://github.com/carlosperate/awesome-pyproject>
 # Cool info <https://blog.pilosus.org/posts/2019/12/26/python-third-party-tools-configuration/>
 # https://github.com/hhatto/autopep8/blob/master/README.rst#pyproject-toml
