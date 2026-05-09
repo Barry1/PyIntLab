@@ -19,6 +19,14 @@
   // "repo_subdir": "",
 
   // Customizable commands for building the project.
+  "build_command": [
+    "python -m pip install build",
+    "python -m build --wheel --outdir {build_cache_dir} {build_dir}"
+  ],
+
+  "install_command": ["python -m pip install {wheel_file}"],
+
+  "uninstall_command": ["return-code=any python -m pip uninstall -y pyintlab"],
   // See asv.conf.json documentation.
   // To build the package using pyproject.toml (PEP518), uncomment the following lines
   // "build_command": [
