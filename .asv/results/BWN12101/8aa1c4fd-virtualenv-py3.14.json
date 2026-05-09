@@ -1,0 +1,82 @@
+{
+  "commit_hash": "8aa1c4fd590b029a9445de55d26255fa70ccf8f6",
+  "env_name": "virtualenv-py3.14",
+  "date": 1778309370000,
+  "params": {
+    "arch": "x86_64",
+    "cpu": "Intel(R) Core(TM) i7-3520M CPU @ 2.90GHz",
+    "machine": "BWN12101",
+    "num_cpu": "4",
+    "os": "Linux 6.19.12-1-liquorix-amd64",
+    "ram": "3867232",
+    "python": "3.14"
+  },
+  "python": "3.14",
+  "requirements": {},
+  "env_vars": {},
+  "result_columns": [
+    "result",
+    "params",
+    "version",
+    "started_at",
+    "duration",
+    "stats_ci_99_a",
+    "stats_ci_99_b",
+    "stats_q_25",
+    "stats_q_75",
+    "stats_number",
+    "stats_repeat",
+    "samples",
+    "profile"
+  ],
+  "results": {
+    "benchmarks.TimeSuite.time_keys": [
+      [6.375449533520465e-6],
+      [],
+      "86e015a3c40c52da31e4185fff7c7176c38c5e1e1e4aba71912db0b388225191",
+      1778310741609,
+      0.93305,
+      [5.9686e-6],
+      [7.0561e-6],
+      [6.3701e-6],
+      [6.6335e-6],
+      [1823],
+      [10]
+    ],
+    "benchmarks.TimeSuite.time_range": [
+      [2.4279734512610235e-5],
+      [],
+      "72a6802b5ba2270cc4af88ddbd67e3c44fe4f4c8b292257438a394167fbb158b",
+      1778310742096,
+      0.946,
+      [2.4204e-5],
+      [3.6336e-5],
+      [2.4243e-5],
+      [2.7542e-5],
+      [452],
+      [10]
+    ],
+    "benchmarks.TimeSuite.time_values": [
+      [6.031016119803416e-6],
+      [],
+      "cace9f2d006aa364dcf5762823afba3680c2fb50179ee30beaf880c0697256e2",
+      1778310742569,
+      0.89706,
+      [5.9513e-6],
+      [6.3362e-6],
+      [5.968e-6],
+      [6.0614e-6],
+      [1799],
+      [10]
+    ],
+    "benchmarks.MemSuite.mem_list": [
+      [2104],
+      [],
+      "abe86bab484550a681c61d7bb6eb081fbd37eb6d5009eba1df85c935530577b9",
+      1778310741298,
+      0.3106
+    ]
+  },
+  "durations": { "<build>": 11.23006272315979 },
+  "version": 2
+}
