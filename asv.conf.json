@@ -24,11 +24,11 @@
     "python -m build --wheel --outdir {build_cache_dir} {build_dir}"
   ],
 
-    // Customizable commands for installing and uninstalling the project.
-    // See asv.conf.json documentation.
-    //  --force-reinstall
-    "install_command": ["in-dir={env_dir} python -m pip install {wheel_file}"],
-    // "uninstall_command": ["return-code=any python -m pip uninstall -y {project}"],
+  // Customizable commands for installing and uninstalling the project.
+  // See asv.conf.json documentation.
+  //  --force-reinstall
+  "install_command": ["in-dir={env_dir} python -m pip install {wheel_file}"],
+  // "uninstall_command": ["return-code=any python -m pip uninstall -y {project}"],
 
   "uninstall_command": ["return-code=any python -m pip uninstall -y pyintlab"],
   // See asv.conf.json documentation.
@@ -60,13 +60,17 @@
   // ".git" (if local).
   // "dvcs": "git",
 
-  // The tool to use to create environments.  May be "conda",
-  // "virtualenv", "rattler", or "uv" or other value depending on the
-  // plugins in use.
-  // If missing or the empty string, the tool will be automatically
-  // determined by looking for tools on the PATH environment
-  // variable.
-  "environment_type": "virtualenv",
+    // The tool to use to create environments.  May be "conda",
+    // "virtualenv", "rattler", or "uv" or other value depending on the
+    // plugins in use.
+    // If missing or the empty string, the tool will be automatically
+    // determined by looking for tools on the PATH environment
+    // variable.
+    "environment_type": "virtualenv",
+
+  // timeout in seconds for installing any dependencies in environment
+  // defaults to 10 min
+  //"install_timeout": 600,
 
   // the base URL to show a commit for the project.
   // "show_commit_url": "https://github.com/owner/project/commit/",
