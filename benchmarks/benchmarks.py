@@ -1,6 +1,6 @@
 """ASV Benchmarks für PyIntLab – ScalarInterval und zukünftige NumPy-Varianten."""
 
-import numpy as np
+# import numpy as np
 
 from pyintlab.scalar_interval import ScalarInterval
 
@@ -79,7 +79,9 @@ class TimeScalarIntervalLarge:
     param_names = ["size"]
 
     def setup(self, size):
-        self.intervals = [ScalarInterval(i % 10, i % 10 + 2) for i in range(size)]
+        self.intervals = [
+            ScalarInterval(i % 10, i % 10 + 2) for i in range(size)
+        ]
         self.a = ScalarInterval(3, 7)
 
     def time_add_large(self, size):
