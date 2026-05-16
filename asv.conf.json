@@ -60,13 +60,13 @@
   // ".git" (if local).
   // "dvcs": "git",
 
-    // The tool to use to create environments.  May be "conda",
-    // "virtualenv", "rattler", or "uv" or other value depending on the
-    // plugins in use.
-    // If missing or the empty string, the tool will be automatically
-    // determined by looking for tools on the PATH environment
-    // variable.
-    "environment_type": "virtualenv",
+  // The tool to use to create environments.  May be "conda",
+  // "virtualenv", "rattler", or "uv" or other value depending on the
+  // plugins in use.
+  // If missing or the empty string, the tool will be automatically
+  // determined by looking for tools on the PATH environment
+  // variable.
+  "environment_type": "virtualenv",
 
   // timeout in seconds for installing any dependencies in environment
   // defaults to 10 min
@@ -115,7 +115,11 @@
   //     "env": {"ENV_VAR_1": ["val1", "val2"]},
   //     "env_nobuild": {"ENV_VAR_2": ["val3", null]},
   // },
-
+  "matrix": {
+    "req": {
+      "Cython": ["", null] // "" = neueste Version, null = gar nicht installiert
+    }
+  },
   // Combinations of libraries/python versions can be excluded/included
   // from the set to test. Each entry is a dictionary containing additional
   // key-value pairs to include/exclude.
