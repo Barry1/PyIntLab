@@ -1,9 +1,9 @@
 {
-  "arch": "x86_64",
-  "cpu": "Intel(R) Core(TM) i7-3520M CPU @ 2.90GHz",
-  "machine": "BWN12101",
-  "num_cpu": "4",
-  "os": "Linux 6.19.12-1-liquorix-amd64",
-  "ram": "3867232",
-  "version": 1
+    "arch": "x86_64",
+    "cpu": "Intel(R) Core(TM) i7-3520M CPU @ 2.90GHz",
+    "machine": "BWN12101",
+    "num_cpu": "4",
+    "os": "Linux 6.19.12-1-liquorix-amd64",
+    "ram": "3867232",
+    "version": 1
 }
