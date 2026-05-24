@@ -34,6 +34,8 @@ def test_logexp_in() -> None:
 def test_scalar_contains() -> None:
     """Function for PyTest check keyword IN (__contains__) for scalar."""
     assert math.pi in ScalarInterval(3, math.sqrt(10))  # nosec B101
+    assert math.pi in ScalarInterval(math.pi)  # nosec B101
+    assert math.e in ScalarInterval(math.e)  # nosec B101
 
 
 def test_repr() -> None:
