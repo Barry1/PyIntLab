@@ -352,9 +352,14 @@ class ScalarInterval:  # inheritance from object could be suppressed
             return ScalarInterval(
                 other.lowerbound - self.upperbound,
                 other.upperbound - self.lowerbound,
+                orderguaranteed=True,
             )
         _val: float = float(other)
-        return ScalarInterval(_val - self.lowerbound, _val - self.upperbound)
+        return ScalarInterval(
+            _val - self.upperbound,
+            _val - self.lowerbound,
+            _orderguaranteed=True,
+        )
 
     def __truediv__(
         self, other: ScalarInterval | SupportsFloat
