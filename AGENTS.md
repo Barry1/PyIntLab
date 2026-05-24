@@ -8,6 +8,8 @@
 - Jede nicht-inplace Operation (`__add__`, `__mul__`, `__sub__`, `__truediv__`, `log`, `exp`, `__pow__` etc.) muss am Ende `_downward` / `_upward` oder `_orderguaranteed=True` verwenden.
 - "Als würden Menschenleben davon abhängen" → Keine Kompromisse bei der mathematischen Korrektheit von Intervall-Arithmetik.
 - Fehler bei Rounding können zu falschen Ergebnissen in sensiblen Anwendungen führen.
+- Der pylint-Score darf nicht geringer werden.
+- pytest muss erfolgreich durchlaufen.
 
 ### 2. Performance-Optimierungen (bei erhaltener Semantik)
 
@@ -19,7 +21,7 @@
 
 ### 3. Vollständigkeit der Klasse
 
-- **Niemals** Methoden weglassen (log, exp, sqrt, tanh, log1p, **pow**, **radd**, **rsub**, **rmul**, **rtruediv** etc.).
+- **Niemals** Methoden weglassen.
 - Alle ursprünglichen Methoden müssen in optimierter Form erhalten bleiben.
 - Öffentliche API und Semantik müssen 100% identisch bleiben.
 
