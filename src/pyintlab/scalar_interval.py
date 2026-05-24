@@ -2,6 +2,12 @@
 
 from __future__ import annotations
 
+import sys
+
+if sys.version_info >= (3, 15):
+    # pylint: disable=no-member"
+    sys.set_lazy_imports("all")
+# pylint: disable=wrong-import-position"
 import math
 from logging import Logger, getLogger
 from typing import TYPE_CHECKING, Self, SupportsFloat
