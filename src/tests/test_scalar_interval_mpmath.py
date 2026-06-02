@@ -1,6 +1,7 @@
-import pytest
 import mpmath
+import pytest
 from mpmath import iv
+
 from pyintlab.scalar_interval import ScalarInterval
 
 # Konfiguriere mpmath für Standard-Double-Präzision

@@ -1,73 +1,51 @@
-# AGENTS.md - Learnings für Grok / AI-Assistenten bei der Optimierung von PyIntLab
+# AGENTS.md - Learnings für AI-Assistenten bei der Optimierung von PyIntLab
+
+## 🚨 Critical Workflow Rules
+
+1.  **Single Source of Truth:** Always use the current `main` branch of the online repository `https://github.com/Barry1/PyIntLab` as the basis for all code generation and modifications.
+2.  **No Local Files:** Do NOT use local files unless explicitly instructed by the user. The online repository is the authoritative source.
+3.  **Commit Reference:** When possible, reference the specific commit hash (e.g., `6716995`) to ensure reproducibility.
+4.  **Code Validation:** NEVER send code that has not been logically validated. Specifically:
+    - Verify that all method calls exist on the target objects (e.g., `list` has no `.reshape()`).
+    - Verify that array shapes and dtypes are compatible before sending.
+    - If in doubt, simulate the code execution mentally or via tool before presenting it.
+
+## API Conventions
+
+- **ScalarInterval Attributes:** Use `lowerbound` and `upperbound` (NOT `lower` and `upper`).
+- **ArrayInterval Constructor:** Accepts a single argument (list of tuples or structured array), NOT two separate arrays.
+- **RoundingContext:** Use `RoundingMode.DOWNWARD` and `RoundingMode.UPWARD` constants.
+- **Structured Dtype:** `[("lowerbound", "<f8"), ("upperbound", "<f8")]`
 
 ## Architecture Decisions
 
 ### Interval Representation
+- **ScalarInterval:** The core reference implementation. Handles rigorous outward rounding for single intervals using `math.nextafter`. This class is the "ground truth" for correctness.
+- **ArrayInterval:** Implemented using a NumPy structured dtype. This approach was chosen for memory efficiency and the potential for vectorized operations.
 
-- **ScalarInterval**: The core reference implementation. Handles rigorous outward rounding for single intervals.
-- **ArrayInterval**: Implemented using a NumPy structured dtype `[("lowerbound", "<f8"), ("upperbound", "<f8")]`. 
-  - **Why**: Memory efficiency and potential for vectorization.
-  - **Rounding**: Implemented via `RoundingContext` which interfaces with C-level rounding modes (`fesetround` on Unix, `_controlfp` on Windows).
-  - **Thread Safety**: `fesetround` is thread-local but may be affected by NumPy's internal multi-threaded BLAS. Rigorous use should be paired with `OMP_NUM_THREADS=1`.
+### Rigorous Outward Rounding
+- **Strategy:** To guarantee rigorous results in NumPy operations, the C-level floating-point rounding mode is manipulated using `ctypes`.
+- **Implementation:** A `RoundingContext` manager is used to temporarily switch the rounding mode:
+  - **Downward (`-inf`):** Used when computing lower bounds.
+  - **Upward (`+inf`):** Used when computing upper bounds.
+- **Platform Specifics:**
+  - **Unix-like:** Uses `fesetround` from the standard C library (`libc`).
+  - **Windows:** Uses `_control87` from `msvcrt` with mask `0x0300` and value `mode << 10`.
+- **Thread Safety:** Rounding modes are typically thread-local. However, NumPy's internal multi-threaded BLAS libraries may interfere with rigorous computations. It is recommended to perform rigorous computations in single-threaded contexts or with controlled parallelization.
 
-### Linear Algebra
+### Performance Optimization
+- **Matrix Multiplication (`__matmul__`):**
+  - Implemented using vectorized NumPy operations with broadcasting.
+  - To maintain rigor, the lower bound is computed by summing the minimum products (with downward rounding), and the upper bound is computed by summing the maximum products (with upward rounding).
+  - This avoids Python loops and leverages NumPy's optimized C-backend while ensuring outward rounding.
 
-- **Matrix Multiplication**: Implemented in `ArrayInterval.__matmul__`. Currently utilizes a hybrid approach: NumPy for storage and C-level rounding for the summation of interval products.
+## Testing Strategy
+- **ScalarInterval Validation:** Tested against `mpmath.iv` to ensure that `ScalarInterval` results rigorously contain the `mpmath.iv` results.
+- **ArrayInterval Validation:** Tested against element-wise `ScalarInterval` operations to verify that the `RoundingContext` logic produces identical rigorous results.
+- **Test Files:**
+  - `test_scalar_interval.py`: Contains tests against `mpmath.iv`.
+  - `test_array_interval_vs_scalar.py`: Contains tests comparing `ArrayInterval` to `ScalarInterval`.
 
-## Current Status
-
-- `scalar_interval.py`: Stable.
-- `array_interval.py`: Implemented basic arithmetic and matrix multiplication with platform-agnostic rounding control.
-
-## Wichtige Prinzipien aus dem Dialog (Stand Mai 2026)
-
-### 1. Korrektheit hat absolute Priorität
-
-- **Outward Rounding** muss bei **jeder** arithmetischen Operation garantiert werden (nicht nur in `__init__` und Inplace-Methoden).
-- Jede nicht-inplace Operation (`__add__`, `__mul__`, `__sub__`, `__truediv__`, `log`, `exp`, `__pow__` etc.) muss am Ende `_downward` / `_upward` oder `_orderguaranteed=True` verwenden.
-- "Als würden Menschenleben davon abhängen" → Keine Kompromisse bei der mathematischen Korrektheit von Intervall-Arithmetik.
-- Fehler bei Rounding können zu falschen Ergebnissen in sensiblen Anwendungen führen.
-- Der pylint-Score darf nicht geringer werden.
-- pytest muss erfolgreich durchlaufen.
-
-### 2. Performance-Optimierungen (bei erhaltener Semantik)
-
-- Direkter Zugriff auf `_lowerbound` und `_upperbound` in allen Hot-Path-Methoden (statt Properties).
-- `_orderguaranteed=True` als schneller, sicherer Konstruktor-Pfad.
-- Schnelle Skalar-Pfade: `isinstance(other, ScalarInterval)` zuerst, dann `float(other)`.
-- Optimierte `_mulbounds` mit speziellen Vorzeichen-Fällen.
-- Inplace-Methoden (`__iadd__` etc.) weiterhin nutzen, wo möglich.
-
-### 3. Vollständigkeit der Klasse
-
-- **Niemals** Methoden weglassen.
-- Alle ursprünglichen Methoden müssen in optimierter Form erhalten bleiben.
-- Öffentliche API und Semantik müssen 100% identisch bleiben.
-
-### 4. Code-Qualität & Struktur
-
-- Reine Python (keine Cython-Abhängigkeit im Hauptcode, solange nicht explizit gewünscht).
-- Statische Helper-Methoden: `_downward`, `_upward`, `_outward`, `_mulbounds`.
-- Gute Typ-Hints und Dokumentation beibehalten.
-- `__slots__` weiterhin nutzen.
-- `__init__` sauber mit `_orderguaranteed`-Flag.
-
-### 5. Arbeitsweise des Assistenten (Lessons Learned)
-
-- Immer den **aktuellen Stand der Datei** im Repository prüfen, bevor Optimierungen vorgeschlagen werden.
-- Bei umfangreichen Refactorings die **komplette Datei** liefern, nicht nur Fragmente.
-- Bei Veränderungen explizit bestätigen, dass Rounding-Regeln eingehalten werden.
-- Wenn Unsicherheit besteht: Nachfragen, bevor Code geliefert wird.
-- Entschuldigung und Korrektur bei Fehlern (z.B. fehlende Methoden) sofort und gründlich.
-
-### 6. Nächste Schritte / Empfehlungen
-
-- Nach jedem größeren Refactoring: ASV-Benchmarks laufen lassen (besonders `TimeScalarIntervalLarge`).
-- Bei gutem Speedup: Cython-Version als optionale Erweiterung erwägen (`.pyx`).
-- Object-Pooling für sehr viele temporäre Intervalle als weiteres Performance-Level.
-
-**Ziel:** Schnellere Interval-Arithmetik ohne Kompromisse bei der mathematischen Korrektheit.
-
----
-
-_Letztes Update: 02. Juni 2026_
+## Future Considerations
+- **Tensor Support:** The current `ArrayInterval` implementation is designed for 2D matrices. Extending to N-dimensional tensors may require further optimization of the broadcasting logic.
+- **Additional Operations:** Implementing more advanced interval operations (e.g., division, square root, exponential) will require careful handling of the `RoundingContext` to maintain rigor.
