@@ -99,6 +99,7 @@ dev = [
   "black>=25",
   "pytest-benchmark (>=5.2.3,<6.0.0)",
   "asv (>=0.6.5,<0.7.0)",
+  "mpmath (>=1.4.1,<2.0.0)",
 ]
 
 # https://black.readthedocs.io/en/stable/usage_and_configuration/the_basics.html#configuration-via-a-file
