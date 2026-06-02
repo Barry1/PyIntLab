@@ -2,6 +2,7 @@
 Numpy-basierte Intervall-Arrays mit garantierter Outward Rounding.
 Unterstützt Linux, macOS und Windows.
 """
+
 from __future__ import annotations
 from typing import Self, Union, Tuple, Any
 import numpy as np
@@ -12,11 +13,13 @@ import os
 # --- Platform-specific Rounding Setup ---
 _OS = platform.system()
 
+
 class RoundingMode:
     TONEAREST = 0
     DOWNWARD = 1
     UPWARD = 2
     TOWARDZERO = 3
+
 
 _HAS_ROUNDING_CONTROL = False
 
@@ -33,7 +36,7 @@ if _OS == "Windows":
 else:
     try:
         # Linux/macOS uses fesetround from math library
-        _libc = ctypes.CDLL(None) 
+        _libc = ctypes.CDLL(None)
         _fesetround = _libc.fesetround
         _fesetround.argtypes = [ctypes.c_int]
         _fesetround.restype = ctypes.c_int
@@ -41,23 +44,26 @@ else:
     except Exception:
         _HAS_ROUNDING_CONTROL = False
 
+
 def set_rounding_mode(mode: int):
     if not _HAS_ROUNDING_CONTROL:
         return
     if _OS == "Windows":
-        # Windows: _controlfp(value, mask) 
+        # Windows: _controlfp(value, mask)
         # The rounding bits are bits 10-11 of the control word.
         # This is a simplified approach; in production, one would read the current word.
         # Using _control87 is often easier:
         # _control87(mask)
         # But for brevity and stability, we assume standard msvcrt behavior.
         # Note: Actual Windows FPU control is complex; we use the most common mapping.
-        _libc._control87(mode << 10 | 0x0000) # Very simplified
+        _libc._control87(mode << 10 | 0x0000)  # Very simplified
     else:
         _fesetround(mode)
 
+
 class RoundingContext:
     """Context manager to temporarily change the floating point rounding mode."""
+
     def __init__(self, mode: int):
         self.mode = mode
         self.old_mode = RoundingMode.TONEAREST
@@ -73,21 +79,29 @@ class RoundingContext:
         if _HAS_ROUNDING_CONTROL:
             set_rounding_mode(RoundingMode.TONEAREST)
 
+
 # --- Structured dtype ---
-scalar_interval_dtype = np.dtype([
-    ("lowerbound", "<f8"),
-    ("upperbound", "<f8"),
-])
+scalar_interval_dtype = np.dtype(
+    [
+        ("lowerbound", "<f8"),
+        ("upperbound", "<f8"),
+    ]
+)
+
 
 class ArrayInterval:
     """
     N-dimensional Array of Intervals.
     Internal storage: Structured NumPy array.
     """
+
     __slots__ = ("_arr",)
 
     def __init__(self, data: Any):
-        if isinstance(data, np.ndarray) and data.dtype == scalar_interval_dtype:
+        if (
+            isinstance(data, np.ndarray)
+            and data.dtype == scalar_interval_dtype
+        ):
             self._arr = data
         elif isinstance(data, (list, tuple)):
             self._arr = np.array(data, dtype=scalar_interval_dtype)
@@ -124,7 +138,9 @@ class ArrayInterval:
 
     # --- Arithmetic ---
 
-    def __add__(self, other: Union[ArrayInterval, float, int]) -> ArrayInterval:
+    def __add__(
+        self, other: Union[ArrayInterval, float, int]
+    ) -> ArrayInterval:
         if isinstance(other, (int, float)):
             lb_other = np.full(self.shape, float(other))
             ub_other = lb_other
@@ -135,10 +151,12 @@ class ArrayInterval:
             res_lb = self.lowerbound + lb_other
         with RoundingContext(RoundingMode.UPWARD):
             res_ub = self.upperbound + ub_other
-        
+
         return self._from_bounds(res_lb, res_ub)
 
-    def __sub__(self, other: Union[ArrayInterval, float, int]) -> ArrayInterval:
+    def __sub__(
+        self, other: Union[ArrayInterval, float, int]
+    ) -> ArrayInterval:
         if isinstance(other, (int, float)):
             lb_other = np.full(self.shape, float(other))
             ub_other = lb_other
@@ -149,10 +167,12 @@ class ArrayInterval:
             res_lb = self.lowerbound - ub_other
         with RoundingContext(RoundingMode.UPWARD):
             res_ub = self.upperbound - lb_other
-        
+
         return self._from_bounds(res_lb, res_ub)
 
-    def __mul__(self, other: Union[ArrayInterval, float, int]) -> ArrayInterval:
+    def __mul__(
+        self, other: Union[ArrayInterval, float, int]
+    ) -> ArrayInterval:
         if isinstance(other, (int, float)):
             lb_other = np.full(self.shape, float(other))
             ub_other = lb_other
@@ -167,7 +187,7 @@ class ArrayInterval:
             p3 = self.upperbound * lb_other
             p4 = self.upperbound * ub_other
             res_lb = np.minimum.reduce([p1, p2, p3, p4])
-        
+
         with RoundingContext(RoundingMode.UPWARD):
             p1 = self.lowerbound * lb_other
             p2 = self.lowerbound * ub_other
@@ -180,37 +200,39 @@ class ArrayInterval:
     def __matmul__(self, other: ArrayInterval) -> ArrayInterval:
         """Matrix multiplication for Interval Arrays."""
         if self.ndim != 2 or other.ndim != 2:
-            raise NotImplementedError("Matmul currently only supported for 2D arrays.")
-        
+            raise NotImplementedError(
+                "Matmul currently only supported for 2D arrays."
+            )
+
         m, k = self.shape
         _, n = other.shape
-        
+
         # We pre-calculate products to stay in NumPy as much as possible
         # But for rigorous summation, we must control rounding.
         res_arr = np.empty((m, n), dtype=scalar_interval_dtype)
-        
+
         for i in range(m):
             for j in range(n):
                 # row i * col j
                 row = self._arr[i, :]
                 col = other._arr[:, j]
-                
+
                 # Rigorous sum of products
                 acc_lb, acc_ub = 0.0, 0.0
                 for idx in range(k):
                     # Product [a,b] * [c,d]
                     a, b = row[idx]
                     c, d = col[idx]
-                    
+
                     with RoundingContext(RoundingMode.DOWNWARD):
-                        p_lb = min(a*c, a*d, b*c, b*d)
+                        p_lb = min(a * c, a * d, b * c, b * d)
                         acc_lb += p_lb
                     with RoundingContext(RoundingMode.UPWARD):
-                        p_ub = max(a*c, a*d, b*c, b*d)
+                        p_ub = max(a * c, a * d, b * c, b * d)
                         acc_ub += p_ub
-                
+
                 res_arr[i, j] = (acc_lb, acc_ub)
-        
+
         return ArrayInterval(res_arr)
 
     def _from_bounds(self, lb: np.ndarray, ub: np.ndarray) -> ArrayInterval:
