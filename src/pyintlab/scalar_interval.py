@@ -4,19 +4,19 @@
 
 from __future__ import annotations
 
-import sys
+# <https://peps.python.org/pep-0810/#what-about-forwards-compatibility-with-older-python-versions>
+__lazy_modules__: list[str] = [
+    "math",
+    "valuefragments.mathhelpers",
+    "Cython",
+    "logging",
+]  # for type checking only
 
-if sys.version_info >= (3, 15):
-    # pylint: disable=no-member"
-    sys.set_lazy_imports("all")
-# pylint: disable=wrong-import-position"
 import math
 from logging import Logger, getLogger
 from typing import TYPE_CHECKING, Self, SupportsFloat
 
 from valuefragments.mathhelpers import is_exact_float
-
-# from valuefragments.valuetyping import
 
 thelogger: Logger = getLogger(__name__)
 if not TYPE_CHECKING:
