@@ -1,5 +1,24 @@
 # AGENTS.md - Learnings für Grok / AI-Assistenten bei der Optimierung von PyIntLab
 
+## Architecture Decisions
+
+### Interval Representation
+
+- **ScalarInterval**: The core reference implementation. Handles rigorous outward rounding for single intervals.
+- **ArrayInterval**: Implemented using a NumPy structured dtype `[("lowerbound", "<f8"), ("upperbound", "<f8")]`. 
+  - **Why**: Memory efficiency and potential for vectorization.
+  - **Rounding**: Implemented via `RoundingContext` which interfaces with C-level rounding modes (`fesetround` on Unix, `_controlfp` on Windows).
+  - **Thread Safety**: `fesetround` is thread-local but may be affected by NumPy's internal multi-threaded BLAS. Rigorous use should be paired with `OMP_NUM_THREADS=1`.
+
+### Linear Algebra
+
+- **Matrix Multiplication**: Implemented in `ArrayInterval.__matmul__`. Currently utilizes a hybrid approach: NumPy for storage and C-level rounding for the summation of interval products.
+
+## Current Status
+
+- `scalar_interval.py`: Stable.
+- `array_interval.py`: Implemented basic arithmetic and matrix multiplication with platform-agnostic rounding control.
+
 ## Wichtige Prinzipien aus dem Dialog (Stand Mai 2026)
 
 ### 1. Korrektheit hat absolute Priorität
@@ -51,5 +70,4 @@
 
 ---
 
-_Letztes Update: 24. Mai 2026_  
-_Erstellt basierend auf Dialog mit Grok_
+_Letztes Update: 02. Juni 2026_

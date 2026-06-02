@@ -1,5 +1,7 @@
 """Bastian is working on interval arithmetics."""
 
+# <https://mpmath.org/doc/current/contexts.html#arbitrary-precision-interval-arithmetic-iv>
+
 from __future__ import annotations
 
 import sys
