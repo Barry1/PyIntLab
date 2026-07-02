@@ -73,7 +73,6 @@ dev = [
   "pytest>=6",
   "pytest-bandit>=0.6.1,<0.7",
   "pytest-beartype>=0.2.0,<0.3",
-  "pytest-black>=0.6.0,<0.7",
   "pytest-colordots>=1.1,<2",
   "pytest-cov>=6.2.1,<7",
   "pytest-monkeytype>=1.1.0,<2",
