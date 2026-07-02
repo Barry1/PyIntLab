@@ -6,7 +6,6 @@ identical to the element-wise application of ScalarInterval operations.
 """
 
 import numpy as np
-import pytest
 
 from pyintlab.array_interval import ArrayInterval
 from pyintlab.scalar_interval import ScalarInterval

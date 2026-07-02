@@ -12,7 +12,7 @@ from __future__ import annotations
 
 import ctypes
 import platform
-from typing import Any, Self, Tuple, Union
+from typing import Tuple, Union
 
 import numpy as np
 

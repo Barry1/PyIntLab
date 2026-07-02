@@ -1,6 +1,3 @@
-import numpy as np
-import pytest
-
 from pyintlab.array_interval import ArrayInterval
 from pyintlab.scalar_interval import ScalarInterval
 

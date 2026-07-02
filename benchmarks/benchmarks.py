@@ -10,9 +10,16 @@ class TimeScalarInterval:
 
     # Setup wird einmal pro Benchmark-Gruppe ausgeführt
     def setup(self):
-        self.small_pos = [ScalarInterval(i, i + 2) for i in 100*numpy.random.random(100)]
-        self.small_neg = [ScalarInterval(-i - 3, -i - 1) for i in 100*numpy.random.random(100)]
-        self.mixed = [ScalarInterval(-i, i + 1) for i in 100*numpy.random.random(100)]
+        self.small_pos = [
+            ScalarInterval(i, i + 2) for i in 100 * numpy.random.random(100)
+        ]
+        self.small_neg = [
+            ScalarInterval(-i - 3, -i - 1)
+            for i in 100 * numpy.random.random(100)
+        ]
+        self.mixed = [
+            ScalarInterval(-i, i + 1) for i in 100 * numpy.random.random(100)
+        ]
 
         self.a = ScalarInterval(1, 3)
         self.b = ScalarInterval(2, 5)
@@ -80,7 +87,8 @@ class TimeScalarIntervalLarge:
 
     def setup(self, size):
         self.intervals = [
-            ScalarInterval(i % 10, i % 10 + 2) for i in size*numpy.random.random(size)
+            ScalarInterval(i % 10, i % 10 + 2)
+            for i in size * numpy.random.random(size)
         ]
         self.a = ScalarInterval(3, 7)
 
@@ -97,7 +105,7 @@ class TimeCreation:
     """Benchmark für die Erzeugung von Intervallen."""
 
     def setup(self):
-        self.values = list(1000*numpy.random.random(1000))
+        self.values = list(1000 * numpy.random.random(1000))
 
     def time_create_single(self):
         for v in self.values:
