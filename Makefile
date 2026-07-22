@@ -3,7 +3,7 @@
 # OBJS=$(shell tree -if | egrep "\.pyi?$$")
 #OBJS!=tree -if | egrep "\.pyi?$$"
 #OBJS=$(shell find src -regex ".*\.pyi?$$")
-OBJS!=find src -regex ".*\.pyi?"
+OBJS != find src -regex ".*\.pyi?"
 
 asvlten:
 	maxspeedup asv run HEAD~10..HEAD --verbose --parallel --python=3.13 --python=3.14
@@ -112,14 +112,14 @@ git-story_media/videos/480p15/GitStory.mp4:
 aptprep:
 	echo "For git-story"
 	sudo apt-get install libcairo2-dev pkg-config python3-dev libpango1.0-dev
-	sudo apt-get install libcairo2 libfontconfig1 libglib2.0-0 libpango-1.0-0 libpangocairo-1.0-0 
+	sudo apt-get install libcairo2 libfontconfig1 libglib2.0-0 libpango-1.0-0 libpangocairo-1.0-0
 
 workflowtest:
 #time /home/ebeling/GitHub/bin/act --list | awk 'NR>1{print $2}' | parallel /home/ebeling/GitHub/bin/act --job > parallel.output
 #time /home/ebeling/GitHub/bin/act --list | awk 'NR>1{print $2}' | xargs -P 4 -L 1 /home/ebeling/GitHub/bin/act --job > xargs.output
 	/home/ebeling/GitHub/bin/act --list
 	/home/ebeling/GitHub/bin/act --graph
-	/home/ebeling/GitHub/bin/act 
+	/home/ebeling/GitHub/bin/act
 
 alltoolchain: autopep8 flake8 mypy pycodestyle pydocstyle pyflakes pylama pylint pyright pytype
 
