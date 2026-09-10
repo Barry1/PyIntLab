@@ -29,21 +29,17 @@ class RoundingMode:
 
 _HAS_ROUNDING_CONTROL = False
 
-if _OS == "Windows":
-    try:
+try:
+    if _OS == "Windows":
         _libc = ctypes.windll.msvcrt
-        _HAS_ROUNDING_CONTROL = True
-    except Exception:
-        _HAS_ROUNDING_CONTROL = False
-else:
-    try:
+    else:
         _libc = ctypes.CDLL(None)
         _fesetround = _libc.fesetround
         _fesetround.argtypes = [ctypes.c_int]
         _fesetround.restype = ctypes.c_int
-        _HAS_ROUNDING_CONTROL = True
-    except Exception:
-        _HAS_ROUNDING_CONTROL = False
+    _HAS_ROUNDING_CONTROL = True
+except Exception:
+    _HAS_ROUNDING_CONTROL = False
 
 
 def set_rounding_mode(mode: int):
@@ -92,15 +88,13 @@ class ArrayInterval:
         if isinstance(data, np.ndarray):
             if data.dtype == scalar_interval_dtype:
                 self._arr = data
+            elif data.ndim == 2 and data.shape[1] == 2:
+                res = np.empty(data.shape[0], dtype=scalar_interval_dtype)
+                res["lowerbound"] = data[:, 0]
+                res["upperbound"] = data[:, 1]
+                self._arr = res
             else:
-                # Try to convert if it's a 2D array of shape (N, 2)
-                if data.ndim == 2 and data.shape[1] == 2:
-                    res = np.empty(data.shape[0], dtype=scalar_interval_dtype)
-                    res["lowerbound"] = data[:, 0]
-                    res["upperbound"] = data[:, 1]
-                    self._arr = res
-                else:
-                    raise ValueError("Invalid data type for ArrayInterval")
+                raise ValueError("Invalid data type for ArrayInterval")
         else:
             # Assume list of tuples/lists
             self._arr = np.array(data, dtype=scalar_interval_dtype)
