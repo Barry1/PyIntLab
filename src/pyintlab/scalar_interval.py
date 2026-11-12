@@ -354,7 +354,7 @@ class ScalarInterval:  # inheritance from object could be suppressed
             return ScalarInterval(
                 other.lowerbound - self.upperbound,
                 other.upperbound - self.lowerbound,
-                orderguaranteed=True,
+                _orderguaranteed=True,
             )
         _val: float = float(other)
         return ScalarInterval(
